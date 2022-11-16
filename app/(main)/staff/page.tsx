@@ -1,5 +1,4 @@
 "use client";
-import { NextPage } from "next";
 import {
   Table,
   Thead,
@@ -10,23 +9,23 @@ import {
   TableContainer,
   Checkbox,
 } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 
 const staff = [
-  { id: 1, name: "Beth Dryer", skill: "Paramedic" },
-  { id: 2, name: "Rafael Carrasco Lloret", skill: "Materials engineer" },
-  { id: 3, name: "Virginia Lehmann", skill: "Psychologist, occupational" },
+  {id: 1, name: "Beth Dryer", skill: "Paramedic"},
+  {id: 2, name: "Rafael Carrasco Lloret", skill: "Materials engineer"},
+  {id: 3, name: "Virginia Lehmann", skill: "Psychologist, occupational"},
   {
     id: 4,
     name: "Anna del Perez",
     skill: "Chargé des méthodes outils et qualité en informatique",
   },
-  { id: 5, name: "Tonya Logan", skill: "Enseignant" },
-  { id: 6, name: "Zoe Sanders", skill: "Souscripteur" },
-  { id: 7, name: "Iker Balaguer Saldaña", skill: "Clinical embryologist" },
+  {id: 5, name: "Tonya Logan", skill: "Enseignant"},
+  {id: 6, name: "Zoe Sanders", skill: "Souscripteur"},
+  {id: 7, name: "Iker Balaguer Saldaña", skill: "Clinical embryologist"},
 ];
 
-const Staff: NextPage = () => {
+const Staff = () => {
   const router = useRouter();
   return (
     <main className={"flex ml-1 md:ml-5 items-center justify-left h-full bg-surface1 rounded-xl"}>
@@ -50,7 +49,7 @@ const Staff: NextPage = () => {
                 <Td>{staff.name}</Td>
                 <Td>{staff.skill}</Td>
                 <Td>
-                  <Checkbox />
+                  <Checkbox/>
                 </Td>
               </Tr>
             ))}

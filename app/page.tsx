@@ -1,9 +1,8 @@
 "use client";
-import type { NextPage } from "next";
-import { Button, Flex } from "@chakra-ui/react";
+import {Button, Flex} from "@chakra-ui/react";
 import Link from "next/link";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <div>
       <main className={"flex flex-col items-center justify-center h-screen"}>

@@ -1,7 +1,6 @@
 "use client";
-import { NextPage } from "next";
 
-const Dashboard: NextPage = () => {
+const Dashboard = () => {
   return (
     <main className={"flex items-center justify-center h-full"}>
       <div className={"flex flex-col items-center justify-around h-full"}>
