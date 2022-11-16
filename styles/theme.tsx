@@ -4,7 +4,7 @@ import { StyleFunctionProps} from "@chakra-ui/theme-tools";
 import colors from "tailwindcss/colors";
 
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: false,
 }
 
@@ -28,19 +28,19 @@ const theme = extendTheme({
   styles: {
     global: (props: Record<string, any> | StyleFunctionProps) => ({
       body: {
-        bg: "#1C1B1F",
+        bg: "#FFFBFF",
       },
       p: {
-        color: "#aaa",
+        color: "#33333",
       },
       h1: {
-        color: "white",
+        color: "black",
       },
       h2: {
-        color: "white",
+        color: "black",
       },
       h3: {
-        color: "white",
+        color: "black",
       }
     })
   },

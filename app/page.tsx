@@ -32,9 +32,6 @@ const Home: NextPage = () => {
             <Button
               size="lg"
               variant="outline"
-              className={
-                "text-white hover:text-black border-white hover:bg-white"
-              }
             >
               Enter App
             </Button>

@@ -29,8 +29,8 @@ const staff = [
 const Staff: NextPage = () => {
   const router = useRouter();
   return (
-    <main className={"flex items-center justify-left h-full"}>
-      <TableContainer className={"w-full mx-8 bg-base"}>
+    <main className={"flex ml-1 md:ml-5 items-center justify-left h-full bg-surface1 rounded-xl"}>
+      <TableContainer className={"w-full mx-8"}>
         <Table variant="simple" size={"lg"} className={"w-full"}>
           <Thead>
             <Tr>
@@ -43,7 +43,7 @@ const Staff: NextPage = () => {
             {staff.map((staff) => (
               <Tr
                 cursor={"pointer"}
-                className={"hover:bg-raised1"}
+                className={"hover:bg-surface1"}
                 onClick={() => router.push(`/staff/${staff.id}`)}
                 key={staff.id}
               >

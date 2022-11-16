@@ -1,5 +1,6 @@
 "use client";
 import "../styles/globals.css";
+import "./(main)/main.scss";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../styles/theme";
 import { ReactNode } from "react";

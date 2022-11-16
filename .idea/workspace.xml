@@ -24,15 +24,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/aldiyarablyazov/Documents/NRP/components",
+    "last_opened_file_path": "/home/aldiyar/Documents/CS/uni/2022/cs4099/NRP",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "/opt/homebrew/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "/Users/aldiyarablyazov/Documents/NRP/node_modules/typescript/lib",
+    "settings.editor.selected.configurable": "preferences.rainbow.brackets",
+    "ts.external.directory.path": "/home/aldiyar/Documents/CS/uni/2022/cs4099/NRP/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -68,6 +68,8 @@
       <workItem from="1667227358768" duration="26000" />
       <workItem from="1667227397044" duration="3775000" />
       <workItem from="1667768188601" duration="12808000" />
+      <workItem from="1668620160668" duration="163000" />
+      <workItem from="1668620328366" duration="14741000" />
     </task>
     <servers />
   </component>
