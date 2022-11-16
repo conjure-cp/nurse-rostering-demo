@@ -1,0 +1,25 @@
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+model Staff {
+  id             String           @id @default(cuid())
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  name           String           @db.VarChar(255)
+  specialization Specialization[]
+}
+
+model Specialization {
+  id      String  @id @default(cuid())
+  name    String
+  Staff   Staff?  @relation(fields: [staffId], references: [id])
+  staffId String?
+}
