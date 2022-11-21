@@ -13,6 +13,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="ProjectId" id="2GXLzB53WdFkHUvypG0V0tf11pl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -24,31 +27,32 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/aldiyar/Documents/CS/uni/2022/cs4099/NRP",
+    "last_opened_file_path": "/home/aldiyar/Documents/CS/uni/2022/cs4099/NRP/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/opt/homebrew/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.rainbow.brackets",
+    "prettierjs.PrettierConfiguration.Package": "/home/aldiyar/Documents/CS/uni/2022/cs4099/NRP/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "ts.external.directory.path": "/home/aldiyar/Documents/CS/uni/2022/cs4099/NRP/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/components" />
-      <recent name="$PROJECT_DIR$/app/(main)" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/app/(main)" />
+      <recent name="$PROJECT_DIR$/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/api/staff" />
+      <recent name="$PROJECT_DIR$/pages/api/staff/[id]" />
       <recent name="$PROJECT_DIR$/styles" />
       <recent name="$PROJECT_DIR$/app/(main)/staff" />
       <recent name="$PROJECT_DIR$/app/(main)/dashboard" />
-      <recent name="$PROJECT_DIR$/app/(main)/calendar" />
-      <recent name="$PROJECT_DIR$/app/(main)" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -69,7 +73,10 @@
       <workItem from="1667227397044" duration="3775000" />
       <workItem from="1667768188601" duration="12808000" />
       <workItem from="1668620160668" duration="163000" />
-      <workItem from="1668620328366" duration="15690000" />
+      <workItem from="1668620328366" duration="23138000" />
+      <workItem from="1668707787321" duration="16093000" />
+      <workItem from="1668885307200" duration="5327000" />
+      <workItem from="1668990426085" duration="10264000" />
     </task>
     <servers />
   </component>
@@ -91,5 +98,9 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

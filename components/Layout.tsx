@@ -1,38 +1,39 @@
 "use client";
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 import {
-  IconButton,
   Box,
+  BoxProps,
   CloseButton,
-  Flex,
-  HStack,
-  Icon,
-  useColorModeValue,
   Drawer,
   DrawerContent,
+  Flex,
+  FlexProps,
+  HStack,
+  Icon,
+  IconButton,
+  useColorModeValue,
   useDisclosure,
-  BoxProps,
-  FlexProps, Button, ModalOverlay, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, ModalCloseButton, Input,
 } from "@chakra-ui/react";
 import {
-  MdOutlineDashboard,
-  MdOutlineGroups,
-  MdOutlineEvent,
   MdDashboard,
+  MdEvent,
   MdGroups,
-  MdEvent, MdOutlineAdd,
+  MdOutlineAdd,
+  MdOutlineDashboard,
+  MdOutlineEvent,
+  MdOutlineGroups,
 } from "react-icons/md";
-import {IconType} from "react-icons";
+import { IconType } from "react-icons";
 import Link from "next/link";
-import {useGlobalContext} from "./GlobalContext";
-import {FiMenu} from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import CreateStaffModal from "./CreateStaffModal";
+import { usePathname } from "next/navigation";
 
 interface LayoutI {
   children?: React.ReactNode;
 }
 
-const Layout = ({children}: LayoutI) => {
+const Layout = ({ children }: LayoutI) => {
   return <SidebarWithHeader>{children}</SidebarWithHeader>;
 };
 
@@ -68,16 +69,15 @@ interface SidebarWithHeaderI {
   children: ReactNode;
 }
 
-function SidebarWithHeader({children}: SidebarWithHeaderI) {
-  const {isOpen, onOpen, onClose} = useDisclosure();
+function SidebarWithHeader({ children }: SidebarWithHeaderI) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" className={"bg-surface"}>
+    <Box>
       <Flex>
         <SidebarContent
           onClose={() => onClose}
-          display={{base: "none", md: "block"}}
-          className={"bg-surface1 m-4 rounded-xl hover:bg-surface2 hover:shadow-2xl"}
-          animation={"ease-in-out"}
+          display={{ base: "none", md: "block" }}
+          className={"bg-surface m-4 rounded-xl"}
         />
         <Drawer
           autoFocus={false}
@@ -89,13 +89,13 @@ function SidebarWithHeader({children}: SidebarWithHeaderI) {
           size="full"
         >
           <DrawerContent>
-            <SidebarContent onClose={onClose}/>
+            <SidebarContent onClose={onClose} />
           </DrawerContent>
         </Drawer>
         {/* mobilenav */}
-        <MobileNav onOpen={onOpen}/>
+        <MobileNav onOpen={onOpen} />
       </Flex>
-      <Box ml={{base: 0, md: 60}} p="4">
+      <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
     </Box>
@@ -106,16 +106,14 @@ interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
 
-const SidebarContent = ({onClose, ...rest}: SidebarProps) => {
+const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-      transition="3s ease"
-      bg={useColorModeValue("white", "gray.1000")}
-      borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.800")}
-      w={{base: "full", md: 60}}
+      transition="500ms ease"
+      w={{ base: "full", md: 60 }}
       pos="fixed"
-      h="full"
+      h={"100%"}
+      sx={{ height: "calc(100vh - 2rem)" }}
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -127,12 +125,12 @@ const SidebarContent = ({onClose, ...rest}: SidebarProps) => {
             draggable={false}
           />
         </Link>
-        <CloseButton display={{base: "flex", md: "none"}} onClick={onClose}/>
+        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       <Flex
         flexDirection={"column"}
         justifyContent={"space-between"}
-        className={"h-[calc(100%-5rem)]"}
+        className={"h-[calc(100%-10rem)]"}
       >
         <Box>
           {LinkItems.map((link) => (
@@ -158,21 +156,15 @@ interface NavItemProps extends FlexProps {
 }
 
 const NavItem = ({
-                   icon,
-                   iconActive,
-                   href,
-                   children,
-                   ...rest
-                 }: NavItemProps) => {
-  const {activeNavItem, setActiveNavItem} = useGlobalContext();
+  icon,
+  iconActive,
+  href,
+  children,
+  ...rest
+}: NavItemProps) => {
+  const path = usePathname();
   return (
-    <Link
-      onClick={() => {
-        setActiveNavItem(href);
-      }}
-      href={href}
-      style={{textDecoration: "none"}}
-    >
+    <Link href={href} style={{ textDecoration: "none" }}>
       <Flex
         align="center"
         py="3"
@@ -186,7 +178,9 @@ const NavItem = ({
         _hover={{
           bg: "rgba(231, 233, 234, 0.5)",
         }}
-        className={activeNavItem === href ? "bg-secondaryContainer" : ""}
+        className={
+          path === href ? "bg-secondaryContainer text-primaryText" : ""
+        }
         {...rest}
       >
         {icon && (
@@ -194,18 +188,10 @@ const NavItem = ({
             mr="4"
             fontSize="16"
             _groupHover={{}}
-            as={activeNavItem ? iconActive : icon}
+            as={path === href ? iconActive : icon}
           />
         )}
-        <p
-          className={
-            activeNavItem === href
-              ? "mt-1 font-bold"
-              : "mt-1"
-          }
-        >
-          {children}
-        </p>
+        <p className={path === href ? "mt-1 font-bold" : "mt-1"}>{children}</p>
       </Flex>
     </Link>
   );
@@ -215,42 +201,59 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 
-const MobileNav = ({onOpen, ...rest}: MobileProps) => {
-  const {activeNavItem, setActiveNavItem} = useGlobalContext();
-  const {isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose} = useDisclosure();
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const {
+    isOpen: isModalOpen,
+    onOpen: onModalOpen,
+    onClose: onModalClose,
+  } = useDisclosure();
+  const path = usePathname();
   return (
     <Flex
-      ml={{base: 5, md: "275px"}}
-      px={{base: 4, md: 4}}
+      ml={{ base: 5, md: "275px" }}
+      px={{ base: 4, md: 4 }}
       height="14"
       width="100%"
       alignItems="center"
-      className={"bg-surface1 rounded-xl mr-4 mt-4 hover:bg-surface2 hover:shadow-sm"}
+      className={"bg-surface1 rounded-xl mr-4 mt-4"}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.800")}
-      justifyContent={{base: "space-between", md: "flex-end"}}
+      justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
     >
       <IconButton
-        display={{base: "flex", md: "none"}}
+        display={{ base: "flex", md: "none" }}
         onClick={onOpen}
         variant="outline"
         aria-label="open menu"
         className={"border-none"}
-        icon={<FiMenu/>}
+        icon={<FiMenu />}
       />
 
       <HStack
         className={"w-full justify-between pl-4"}
-        spacing={{base: "0", md: "6"}}
+        spacing={{ base: "0", md: "6" }}
       >
-        <Flex className={"capitalize"} alignItems={"center"}
-              justifyContent={"space-between"}>{activeNavItem.slice(1)}</Flex>
-        {activeNavItem === "/staff" ?
-          <IconButton className={"bg-primary text-white"} aria-label={"Add staff"} icon={<MdOutlineAdd/>}
-                      onClick={onModalOpen}/> : null}
+        <Flex
+          className={"uppercase font-bold"}
+          justifyContent={"space-between"}
+        >
+          <p className={"text-bottom pt-1"}>{path.slice(1)}</p>
+        </Flex>
+        {path === "/staff" ? (
+          <IconButton
+            className={"bg-primary text-white"}
+            aria-label={"Add staff"}
+            icon={<MdOutlineAdd />}
+            onClick={onModalOpen}
+          />
+        ) : null}
       </HStack>
-      <CreateStaffModal isModalOpen={isModalOpen} onModalOpen={onModalOpen} onModalClose={onModalClose}/>
+      <CreateStaffModal
+        isModalOpen={isModalOpen}
+        onModalOpen={onModalOpen}
+        onModalClose={onModalClose}
+      />
     </Flex>
   );
 };

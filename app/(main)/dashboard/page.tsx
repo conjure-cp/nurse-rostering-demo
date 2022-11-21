@@ -1,26 +1,42 @@
 "use client";
-import {Stat, StatArrow, StatGroup, StatHelpText, StatLabel, StatNumber} from "@chakra-ui/stat";
+import { Stat, StatGroup, StatLabel, StatNumber } from "@chakra-ui/stat";
 
 const Dashboard = () => {
   return (
     <main className={"flex items-center justify-center h-full"}>
-      <div className={"flex ml-1 flex-wrap md:flex-nowrap items-center justify-around h-full w-full gap-4 md:ml-5"}>
-        <StatGroup className={"flex bg-primaryContainer rounded-xl w-full hover:shadow-lg flex-grow h-full"}>
+      <div
+        className={
+          "flex ml-1 flex-wrap md:flex-nowrap items-center justify-around h-full w-full gap-4 md:ml-5"
+        }
+      >
+        <StatGroup
+          className={
+            "hover-shadow flex bg-primaryContainer rounded-xl w-full flex-grow h-full"
+          }
+        >
           <Stat className={"mx-8 p-4"}>
             <StatLabel>Staff</StatLabel>
-            <StatNumber>4</StatNumber>
+            <StatNumber className={"text-primaryText"}>4</StatNumber>
           </Stat>
         </StatGroup>
-        <StatGroup className={"flex bg-primaryContainer rounded-xl w-full hover:shadow-lg flex-grow h-full"}>
+        <StatGroup
+          className={
+            "hover-shadow flex bg-primaryContainer rounded-xl w-full flex-grow h-full"
+          }
+        >
           <Stat className={"mx-8 p-4"}>
             <StatLabel>Who&apos;s on now?</StatLabel>
-            <StatNumber>...</StatNumber>
+            <StatNumber className={"text-primaryText"}>...</StatNumber>
           </Stat>
         </StatGroup>
-        <StatGroup className={"flex bg-primaryContainer rounded-xl w-full hover:shadow-lg flex-grow h-full"}>
+        <StatGroup
+          className={
+            "hover-shadow flex bg-primaryContainer rounded-xl w-full flex-grow h-full"
+          }
+        >
           <Stat className={"mx-8 p-4"}>
             <StatLabel>Who&apos;s on leave?</StatLabel>
-            <StatNumber>...</StatNumber>
+            <StatNumber className={"text-primaryText"}>...</StatNumber>
           </Stat>
         </StatGroup>
       </div>

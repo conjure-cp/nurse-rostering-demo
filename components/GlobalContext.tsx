@@ -8,7 +8,8 @@ type globalContextType = {
 
 const globalContextDefaults: globalContextType = {
   activeNavItem: "/dashboard",
-  setActiveNavItem: () => {},
+  setActiveNavItem: () => {
+  },
 };
 
 export const GlobalContext = createContext<globalContextType>(
@@ -23,10 +24,9 @@ type Props = {
   children: ReactNode;
 };
 
-export function GlobalContextProvider({ children }: Props) {
-  const [activeNavItem, setActiveNavItem] = useState(
-    globalContextDefaults.activeNavItem
-  );
+export function GlobalContextProvider({children}: Props) {
+  const [activeNavItem, setActiveNavItem] = useState("/dashboard");
+
   const value = {
     activeNavItem,
     setActiveNavItem,

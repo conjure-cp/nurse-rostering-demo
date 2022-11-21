@@ -9,17 +9,16 @@ generator client {
   previewFeatures = ["referentialIntegrity"]
 }
 
+model Specialization {
+  id      String  @id @default(cuid())
+  name    String
+  Staff   Staff[]
+}
+
 model Staff {
   id             String           @id @default(cuid())
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   name           String           @db.VarChar(255)
   specialization Specialization[]
-}
-
-model Specialization {
-  id      String  @id @default(cuid())
-  name    String
-  Staff   Staff?  @relation(fields: [staffId], references: [id])
-  staffId String?
 }
