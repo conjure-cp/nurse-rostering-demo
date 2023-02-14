@@ -1,0 +1,56 @@
+{
+    "weekCount": 8,
+    "allCategories": ["..."],
+    "alwaysAvailable": ["GP", "ER"],
+    "nurses": [
+        {
+            "id": "d98b44b0-3c43-4df1-b1f8-7acfee396889",
+            "skills": ["Heart Surgeon", "GP"],
+            "constraints": {
+                "preferredTime": "day", // day: 7am - 7pm, night: 7pm - 7am 
+                "preferredShiftHours": 10, // 8h: 5 days/week, 10h: 4 days, 12h: 3 days
+                "minimumTimeBetweenShifts": 32, // 15 min chunks
+                "minimumWeeklyHours": 9, // 0 - 60
+                "maximumWeeklyOvertimeHours": 14, // 0 - 80, -1
+                "minimumMonthlyHours": 14, // 0 - 250
+                "maximumMonthlyOvertimeHours": 14, // 0 - 250
+                "maximumDailyWorkingHours": 10, // 1 - 24
+                "maximumWorkingDaysInARow": -1 // 0 - 30, -1
+            }
+        },
+        {
+            "id": "6828d032-2960-40d3-b259-e1f904a3d6ec",
+            "skills": ["Brain Surgeon", "GP", "ER"],
+            "constraints": {
+                "preferredTime": "night", // day: 7am - 7pm, night: 7pm - 7am 
+                "preferredShiftHours": 10, // 8h: 5 days/week, 10h: 4 days, 12h: 3 days
+                "minimumTimeBetweenShifts": "8 hours", // 15 mins to 12 hours
+                "minimumWeeklyHours": 9, // 0 - 60
+                "maximumWeeklyOvertimeHours": 14, // 0 - 80, "unlimited"
+                "minimumMonthlyHours": 14, // 0 - 250
+                "maximumMonthlyOvertimeHours": "unlimited", // 0 - 250, "unlimited"
+                "maximumDailyWorkingHours": 10, // 1 - 24
+                "maximumWorkingDaysInARow": 30 // 0 - 30, "unlimited"
+            }
+        }
+    ]
+},
+[
+    {
+        "monday": {
+            "f06b9d83-58ca-4907-b038-67a35c73a1c3": "day",
+            "a4285f5c-b8de-4ab8-930f-2a8f0ed058d5": "day",
+            "8da8c40c-5bb7-4718-9bb9-c3411c69bc3a": "night"
+        },
+        "tuesday": {
+            ...
+        },
+        "wednesday": {
+            ...
+        }
+        ...
+    },
+    {
+        ...
+    }
+]

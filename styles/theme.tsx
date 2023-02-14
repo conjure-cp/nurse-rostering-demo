@@ -1,6 +1,6 @@
 //theme.ts
-import { extendTheme, withDefaultColorScheme } from "@chakra-ui/react";
-import { StyleFunctionProps } from "@chakra-ui/theme-tools";
+import {extendTheme, withDefaultColorScheme} from "@chakra-ui/react";
+import {StyleFunctionProps} from "@chakra-ui/theme-tools";
 
 const config = {
   initialColorMode: "light",

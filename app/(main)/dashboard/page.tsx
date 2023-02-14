@@ -1,5 +1,5 @@
 "use client";
-import { Stat, StatGroup, StatLabel, StatNumber } from "@chakra-ui/stat";
+import {Stat, StatGroup, StatLabel, StatNumber} from "@chakra-ui/stat";
 
 const Dashboard = () => {
   return (
@@ -16,7 +16,7 @@ const Dashboard = () => {
         >
           <Stat className={"mx-8 p-4"}>
             <StatLabel>Staff</StatLabel>
-            <StatNumber className={"text-primaryText"}>4</StatNumber>
+            <StatNumber className={"text-primaryText"}>5</StatNumber>
           </Stat>
         </StatGroup>
         <StatGroup

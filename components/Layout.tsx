@@ -1,8 +1,9 @@
 "use client";
-import React, { ReactNode } from "react";
+import React, {ReactNode} from "react";
 import {
   Box,
   BoxProps,
+  Button,
   CloseButton,
   Drawer,
   DrawerContent,
@@ -23,11 +24,12 @@ import {
   MdOutlineEvent,
   MdOutlineGroups,
 } from "react-icons/md";
-import { IconType } from "react-icons";
+import {IconType} from "react-icons";
 import Link from "next/link";
-import { FiMenu } from "react-icons/fi";
+import {FiMenu} from "react-icons/fi";
 import CreateStaffModal from "./CreateStaffModal";
-import { usePathname } from "next/navigation";
+import {usePathname} from "next/navigation";
+import axios from "axios";
 
 interface LayoutI {
   children?: React.ReactNode;
@@ -201,6 +203,13 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 
+let onSchedule = async () => {
+  let res = await axios.get(`/api/calendar/schedule`);
+  const interval = setInterval(async function () {
+    let isDone = await axios.get(`/api/calendar/schedule/check`);
+  }, 5000);
+}
+
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const {
     isOpen: isModalOpen,
@@ -247,6 +256,15 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             icon={<MdOutlineAdd />}
             onClick={onModalOpen}
           />
+        ) : null}
+        {path === "/calendar" ? (
+          <Button
+            className={"bg-primary text-white"}
+            aria-label={"Add event"}
+            onClick={onSchedule}
+          >
+            SCHEDULE
+          </Button>
         ) : null}
       </HStack>
       <CreateStaffModal
