@@ -145,7 +145,7 @@ const data = `{
 
 const postSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
   await fetch(
-    "https://demos.constraintmodelling.org/server/submitDemo.html/submit",
+    "https://demos.constraintmodelling.org/server/submit",
     {
       method: "POST",
       headers: {

@@ -39,20 +39,18 @@ const Schedule = () => {
           return { id: staffMember.id, title: staffMember.name };
         })}
         eventDisplay="background"
-        events={[
-          {
-            id: "1",
-            resourceId: staffList[0].id,
-            start: "2023-03-07T07:00:00",
-            end: "2023-03-08T19:00:00",
-          },
-          {
-            id: "2",
-            resourceId: staffList[1].id,
-            start: "2023-03-05T07:00:00",
-            end: "2023-03-05T19:00:00",
-          },
-        ]}
+        events={
+          staffList.length >= 1
+            ? [
+                {
+                  id: "1",
+                  resourceId: staffList[0].id,
+                  start: "2023-03-07T07:00:00",
+                  end: "2023-03-08T19:00:00",
+                },
+              ]
+            : []
+        }
       />
       <Button
         className={"bg-primary text-white"}
