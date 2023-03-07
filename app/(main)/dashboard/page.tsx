@@ -1,7 +1,10 @@
 "use client";
-import {Stat, StatGroup, StatLabel, StatNumber} from "@chakra-ui/stat";
+import { Stat, StatGroup, StatLabel, StatNumber } from "@chakra-ui/stat";
+
+import useStaffList from "../../../hooks/useStaffList";
 
 const Dashboard = () => {
+  const { countStaffMembers } = useStaffList();
   return (
     <main className={"flex items-center justify-center h-full"}>
       <div
@@ -16,7 +19,9 @@ const Dashboard = () => {
         >
           <Stat className={"mx-8 p-4"}>
             <StatLabel>Staff</StatLabel>
-            <StatNumber className={"text-primaryText"}>5</StatNumber>
+            <StatNumber className={"text-primaryText"}>
+              {countStaffMembers()}
+            </StatNumber>
           </Stat>
         </StatGroup>
         <StatGroup

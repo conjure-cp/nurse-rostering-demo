@@ -1,36 +1,49 @@
 {
-    "weekCount": 8,
-    "allCategories": ["..."],
-    "alwaysAvailable": ["GP", "ER"],
+    "weekcount": 8,
+    "allcategories": ["..."],
+    "alwaysavailable": ["gp", "er"],
     "nurses": [
         {
             "id": "d98b44b0-3c43-4df1-b1f8-7acfee396889",
-            "skills": ["Heart Surgeon", "GP"],
+            "skills": ["heart surgeon", "gp"],
             "constraints": {
-                "preferredTime": "day", // day: 7am - 7pm, night: 7pm - 7am 
-                "preferredShiftHours": 10, // 8h: 5 days/week, 10h: 4 days, 12h: 3 days
-                "minimumTimeBetweenShifts": 32, // 15 min chunks
-                "minimumWeeklyHours": 9, // 0 - 60
-                "maximumWeeklyOvertimeHours": 14, // 0 - 80, -1
-                "minimumMonthlyHours": 14, // 0 - 250
-                "maximumMonthlyOvertimeHours": 14, // 0 - 250
-                "maximumDailyWorkingHours": 10, // 1 - 24
-                "maximumWorkingDaysInARow": -1 // 0 - 30, -1
+                "preferredtime": "day", // day: 7am - 7pm, night: 7pm - 7am
+                "minimumweeklyhours": 9, // 0 - 60
+                "maximumweeklyovertimehours": 14, // 0 - 80, -1
+                "minimummonthlyhours": 14, // 0 - 250
+                "maximummonthlyovertimehours": 14, // 0 - 250
+                "maximumdailyworkinghours": 10, // 1 - 24
+                "maximumworkingdaysinarow": -1 // 0 - 30, -1
+            }
+        },
+        {
+            "id": 1, //contiguous numbers
+            "skills": ["heart surgeon", "gp"],
+            "constraints": {
+                "preferredtime": "day", // day: 7am - 7pm, night: 7pm - 7am
+                "preferredshifthours": 10, // 8h: 5 days/week, 10h: 4 days, 12h: 3 days
+                "minimumtimebetweenshifts": 32, // 15 min chunks
+                "minimumweeklyhours": 9, // 0 - 60
+                "maximumweeklyovertimehours": 14, // 0 - 80, -1
+                "minimummonthlyhours": 14, // 0 - 250
+                "maximummonthlyovertimehours": 14, // 0 - 250
+                "maximumdailyworkinghours": 10, // 1 - 24
+                "maximumworkingdaysinarow": -1 // 0 - 30, -1
             }
         },
         {
             "id": "6828d032-2960-40d3-b259-e1f904a3d6ec",
-            "skills": ["Brain Surgeon", "GP", "ER"],
+            "skills": ["brain surgeon", "gp", "er"],
             "constraints": {
-                "preferredTime": "night", // day: 7am - 7pm, night: 7pm - 7am 
-                "preferredShiftHours": 10, // 8h: 5 days/week, 10h: 4 days, 12h: 3 days
-                "minimumTimeBetweenShifts": "8 hours", // 15 mins to 12 hours
-                "minimumWeeklyHours": 9, // 0 - 60
-                "maximumWeeklyOvertimeHours": 14, // 0 - 80, "unlimited"
-                "minimumMonthlyHours": 14, // 0 - 250
-                "maximumMonthlyOvertimeHours": "unlimited", // 0 - 250, "unlimited"
-                "maximumDailyWorkingHours": 10, // 1 - 24
-                "maximumWorkingDaysInARow": 30 // 0 - 30, "unlimited"
+                "preferredtime": "night", // day: 7am - 7pm, night: 7pm - 7am
+                "preferredshifthours": 10, // 8h: 5 days/week, 10h: 4 days, 12h: 3 days
+                "minimumtimebetweenshifts": "8 hours", // 15 mins to 12 hours
+                "minimumweeklyhours": 9, // 0 - 60
+                "maximumweeklyovertimehours": 14, // 0 - 80, "unlimited"
+                "minimummonthlyhours": 14, // 0 - 250
+                "maximummonthlyovertimehours": "unlimited", // 0 - 250, "unlimited"
+                "maximumdailyworkinghours": 10, // 1 - 24
+                "maximumworkingdaysinarow": 30 // 0 - 30, "unlimited"
             }
         }
     ]

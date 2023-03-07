@@ -2,12 +2,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Fist, install the dependencies:
 
 ```bash
-npm run dev
-# or
+yarn install
+#or
+npm install
+```
+
+Then, run the development server:
+
+```bash
 yarn dev
+# or
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -26,6 +34,11 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy with Node.js
+
+Easy-to-follow instructions as the following link:
+[Deploying with other hosting options](https://nextjs.org/learn/basics/deploying-nextjs-app/other-hosting-options)
 
 ## Deploy on Vercel
 

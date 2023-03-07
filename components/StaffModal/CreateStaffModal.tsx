@@ -18,11 +18,13 @@ import {
   Select,
 } from "@chakra-ui/react";
 import React from "react";
-import axios from "axios";
+import useStaffList from "../../hooks/useStaffList";
+import { stringToSkills } from "../../common/utilties";
 
 export interface Constraint {
   label: string;
   defaultIndex: number;
+  selectedIndex: number;
   options: string[];
 }
 
@@ -34,8 +36,21 @@ const stringArrayFromRange = (start: number, end: number): string[] => {
 
 export const constraints: Constraint[] = [
   {
+    label: "Preferred Shift Time",
+    defaultIndex: 0,
+    selectedIndex: 0,
+    options: ["Any", "Day", "Night"],
+  },
+  {
+    label: "Preferred Shift Hours",
+    defaultIndex: 0,
+    selectedIndex: 0,
+    options: ["8", "10", "12"],
+  },
+  {
     label: "Minimum Time Between Shifts",
     defaultIndex: 13,
+    selectedIndex: 13,
     options: [
       "15 mins",
       "30 mins",
@@ -60,31 +75,37 @@ export const constraints: Constraint[] = [
   {
     label: "Minimum Weekly Hours",
     defaultIndex: 9,
+    selectedIndex: 9,
     options: stringArrayFromRange(0, 60),
   },
   {
     label: "Maximum Weekly Overtime Hours",
     defaultIndex: 14,
+    selectedIndex: 14,
     options: [...stringArrayFromRange(0, 80), "Unlimited"],
   },
   {
     label: "Minimum Monthly Hours",
     defaultIndex: 14,
+    selectedIndex: 14,
     options: stringArrayFromRange(0, 250),
   },
   {
     label: "Maximum Monthly Overtime Hours",
     defaultIndex: 14,
+    selectedIndex: 14,
     options: [...stringArrayFromRange(0, 250), "Unlimited"],
   },
   {
     label: "Maximum Daily Working Hours",
     defaultIndex: 9,
+    selectedIndex: 9,
     options: stringArrayFromRange(1, 24),
   },
   {
     label: "Maximum Working Days in a Row",
     defaultIndex: 31,
+    selectedIndex: 31,
     options: [...stringArrayFromRange(0, 30), "Unlimited"],
   },
 ];
@@ -100,11 +121,11 @@ export const getOptionArray = (constraint: Constraint) => {
   options.push(
     <option
       key={"default"}
-      value={constraint.options[constraint.defaultIndex]}
+      value={constraint.options[constraint.selectedIndex]}
       disabled
       hidden
     >
-      {constraint.options[constraint.defaultIndex]}
+      {constraint.options[constraint.selectedIndex]}
     </option>
   );
   constraint.options.forEach((option, optIndex) => {
@@ -122,17 +143,16 @@ const CreateStaffModal = ({
   onModalOpen,
   onModalClose,
 }: CreateStaffModalI) => {
+  const { addStaffMember } = useStaffList();
+  const [name, setName] = React.useState("");
+  const [skills, setSkills] = React.useState("");
+
   const handleCreateStaff = async () => {
-    // write an axios post request
-    const res = await axios
-      .post("/api/staff", {
-        name: name,
-      })
-      .then((res) => res.data);
-    console.log(res);
+    addStaffMember(name, stringToSkills(skills), constraints);
+    setName("");
+    setSkills("");
     onModalClose();
   };
-  const [name, setName] = React.useState("");
   return (
     <Modal isOpen={isModalOpen} onClose={onModalClose}>
       <ModalOverlay />
@@ -145,7 +165,10 @@ const CreateStaffModal = ({
               onChange={(e) => setName(e.target.value)}
               placeholder={"Name"}
             />
-            <Input placeholder={"Skills"} />
+            <Input
+              onChange={(e) => setSkills(e.target.value)}
+              placeholder={"Skills"}
+            />
             <Accordion allowToggle>
               <AccordionItem>
                 <h2>
@@ -173,6 +196,9 @@ const CreateStaffModal = ({
                           className={"my-1"}
                           key={index}
                           defaultValue={constraint.defaultIndex}
+                          onChange={(e) => {
+                            constraint.selectedIndex = parseInt(e.target.value);
+                          }}
                         >
                           {getOptionArray(constraint)}
                         </Select>
