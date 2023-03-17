@@ -3,28 +3,31 @@ import resourceTimelinePlugin from "@fullcalendar/resource-timeline";
 import useStaffList from "../hooks/useStaffList";
 import { Button } from "@chakra-ui/react";
 import useSchedule from "../hooks/useSchedule";
+import dayjs from "dayjs";
 
 const Schedule = () => {
   const { staffList } = useStaffList();
-  const { postSchedule } = useSchedule();
+  const { postSchedule, fetchSchedule, getSchedule } = useSchedule();
 
   const onSchedule = async () => {
     const jobid = await postSchedule(staffList);
-    console.log(jobid);
-    /*
-    const interval = setInterval(async function () {
-      let isDone = await axios.get(`/api/calendar/schedule/check`);
-    }, 5000);
-    */
+    const res = await fetchSchedule(jobid);
   };
-  //
-  // const { data, error, isLoading } = useSWR("/api/calendar/schedule", fetcher);
-  //
-  // if (error) return <div>failed to load</div>;
-  // if (isLoading) return <div>loading...</div>;
-  //
-  // // render data
-  // return <div>hello {data.name}!</div>;
+  const getStartDate = () => {
+    const startDates = getSchedule().map((schedule) => {
+      return schedule.start;
+    });
+    // if today is earlier than all dates in startDates, return the earliest start date
+    if (startDates.length <= 0) {
+      return dayjs().toDate();
+    }
+    const earliestStartDate = startDates.reduce((a, b) => {
+      return dayjs(a).isBefore(dayjs(b)) ? a : b;
+    });
+    return dayjs().isBefore(dayjs(earliestStartDate))
+      ? earliestStartDate
+      : dayjs().toDate();
+  };
 
   return (
     <div>
@@ -35,22 +38,27 @@ const Schedule = () => {
         slotDuration="12:00:00"
         slotMinTime="07:00:00"
         resourceAreaWidth="10%"
+        // viewDidMount={(info) => {
+        //   // delay 1 second
+        //   setTimeout(() => {
+        //     info.view.calendar.gotoDate(getStartDate());
+        //   }, 2000);
+        // }}
+        firstDay={1}
+        initialDate={getStartDate()}
+        nowIndicator={true}
         resources={staffList.map((staffMember) => {
           return { id: staffMember.id, title: staffMember.name };
         })}
         eventDisplay="background"
-        events={
-          staffList.length >= 1
-            ? [
-                {
-                  id: "1",
-                  resourceId: staffList[0].id,
-                  start: "2023-03-07T07:00:00",
-                  end: "2023-03-08T19:00:00",
-                },
-              ]
-            : []
-        }
+        events={getSchedule().map((schedule) => {
+          return {
+            id: schedule.id,
+            resourceId: schedule.resourceId,
+            start: schedule.start,
+            end: schedule.end,
+          };
+        })}
       />
       <Button
         className={"bg-primary text-white"}

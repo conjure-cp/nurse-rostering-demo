@@ -5,6 +5,7 @@ import { Constraint } from "../components/StaffModal/CreateStaffModal";
 
 export interface StaffMember {
   id: string;
+  encoding?: number;
   name: string;
   skills: string[];
   constraints: Constraint[];
@@ -36,7 +37,12 @@ export default function useStaffList() {
     setStaffList(updatedList);
   };
 
-  const updateStaffMember = (id: string, name: string, skills: string[], constraints: Constraint[]) => {
+  const updateStaffMember = (
+    id: string,
+    name: string,
+    skills: string[],
+    constraints: Constraint[]
+  ) => {
     const updatedList = staffList.map((staffMember) => {
       if (staffMember.id === id) {
         return { id, name, skills, constraints };
@@ -44,11 +50,17 @@ export default function useStaffList() {
       return staffMember;
     });
     setStaffList(updatedList);
-  }
+  };
 
   const countStaffMembers = () => {
     return staffList.length;
-  }
+  };
 
-  return { staffList, addStaffMember, removeStaffMember, updateStaffMember, countStaffMembers };
+  return {
+    staffList,
+    addStaffMember,
+    removeStaffMember,
+    updateStaffMember,
+    countStaffMembers,
+  };
 }
