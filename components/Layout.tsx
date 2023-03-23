@@ -22,6 +22,8 @@ import {
   MdOutlineDashboard,
   MdOutlineEvent,
   MdOutlineGroups,
+  MdStar,
+  MdStarOutline,
 } from "react-icons/md";
 import { IconType } from "react-icons";
 import Link from "next/link";
@@ -56,6 +58,12 @@ const LinkItems: Array<LinkItemProps> = [
     icon: MdOutlineGroups,
     iconActive: MdGroups,
     href: "/staff",
+  },
+  {
+    name: "Qualifications",
+    icon: MdStarOutline,
+    iconActive: MdStar,
+    href: "/qualifications",
   },
   {
     name: "Calendar",
@@ -132,13 +140,14 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         justifyContent={"space-between"}
         className={"h-[calc(100%-10rem)]"}
       >
-        <Box>
+        <Box className={"[& p]:mt-0"}>
           {LinkItems.map((link) => (
             <NavItem
               key={link.name}
               icon={link.icon}
               iconActive={link.iconActive}
               href={link.href}
+              onClick={onClose}
             >
               {link.name}
             </NavItem>
@@ -191,7 +200,7 @@ const NavItem = ({
             as={path === href ? iconActive : icon}
           />
         )}
-        <p className={path === href ? "mt-1 font-bold" : "mt-1"}>{children}</p>
+        <p className={path === href ? "font-bold" : ""}>{children}</p>
       </Flex>
     </Link>
   );

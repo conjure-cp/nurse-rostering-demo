@@ -85,13 +85,24 @@ const CreateStaffModal = ({
   const { addStaffMember } = useStaffList();
   const [name, setName] = React.useState("");
   const [skills, setSkills] = React.useState("");
+  const initialRef = React.useRef(null)
 
-  const handleCreateStaff = async () => {
-    addStaffMember(name, stringToSkills(skills), constraints);
+  const handleCreateStaff = () => {
+    if (name.trim() === "") {
+      return;
+    }
+    addStaffMember(name.trim(), stringToSkills(skills), constraints);
     setName("");
     setSkills("");
     onModalClose();
   };
+
+  const handleFormSubmit = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleCreateStaff();
+    }
+  };
+
   return (
     <Modal isOpen={isModalOpen} onClose={onModalClose}>
       <ModalOverlay />
@@ -99,14 +110,16 @@ const CreateStaffModal = ({
         <ModalHeader>Create staff member</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <form className={"flex flex-col gap-4"}>
+          <form className={"flex flex-col gap-4"} onKeyPress={handleFormSubmit}>
             <Input
               onChange={(e) => setName(e.target.value)}
               placeholder={"Name"}
+              value={name}
             />
             <Input
               onChange={(e) => setSkills(e.target.value)}
               placeholder={"Skills"}
+              value={skills}
             />
             <Accordion allowToggle>
               <AccordionItem>
@@ -160,6 +173,8 @@ const CreateStaffModal = ({
             }
             mr={3}
             onClick={handleCreateStaff}
+            disabled={name.trim() === ""}
+            ref={initialRef}
           >
             Create
           </Button>

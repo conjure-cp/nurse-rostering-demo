@@ -4,6 +4,7 @@ import { StaffMember } from "./useStaffList";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import weekday from "dayjs/plugin/weekday";
+import { ScheduleResponse } from "../components/Schedule";
 
 dayjs.extend(isToday);
 dayjs.extend(weekday);
@@ -36,29 +37,27 @@ export default function useSchedule() {
     defaultValue: [],
   });
 
-  const [staffEncoding, setStaffEncoding] = useLocalStorageState<{
-    [key: string]: number;
-  }>("staffEncoding", {
-    defaultValue: {},
-  });
-
-  const [skillEncoding, setSkillEncoding] = useLocalStorageState<{
-    [key: string]: number;
-  }>("staffEncoding", {
-    defaultValue: {},
-  });
-
-  const postSchedule = async (staffList: StaffMember[]) => {
-    // clear previous encoding
-    setSkillEncoding({});
-    setStaffEncoding({});
-
+  const postSchedule = async (
+    staffList: StaffMember[],
+    skillList: { [key: string]: { count: number; minCount: number } }
+  ) => {
     // Extract unique skills from the staffList
     const uniqueSkills = new Set<string>();
     staffList.forEach((staffMember) => {
       staffMember.skills.forEach((skill) => {
         uniqueSkills.add(skill);
       });
+    });
+
+    const newStaffEncoding: { [key: string]: number } = {};
+    staffList.forEach((staffMember, index) => {
+      newStaffEncoding[staffMember.id] = index + 1;
+    });
+
+    // Create a skill encoding mapping
+    const newSkillEncoding: { [key: string]: number } = {};
+    Array.from(uniqueSkills).forEach((skill, index) => {
+      newSkillEncoding[skill] = index + 1;
     });
 
     const payload: {
@@ -79,19 +78,7 @@ export default function useSchedule() {
       skills_lower_bound: {}, // Assuming no lower bound
     };
 
-    // Create a skill encoding mapping
-    const skillEncoding: { [key: string]: number } = {};
-    Array.from(uniqueSkills).forEach((skill, index) => {
-      skillEncoding[skill] = index + 1;
-    });
-    setSkillEncoding(skillEncoding);
-
-    staffList.forEach((staffMember, index) => {
-      const staffId = index + 1; // Encode staff IDs as numbers from 1 to n
-      setStaffEncoding((prev) => {
-        return { ...prev, [staffMember.id]: staffId };
-      });
-
+    staffList.forEach((staffMember) => {
       const preferredShiftTimeConstraint = staffMember.constraints.find(
         (constraint) => constraint.label === "Preferred Shift Time"
       );
@@ -99,22 +86,28 @@ export default function useSchedule() {
         preferredShiftTimeConstraint?.options[
           preferredShiftTimeConstraint?.selectedIndex || 0
         ] || "Day";
-      payload.preferred_shift_type[staffId] =
+      payload.preferred_shift_type[newStaffEncoding[staffMember.id]] =
         selectedShiftOption === "Day" ? 1 : 2;
 
       const maxWorkingDaysConstraint = staffMember.constraints.find(
         (constraint) => constraint.label === "Maximum Working Days in a Row"
       );
-      payload.maximum_working_days_in_a_row[staffId] = parseInt(
-        maxWorkingDaysConstraint?.options[
-          maxWorkingDaysConstraint?.selectedIndex || 0
-        ] || "0",
-        10
-      );
+      payload.maximum_working_days_in_a_row[newStaffEncoding[staffMember.id]] =
+        parseInt(
+          maxWorkingDaysConstraint?.options[
+            maxWorkingDaysConstraint?.selectedIndex || 0
+          ] || "0",
+          10
+        );
 
-      payload.nurse_skills[staffId] = staffMember.skills.map(
-        (skill) => skillEncoding[skill] // Map the skills to the corresponding encoding
-      );
+      payload.nurse_skills[newStaffEncoding[staffMember.id]] =
+        staffMember.skills.map(
+          (skill) => newSkillEncoding[skill] // Map the skills to the corresponding encoding
+        );
+    });
+
+    Object.entries(skillList).forEach((skill) => {
+      payload.skills_lower_bound[newSkillEncoding[skill[0]]] = skill[1].minCount;
     });
 
     const options = {
@@ -127,29 +120,44 @@ export default function useSchedule() {
       data: JSON.stringify(payload),
     };
 
-    const response = await axios(options);
-    return response.data;
+    const jobid = await axios(options);
+    const scheduleResponse: ScheduleResponse = {
+      jobid: jobid.data,
+      staffEncoding: newStaffEncoding,
+      skillEncoding: newSkillEncoding,
+    };
+    return scheduleResponse;
   };
+
 
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
-  const fetchSchedule = async (id: number) => {
+  const fetchSchedule = async (scheduleResponse: ScheduleResponse) => {
     let res = await axios.get("/api/calendar/schedule", {
-      params: { jobid: id },
+      params: { jobid: scheduleResponse.jobid },
     });
     while (res.data.status === "wait") {
       await delay(1000); // Wait for 1 second
       res = await axios.get("/api/calendar/schedule", {
-        params: { jobid: id },
+        params: { jobid: scheduleResponse.jobid },
       });
     }
-    let converted = convertResponseToSchedule(res.data.solution[0].assignment);
-    setSchedule(converted);
-    return converted;
+    if (res.data.solution.length > 0) {
+      let converted = convertResponseToSchedule(
+        res.data.solution[0].assignment,
+        scheduleResponse
+      );
+      setSchedule(converted);
+      return converted;
+    }
+    return null;
   };
 
-  function convertResponseToSchedule(response: any[][]): Schedule[] {
+  function convertResponseToSchedule(
+    response: any[][],
+    scheduleResponse: ScheduleResponse
+  ): Schedule[] {
     const today = dayjs();
     const startDate =
       today.weekday() === 1 && today.isToday() ? today : today.weekday(8);
@@ -157,7 +165,7 @@ export default function useSchedule() {
     const nightStartTime = [19, 0];
     const shiftDuration = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
 
-    return response.map((item) => {
+    const output = response.map((item) => {
       const staffId = item[0][0];
       const dayNumber = item[0][1];
       const shiftType = item[1];
@@ -169,14 +177,17 @@ export default function useSchedule() {
 
       return {
         id: `${staffId}-${dayNumber}-${shiftType}`,
-        resourceId: `${invertObject(staffEncoding)[staffId]}`,
+        resourceId: `${invertObject(scheduleResponse.staffEncoding)[staffId]}`,
         start: start.format(),
         end: end.format(),
       };
     });
+    return output;
   }
 
-  function invertObject(obj: { [key: string]: number }): { [key: number]: string } {
+  function invertObject(obj: { [key: string]: number }): {
+    [key: number]: string;
+  } {
     const invertedObj: { [key: number]: string } = {};
 
     for (const key in obj) {

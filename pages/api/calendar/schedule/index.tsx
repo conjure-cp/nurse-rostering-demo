@@ -50,7 +50,6 @@ const getSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        console.log(data);
         return resSuccess(res, data);
       } else {
         return resNotFound(res);

@@ -68,7 +68,13 @@ const Staff = () => {
 
   const handleClearAll = () => {
     localStorage.removeItem("staffList");
+    localStorage.removeItem("skillList");
     window.location.reload();
+  };
+
+  const openStaffModal = (staffId: string) => {
+    setStaffId(staffId);
+    onModalOpen();
   };
 
   return (
@@ -96,8 +102,7 @@ const Staff = () => {
                     cursor={"pointer"}
                     className={"hover:bg-surface1 rounded-xl"}
                     onClick={() => {
-                      setStaffId(staff.id);
-                      onModalOpen();
+                      openStaffModal(staff.id);
                     }}
                     key={staff.id}
                   >
