@@ -1,5 +1,8 @@
+"use client";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import resourceTimelinePlugin from "@fullcalendar/resource-timeline";
+import interactionPlugin from "@fullcalendar/interaction";
+
 import useStaffList from "../hooks/useStaffList";
 import {
   Button,
@@ -13,8 +16,9 @@ import {
 } from "@chakra-ui/react";
 import useSchedule from "../hooks/useSchedule";
 import dayjs from "dayjs";
-import React, { useRef } from "react";
-import useTimelineWidthAdjustment from "../hooks/useTimelineWidthAdjustment";
+import React, { useCallback, useRef, useState } from "react";
+//import useTimelineWidthAdjustment from "../hooks/useTimelineWidthAdjustment";
+import TimetableStaffModal from "./StaffModal/TimetableStaffModal";
 
 export interface ScheduleResponse {
   jobid: number;
@@ -29,11 +33,13 @@ const Schedule = () => {
   const toast = useToast();
   const calendarRef = useRef(null);
   const [changedDate, setChangedDate] = React.useState(0);
-
-  const generateSoftColor = () => {
-    const getRandomColorValue = () => Math.floor(Math.random() * 155 + 100);
-    return `rgba(${getRandomColorValue()}, ${getRandomColorValue()}, ${getRandomColorValue()}, 1)`;
-  };
+  const [originResourceId, setOriginResourceId] = useState(null);
+  const {
+    isOpen: isPersonalTimetableOpen,
+    onOpen: onPersonalTimetableOpen,
+    onClose: onPersonalTimetableClose,
+  } = useDisclosure();
+  const [clickedStaffId, setClickedStaffId] = React.useState("");
 
   const getResourceColors = () => {
     const resourceColors: { [key: string]: string } = {};
@@ -49,19 +55,20 @@ const Schedule = () => {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
 
-    let color = "#";
-    for (let i = 0; i < 3; i++) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += ("00" + value.toString(16)).substr(-2);
-    }
+    let r = ((hash & 0xff) % 128) + 127; // minimum value of 127, range 128
+    let g = (((hash >> 8) & 0xff) % 128) + 127;
+    let b = (((hash >> 16) & 0xff) % 128) + 127;
 
-    return color;
+    // ensure the color components are 2-digit hexadecimal numbers
+    const rHex = r.toString(16).padStart(2, "0");
+    const gHex = g.toString(16).padStart(2, "0");
+    const bHex = b.toString(16).padStart(2, "0");
+
+    return `#${rHex}${gHex}${bHex}`;
   };
-
 
   const resourceColors = getResourceColors();
   // @ts-ignore
-  useTimelineWidthAdjustment(changedDate);
 
   const onSchedule = async () => {
     const scheduleResponse: ScheduleResponse = await postSchedule(
@@ -70,20 +77,41 @@ const Schedule = () => {
     );
     onOpen();
     const res = await fetchSchedule(scheduleResponse);
-    if (res == null) {
-      toast({
-        title: "No schedule found",
-        description: "We couldn't find a schedule for the given constraints",
-        status: "warning",
-        duration: 9000,
-        position: "top",
-        isClosable: true,
-      });
+    onClose();
+    if (res[1].length === 0) {
+      if (res[0] === "cancelled") {
+        toast({
+          title: "Rerunning schedule request",
+          status: "info",
+          duration: 3000,
+          position: "top",
+          isClosable: true,
+        });
+        onOpen();
+      } else if (res[0] === "timeout") {
+        toast({
+          title: "Request timed out",
+          description:
+            "We couldn't find a schedule for your request in time. Please check your staff list and constraints and try again.",
+          status: "warning",
+          duration: 9000,
+          position: "top",
+          isClosable: true,
+        });
+      } else if (res[0] === "no-solution") {
+        toast({
+          title: "No schedule found",
+          description: "We couldn't find a schedule for the given constraints",
+          status: "warning",
+          duration: 9000,
+          position: "top",
+          isClosable: true,
+        });
+      }
     } else {
       // @ts-ignore
       calendarRef.current.getApi().gotoDate(getStartDate());
     }
-    onClose();
   };
   const getStartDate = () => {
     const startDates = getSchedule().map((schedule) => {
@@ -101,48 +129,154 @@ const Schedule = () => {
       : dayjs().toDate();
   };
 
+  const handleEventClick = useCallback(
+    (eventInfo: { event: { _def: { resourceIds: any[] }; start: string } }) => {
+      const eventDate = eventInfo.event.start;
+      const isNightShift =
+        dayjs(eventDate).format("HH:mm:ss") !== "07:00:00" ? 2 : 1;
+      const startDate = getStartDate();
+      const daysDifference = dayjs(eventDate).diff(startDate, "day");
+
+      const eventId = `$1-${daysDifference + 1}-${isNightShift}`;
+      alert(`Event ID: ${eventId}`);
+    },
+    [getStartDate]
+  );
+
+  const handleResourceClick = useCallback((resourceId: string) => {
+    setClickedStaffId(resourceId);
+    onPersonalTimetableOpen();
+  }, []);
+
+  const renderResourceLabelContent = (hookProps: {
+    resource: {
+      id: any;
+      title: string | null | undefined;
+    };
+  }) => {
+    const resourceId = hookProps.resource.id;
+    return (
+      <span
+        onClick={() => handleResourceClick(resourceId)}
+        style={{ minHeight: "40px" }}
+      >
+        {hookProps.resource.title}
+      </span>
+    );
+  };
+
+  // @ts-ignore
+  const isEventAllowed = (dropInfo) => {
+    const newResourceId = dropInfo.resource.id;
+    return originResourceId === newResourceId;
+  };
+
+  // @ts-ignore
+  const onEventDragStart = (info) => {
+    const event = info.event;
+    const resourceId = event._def.resourceIds[0];
+    setOriginResourceId(resourceId);
+  };
+
+  // @ts-ignore
+  const handleEventDrop = (info) => {
+    const { event, oldEvent } = info;
+
+    console.log(
+      `Event '${event.title}' moved from '${oldEvent.start}' to '${event.start}'`
+    );
+  };
+
   return (
-    <div>
-      <FullCalendar
-        schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
-        plugins={[resourceTimelinePlugin]}
-        initialView="resourceTimelineWeek"
-        datesSet={() => {setChangedDate(changedDate + 1)}}
-        slotDuration="12:00:00"
-        slotMinTime="07:00:00"
-        contentHeight={"auto"}
-        ref={calendarRef}
-        resourceAreaWidth="10%"
-        firstDay={1}
-        initialDate={getStartDate()}
-        nextDayThreshold={"07:00:00"}
-        nowIndicator={true}
-        resources={staffList.map((staffMember) => {
-          return { id: staffMember.id, title: staffMember.name };
-        })}
-        eventDisplay="background"
-        events={getSchedule().map((schedule) => {
-          return {
-            id: schedule.id,
-            resourceId: schedule.resourceId,
-            start: schedule.start,
-            end: schedule.end,
-            backgroundColor: resourceColors[schedule.resourceId],
-          };
-        })}
-      />
+    <div suppressHydrationWarning={true}>
+      <div className={"p-4 m-4 h-full bg-surface1 rounded-xl"}>
+        <FullCalendar
+          schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
+          plugins={[resourceTimelinePlugin, interactionPlugin]}
+          initialView="resourceTimelineWeek"
+          datesSet={() => {
+            setChangedDate(changedDate + 1);
+          }}
+          slotDuration="12:00:00"
+          slotMinTime="07:00:00"
+          eventDragStart={onEventDragStart}
+          eventAllow={isEventAllowed}
+          // @ts-ignore
+          contentHeight={"auto"}
+          ref={calendarRef}
+          resourceAreaWidth="15%"
+          resourceAreaHeaderContent="Staff"
+          defaultTimedEventDuration={"12:00:00"}
+          eventDrop={handleEventDrop}
+          // @ts-ignore
+          eventClick={handleEventClick}
+          firstDay={1}
+          editable={true}
+          resourceLabelContent={renderResourceLabelContent}
+          initialDate={getStartDate()}
+          // eventDrop={handleEventDrop}
+          nowIndicator={true}
+          resources={staffList.map((staffMember) => {
+            return { id: staffMember.id, title: staffMember.name };
+          })}
+          eventInteractive={true}
+          eventDisplay="block"
+          events={getSchedule().map((schedule) => {
+            return {
+              id: schedule.id,
+              resourceId: schedule.resourceId,
+              start: schedule.start,
+              end: schedule.end,
+              backgroundColor: resourceColors[schedule.resourceId],
+              editable: true,
+              borderColor: "purple",
+              overlap: false,
+            };
+          })}
+        />
+      </div>
       <Button
-        className={"bg-primary text-white"}
+        className={"bg-primary text-white absolute top-2 right-4 m-4"}
         aria-label={"Add event"}
         onClick={onSchedule}
       >
         SCHEDULE
       </Button>
-      <style>
+      <style suppressHydrationWarning={true}>
         {`
+        @media only screen and (max-width: 800px) {
+          .fc-toolbar-title {
+            font-size: 1em !important;
+          }
+        }
         .fc .fc-datagrid-cell-cushion {
           overflow-x: scroll;
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
         } 
+         /* Hide scrollbar for Chrome, Safari and Opera */
+        .fc .fc-datagrid-cell-cushion ::-webkit-scrollbar {
+          display: none;
+        }
+
+        .fc-theme-standard .fc-scrollgrid { 
+          border: none;
+        }
+        .fc-timeline-lane-frame:hover {
+          background-color: #e9e9e9;
+          transition-duration: 300ms;
+        }
+        .fc-datagrid-cell-main:hover { 
+          cursor: pointer;
+          color: purple;
+        }
+        td > .fc-datagrid-cell-frame {
+          height: 40px !important;
+        }
+        tr > td > .fc-timeline-lane-frame {
+          height: 40px !important;
+        }
+        
       `}
       </style>
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -152,6 +286,13 @@ const Schedule = () => {
             <Spinner size={"xl"} />
           </Center>
         </ModalContent>
+      </Modal>
+      <Modal
+        isOpen={isPersonalTimetableOpen}
+        onClose={onPersonalTimetableClose}
+      >
+        <ModalOverlay />
+        <TimetableStaffModal staffId={clickedStaffId} />
       </Modal>
     </div>
   );

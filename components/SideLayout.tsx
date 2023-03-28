@@ -35,7 +35,7 @@ interface LayoutI {
   children?: React.ReactNode;
 }
 
-const Layout = ({ children }: LayoutI) => {
+const SideLayout = ({ children }: LayoutI) => {
   return <SidebarWithHeader>{children}</SidebarWithHeader>;
 };
 
@@ -247,7 +247,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
           className={"uppercase font-bold"}
           justifyContent={"space-between"}
         >
-          <p className={"text-bottom pt-1"}>{path.slice(1)}</p>
+          <p className={"text-bottom pt-1"}>{path ? path.slice(1) : ""}</p>
         </Flex>
         {path === "/staff" ? (
           <IconButton
@@ -267,4 +267,4 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   );
 };
 
-export default Layout;
+export default SideLayout;

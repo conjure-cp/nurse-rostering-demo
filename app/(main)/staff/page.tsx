@@ -1,5 +1,6 @@
 "use client";
 import {
+  Badge,
   Button,
   Input,
   Table,
@@ -10,11 +11,12 @@ import {
   Thead,
   Tr,
   useDisclosure,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import StaffModal from "../../../components/StaffModal/StaffModal";
 import React, { useState } from "react";
 import useStaffList, { StaffMember } from "../../../hooks/useStaffList";
-import { skillsToString } from "../../../common/utilties";
 import { FaFileExport, FaFileImport } from "react-icons/fa";
 import { AiOutlineClear } from "react-icons/ai";
 
@@ -35,23 +37,35 @@ const Staff = () => {
       const reader = new FileReader();
       reader.onload = (e) => {
         const text = e.target?.result;
-        localStorage["staffList"] = text;
+        if (typeof text === "string") {
+          const [staffList, skillList, schedule] = text.split("|||");
+          localStorage["staffList"] = staffList;
+          localStorage["skillList"] = skillList;
+          localStorage["schedule"] = schedule;
+        }
       };
       reader.readAsText(file);
     }
     window.location.reload();
   };
 
-  const readFile = (file: any) => {};
-
   const handleExport = () => {
     console.log("started");
     let localStaff = localStorage.getItem("staffList"); //indentation in json format, human readable
-    if (localStaff) {
+    let localSkills = localStorage.getItem("skillList");
+    let localSchedule = localStorage.getItem("schedule");
+    if (localStaff && localSkills && localSchedule) {
       //Note: We use the anchor tag here instead button.
       let vLink = document.getElementById("exportLink");
 
-      let vBlob = new Blob([localStaff], { type: "octet/stream" });
+      // Add delimiter between localStaff and localSkills
+      let delimiter = "|||";
+      let vBlob = new Blob(
+        [localStaff, delimiter, localSkills, delimiter, localSchedule],
+        {
+          type: "octet/stream",
+        }
+      );
       let vName = "Staff_" + Date.now() + ".json";
       let vUrl = window.URL.createObjectURL(vBlob);
       console.log(vLink);
@@ -69,6 +83,7 @@ const Staff = () => {
   const handleClearAll = () => {
     localStorage.removeItem("staffList");
     localStorage.removeItem("skillList");
+    localStorage.removeItem("schedule");
     window.location.reload();
   };
 
@@ -92,7 +107,9 @@ const Staff = () => {
               <Tr>
                 <Th hidden>Id</Th>
                 <Th className={"border-b-0"}>Name</Th>
-                <Th className={"border-b-0 invisible md:visible"}>Skills</Th>
+                <Th className={"border-b-0 invisible md:visible"}>
+                  Qualifications
+                </Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -109,7 +126,13 @@ const Staff = () => {
                     <Td hidden>{staff.name}</Td>
                     <Td className={"border-b-0"}>{staff.name}</Td>
                     <Td className={"border-b-0 invisible md:visible"}>
-                      {skillsToString(staff.skills)}
+                      <Wrap>
+                        {staff.skills.map((skill, index) => (
+                          <WrapItem key={index}>
+                            <Badge size="lg">{skill}</Badge>
+                          </WrapItem>
+                        ))}
+                      </Wrap>
                     </Td>
                   </Tr>
                 ))}

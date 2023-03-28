@@ -4,6 +4,7 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
+  Badge,
   Box,
   Button,
   Flex,
@@ -16,10 +17,11 @@ import {
   ModalHeader,
   ModalOverlay,
   Select,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import useStaffList from "../../hooks/useStaffList";
-import { stringToSkills } from "../../common/utilties";
 
 export interface Constraint {
   label: string;
@@ -82,21 +84,45 @@ const CreateStaffModal = ({
   onModalOpen,
   onModalClose,
 }: CreateStaffModalI) => {
-  const { addStaffMember } = useStaffList();
+  const { skillList, addStaffMember } = useStaffList();
   const [name, setName] = React.useState("");
   const [skills, setSkills] = React.useState("");
-  const initialRef = React.useRef(null)
+  const [skillInput, setSkillInput] = useState("");
+  const [selectedSkills, setSelectedSkills] = useState<string[]>(["STAFF"]);
+  const initialRef = React.useRef(null);
+
+  const handleSkillBadgeClick = (skill: string) => {
+    if (skill === "STAFF") {
+      return; // prevent removing the default skill
+    }
+    setSelectedSkills((prevSkills) =>
+      prevSkills.includes(skill)
+        ? prevSkills.filter((s) => s !== skill)
+        : [...prevSkills, skill]
+    );
+  };
+
+  const handleAddSkill = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && skillInput.trim() !== "") {
+      e.preventDefault(); // Prevent form submission
+      const newSkill = skillInput.trim().toUpperCase();
+      if (!selectedSkills.includes(newSkill)) {
+        setSelectedSkills((prevSkills) => [...prevSkills, newSkill]);
+      }
+      setSkillInput("");
+    }
+  };
 
   const handleCreateStaff = () => {
     if (name.trim() === "") {
       return;
     }
-    addStaffMember(name.trim(), stringToSkills(skills), constraints);
+    addStaffMember(name.trim(), selectedSkills, constraints);
     setName("");
     setSkills("");
+    setSelectedSkills(["STAFF"]);
     onModalClose();
   };
-
   const handleFormSubmit = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       handleCreateStaff();
@@ -117,10 +143,45 @@ const CreateStaffModal = ({
               value={name}
             />
             <Input
-              onChange={(e) => setSkills(e.target.value)}
-              placeholder={"Skills"}
-              value={skills}
+              onChange={(e) => setSkillInput(e.target.value)}
+              onKeyDown={handleAddSkill}
+              placeholder={"New Qualification"}
+              value={skillInput}
             />
+            <Wrap>
+              {Object.keys(skillList).map((skill, index) => (
+                <WrapItem key={index}>
+                  <Badge
+                    size="l"
+                    key={index}
+                    onClick={() => handleSkillBadgeClick(skill)}
+                    colorScheme={
+                      selectedSkills.includes(skill) ? "purple" : "gray"
+                    }
+                    cursor="pointer"
+                  >
+                    {skill}
+                  </Badge>
+                </WrapItem>
+              ))}
+              {selectedSkills
+                .filter((skill) => !skillList.hasOwnProperty(skill))
+                .map((skill, index) => (
+                  <WrapItem key={index}>
+                    <Badge
+                      size="l"
+                      key={`new-${index}`}
+                      onClick={() => handleSkillBadgeClick(skill)}
+                      colorScheme={
+                        selectedSkills.includes(skill) ? "purple" : "gray"
+                      }
+                      cursor="pointer"
+                    >
+                      {skill}
+                    </Badge>
+                  </WrapItem>
+                ))}
+            </Wrap>
             <Accordion allowToggle>
               <AccordionItem>
                 <h2>

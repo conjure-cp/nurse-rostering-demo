@@ -1,6 +1,4 @@
 
-letting M be 1000000
-
 given nb_nurses : int
 given nb_weeks : int
 given nb_skills : int
@@ -11,6 +9,9 @@ letting SHIFT be domain int(1..2)
 letting SKILL be domain int(1..nb_skills)
 
 find assignment : function (NURSE, DAY) --> SHIFT
+
+given disallowed : set of (NURSE, DAY, SHIFT)
+such that forAll (n,d,s) in disallowed . !(assignment(n,d) = s)
 
 
 $ --------------------------------------------------------------------------------
@@ -38,12 +39,16 @@ such that
 $ --------------------------------------------------------------------------------
 $ preferred shift type
 given preferred_shift_type : function NURSE --> SHIFT
-find preferred_shift_type_violation : int(0..M)
+find preferred_shift_type_violation : int(0..nb_weeks * 7 * nb_nurses)
 such that preferred_shift_type_violation =
-    sum([ toInt(!(assignment(n,d) = pref))
+    sum([ toInt((n,d) in defined(assignment) /\ assignment(n,d) != pref)
         | (n, pref) <- preferred_shift_type
         , d : DAY
         ])
+
+letting STEPS be 4
+find preferred_shift_type_violation_coarse : int(0..STEPS)
+such that preferred_shift_type_violation_coarse = STEPS * preferred_shift_type_violation / (nb_weeks * 7 * nb_nurses)
 
 
 
@@ -108,5 +113,9 @@ such that
     , (sk, bound) <- skills_lower_bound
     ]
 
+
+
+$ --------------------------------------------------------------------------------
+minimising preferred_shift_type_violation_coarse
 
 

@@ -1,10 +1,10 @@
 "use client";
-import Layout from "../../components/Layout";
+import SideLayout from "../../components/SideLayout";
 
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout>{children}</Layout>;
+  return <SideLayout>{children}</SideLayout>;
 }

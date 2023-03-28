@@ -17,10 +17,16 @@ const postSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      solver: "cadical", // this is optional
+      solver: "kissat", // this is optional
       model: model,
       data: JSON.stringify(req.body),
-      conjure_options: ["--number-of-solutions", "1"],
+      conjure_options: [
+        "--savilerow-options",
+        "-sat-sum-mdd",
+        "--channelling=no",
+        "-aai",
+        "--responses=2",
+      ],
     }),
   })
     .then((response) => response.json())
@@ -37,16 +43,13 @@ const postSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const getSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
   console.log("leJob:", req.query.jobid);
-  await fetch(
-    "https://demos.constraintmodelling.org/server/get",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ jobid: req.query.jobid }),
-    }
-  )
+  await fetch("https://demos.constraintmodelling.org/server/get", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ jobid: req.query.jobid }),
+  })
     .then((response) => response.json())
     .then((data) => {
       if (data) {

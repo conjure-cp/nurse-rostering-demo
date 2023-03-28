@@ -4,6 +4,7 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
+  Badge,
   Box,
   Button,
   ModalBody,
@@ -11,10 +12,13 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
 import useStaffList from "../../hooks/useStaffList";
-import { skillsToString } from "../../common/utilties";
+import { MdOutlineEvent } from "react-icons/md";
+import useModal from "../../hooks/useModal";
 
 const DisplayStaffModal = ({
   onModalClose,
@@ -27,6 +31,7 @@ const DisplayStaffModal = ({
 }) => {
   const { staffList, removeStaffMember } = useStaffList();
   const staffMember = staffList.find((staff) => staff.id === staffId);
+  const { ModalComponent, openModal } = useModal();
 
   const handleEditStaff = () => {
     setType("edit");
@@ -37,15 +42,27 @@ const DisplayStaffModal = ({
     removeStaffMember(staffId);
   };
 
+  const handleTimetableStaff = () => {
+    setType("timetable");
+  };
+
   return (
     <ModalContent>
       <ModalHeader>{staffMember && staffMember.name}</ModalHeader>
       <ModalCloseButton />
       <ModalBody>
         <form className={"flex flex-col gap-4"}>
-          <p>
-            <b>Skills:</b> {staffMember && skillsToString(staffMember.skills)}
-          </p>
+          <Box className={"flex justify-between gap-4"}>
+            <strong>Qualifications:</strong>
+            <Wrap>
+              {staffMember &&
+                staffMember.skills.map((skill, index) => (
+                  <WrapItem key={index}>
+                    <Badge size="lg">{skill}</Badge>
+                  </WrapItem>
+                ))}
+            </Wrap>
+          </Box>
           <Accordion allowToggle>
             <AccordionItem>
               <h2>
@@ -83,10 +100,18 @@ const DisplayStaffModal = ({
         <Button variant="ghost" color={"red"} onClick={handleDeleteStaff}>
           Delete
         </Button>
+        <Button
+          leftIcon={<MdOutlineEvent />}
+          variant="ghost"
+          onClick={handleTimetableStaff}
+        >
+          Timetable
+        </Button>
         <Button variant="outline" onClick={handleEditStaff}>
           Edit
         </Button>
       </ModalFooter>
+      <ModalComponent />
     </ModalContent>
   );
 };

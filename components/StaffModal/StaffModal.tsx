@@ -2,6 +2,7 @@ import { Modal, ModalOverlay } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import EditStaffModal from "./EditStaffModal";
 import DisplayStaffModal from "./DisplayStaffModal";
+import TimetableStaffModal from "./TimetableStaffModal";
 
 interface StaffModalI {
   staffId: string;
@@ -26,7 +27,9 @@ const StaffModal = ({
     <Modal isOpen={isModalOpen} onClose={onModalClose}>
       <ModalOverlay />
       {type === "edit" ? (
-        <EditStaffModal onModalClose={onModalClose} staffId={staffId}/>
+        <EditStaffModal onModalClose={onModalClose} staffId={staffId} />
+      ) : type === "timetable" ? (
+        <TimetableStaffModal staffId={staffId} />
       ) : (
         <DisplayStaffModal
           onModalClose={onModalClose}

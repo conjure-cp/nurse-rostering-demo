@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import weekday from "dayjs/plugin/weekday";
 import { ScheduleResponse } from "../components/Schedule";
+import { useRef } from "react";
 
 dayjs.extend(isToday);
 dayjs.extend(weekday);
@@ -27,6 +28,8 @@ export default function useSchedule() {
     status: "",
     schedules: [],
   };
+  const timeout = 10000; // Set a 60 seconds timeout
+  const polling = useRef(-1);
 
   async function fetcher<JSON = any>(args: RequestInfo): Promise<JSON> {
     const res = await fetch(args);
@@ -68,14 +71,16 @@ export default function useSchedule() {
       maximum_working_days_in_a_row: { [key: number]: number };
       nurse_skills: { [key: number]: number[] };
       skills_lower_bound: { [key: number]: number };
+      disallowed: [];
     } = {
       nb_nurses: staffList.length,
-      nb_weeks: 2, // Assuming a fixed number of weeks
+      nb_weeks: 4, // Assuming a fixed number of weeks
       nb_skills: uniqueSkills.size, // Calculate the number of unique skills
       preferred_shift_type: {},
       maximum_working_days_in_a_row: {},
       nurse_skills: {},
       skills_lower_bound: {}, // Assuming no lower bound
+      disallowed: [],
     };
 
     staffList.forEach((staffMember) => {
@@ -107,7 +112,8 @@ export default function useSchedule() {
     });
 
     Object.entries(skillList).forEach((skill) => {
-      payload.skills_lower_bound[newSkillEncoding[skill[0]]] = skill[1].minCount;
+      payload.skills_lower_bound[newSkillEncoding[skill[0]]] =
+        skill[1].minCount;
     });
 
     const options = {
@@ -129,38 +135,51 @@ export default function useSchedule() {
     return scheduleResponse;
   };
 
-
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
   const fetchSchedule = async (scheduleResponse: ScheduleResponse) => {
+    polling.current = scheduleResponse.jobid;
     let res = await axios.get("/api/calendar/schedule", {
       params: { jobid: scheduleResponse.jobid },
     });
-    while (res.data.status === "wait") {
+
+    let startTime = Date.now();
+    while (
+      res.data.status === "wait" &&
+      polling.current == scheduleResponse.jobid
+    ) {
+      if (Date.now() - startTime >= timeout) {
+        return ["timeout", []];
+      }
       await delay(1000); // Wait for 1 second
       res = await axios.get("/api/calendar/schedule", {
         params: { jobid: scheduleResponse.jobid },
       });
     }
+
+    if (!res.data.solution) {
+      return ["cancelled", []];
+    }
+
     if (res.data.solution.length > 0) {
       let converted = convertResponseToSchedule(
         res.data.solution[0].assignment,
         scheduleResponse
       );
-      setSchedule(converted);
+      setSchedule(converted[1]);
       return converted;
     }
-    return null;
+    return ["no-solution", []];
   };
 
   function convertResponseToSchedule(
     response: any[][],
     scheduleResponse: ScheduleResponse
-  ): Schedule[] {
+  ): [string, Schedule[]] {
     const today = dayjs();
     const startDate =
-      today.weekday() === 1 && today.isToday() ? today : today.weekday(8);
+      today.weekday() === 1 && today.isToday() ? today : today.weekday(1);
     const dayStartTime = [7, 0];
     const nightStartTime = [19, 0];
     const shiftDuration = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
@@ -172,8 +191,8 @@ export default function useSchedule() {
 
       const shiftDate = startDate.add(dayNumber - 1, "day");
       const startTime = shiftType === 1 ? dayStartTime : nightStartTime;
-      const start = shiftDate.hour(startTime[0]).minute(startTime[1]);
-      const end = start.add(shiftDuration, "millisecond");
+      const start = shiftDate.hour(startTime[0]).minute(startTime[1]).second(0); // Set seconds to 0
+      const end = start.clone().add(shiftDuration, "millisecond"); // Set seconds to 0
 
       return {
         id: `${staffId}-${dayNumber}-${shiftType}`,
@@ -182,7 +201,7 @@ export default function useSchedule() {
         end: end.format(),
       };
     });
-    return output;
+    return ["ok", output];
   }
 
   function invertObject(obj: { [key: string]: number }): {
@@ -204,5 +223,11 @@ export default function useSchedule() {
     return schedule;
   }
 
-  return { schedule, getSchedule, postSchedule, fetchSchedule };
+  return {
+    schedule,
+    setSchedule,
+    getSchedule,
+    postSchedule,
+    fetchSchedule,
+  };
 }

@@ -1,6 +1,6 @@
 //theme.ts
-import {extendTheme, withDefaultColorScheme} from "@chakra-ui/react";
-import {StyleFunctionProps} from "@chakra-ui/theme-tools";
+import { extendTheme, withDefaultColorScheme } from "@chakra-ui/react";
+import { StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 const config = {
   initialColorMode: "light",
@@ -10,6 +10,14 @@ const config = {
 const theme = extendTheme(
   {
     config,
+    components: {
+      Badge: {
+        baseStyle: {
+          paddingY: "3px",
+          paddingX: "8px",
+        },
+      },
+    },
     fonts: {
       heading: `'Inter', sans-serif`,
       body: `'Inter', sans-serif`,

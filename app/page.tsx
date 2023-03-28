@@ -1,10 +1,58 @@
 "use client";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Select } from "@chakra-ui/react";
 import Link from "next/link";
+import useStaffList from "../hooks/useStaffList";
+import { ChangeEvent, useState } from "react";
 
-const Home = () => {
+export default function Page() {
+  const { staffList } = useStaffList();
+
+  // Add state for the selected staff ID
+  const [selectedStaffId, setSelectedStaffId] = useState(
+    staffList.length > 0 ? staffList[0].id : ""
+  );
+
+  // Handle the change event for the Select component
+  const handleStaffChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedIndex = event.target.options.selectedIndex;
+    const id = event.target.options[selectedIndex].getAttribute("data-id");
+    setSelectedStaffId(id ? id : "");
+  };
+
   return (
     <div>
+      <div className={"flex gap-4 justify-between p-8 flex-col sm:flex-row"}>
+        <Link href={"/dashboard"}>
+          <Button size="lg" variant="solid">
+            Enter as Admin
+          </Button>
+        </Link>
+        <div className={"flex gap-4 w-[500px] w-fit"}>
+          <Select
+            size={"lg"}
+            disabled={staffList.length <= 0}
+            onChange={handleStaffChange}
+          >
+            {staffList.map((staff, index) => (
+              <option key={staff.id} data-id={staff.id}>
+                {staff.name}
+              </option>
+            ))}
+          </Select>
+          <Link href={"/staff/" + selectedStaffId}>
+            <Button
+              size="lg"
+              variant="outline"
+              color={staffList.length <= 0 ? "gray.400" : "purple.700"}
+              cursor={staffList.length <= 0 ? "not-allowed" : "pointer"}
+              disabled={staffList.length <= 0}
+              className={"w-[240px]"}
+            >
+              Enter as Staff Member
+            </Button>
+          </Link>
+        </div>
+      </div>
       <main className={"flex flex-col items-center justify-center h-screen"}>
         <Flex
           flexDirection={"column"}
@@ -45,11 +93,6 @@ const Home = () => {
               </h2>
             </Flex>
           </Flex>
-          <Link href={"/dashboard"}>
-            <Button size="lg" variant="outline">
-              Enter App
-            </Button>
-          </Link>
           <div className={"flex flex-col gap-4 shrink mx-8"}>
             <div>
               <h2 className={"font-bold"}>What is Lorem Ipsum?</h2>
@@ -85,6 +128,4 @@ const Home = () => {
       </main>
     </div>
   );
-};
-
-export default Home;
+}

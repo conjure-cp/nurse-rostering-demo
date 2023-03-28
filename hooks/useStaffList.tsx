@@ -51,6 +51,7 @@ export default function useStaffList() {
     });
   };
 
+
   const removeStaffMember = (id: string) => {
     const updatedList = staffList.filter(
       (staffMember) => staffMember.id !== id
@@ -83,6 +84,12 @@ export default function useStaffList() {
   };
 
   const getUpdatedSkillList = (id: string, skills: string[]) => {
+    // Add new skills to the skill list
+    const newSkills = skills.filter(skill => !skillList.hasOwnProperty(skill));
+    newSkills.forEach(skill => {
+      skillList[skill] = { count: 0, minCount: 0 };
+    });
+
     return Object.entries(skillList).reduce((acc, [skill, skillInfo]) => {
       const staffMemberSkillCount =
         staffList
@@ -97,16 +104,15 @@ export default function useStaffList() {
         ...acc,
         ...(updatedCount + updatedSkillCount > 0
           ? {
-              [skill]: {
-                count: updatedCount + updatedSkillCount,
-                minCount: 0,
-              },
-            }
+            [skill]: {
+              count: updatedCount + updatedSkillCount,
+              minCount: 0,
+            },
+          }
           : {}),
       };
     }, {});
   };
-
   const setSkillMinCount = (skillName: string, minCount: number) => {
     if (skillList[skillName]) {
       setSkillList({
