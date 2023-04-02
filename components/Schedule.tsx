@@ -113,7 +113,7 @@ const Schedule = () => {
       calendarRef.current.getApi().gotoDate(getStartDate());
     }
   };
-  const getStartDate = () => {
+  const getStartDate = useCallback(() => {
     const startDates = getSchedule().map((schedule) => {
       return schedule.start;
     });
@@ -127,7 +127,7 @@ const Schedule = () => {
     return dayjs().isBefore(dayjs(earliestStartDate))
       ? earliestStartDate
       : dayjs().toDate();
-  };
+  }, [getSchedule]);
 
   const handleEventClick = useCallback(
     (eventInfo: { event: { _def: { resourceIds: any[] }; start: string } }) => {
@@ -143,10 +143,13 @@ const Schedule = () => {
     [getStartDate]
   );
 
-  const handleResourceClick = useCallback((resourceId: string) => {
-    setClickedStaffId(resourceId);
-    onPersonalTimetableOpen();
-  }, []);
+  const handleResourceClick = useCallback(
+    (resourceId: string) => {
+      setClickedStaffId(resourceId);
+      onPersonalTimetableOpen();
+    },
+    [onPersonalTimetableOpen]
+  );
 
   const renderResourceLabelContent = (hookProps: {
     resource: {

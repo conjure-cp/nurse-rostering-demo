@@ -53,12 +53,12 @@ export default function Page() {
           </Link>
         </div>
       </div>
-      <main className={"flex flex-col items-center justify-center h-screen"}>
+      <main className={"flex flex-col items-center justify-center h-full"}>
         <Flex
           flexDirection={"column"}
           alignItems={"center"}
           className={"max-w-xl"}
-          gap={"8"}
+          gap={"16"}
         >
           <Flex gap={4}>
             <Flex flexDirection={"column"} justifyContent={"right"}>
@@ -93,34 +93,56 @@ export default function Page() {
               </h2>
             </Flex>
           </Flex>
-          <div className={"flex flex-col gap-4 shrink mx-8"}>
+          <div className={"flex flex-col gap-4 shrink mx-8 my-8"}>
             <div>
-              <h2 className={"font-bold"}>What is Lorem Ipsum?</h2>
+              <h2 className={"font-bold"}>
+                Managing nurse schedules has never been this easy!
+              </h2>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type
-                and scrambled it to make a type specimen book. It has survived
-                not only five centuries, but also the leap into electronic
-                typesetting, remaining essentially unchanged. It was popularised
-                in the 1960s with the release of Letraset sheets containing
-                Lorem Ipsum passages, and more recently with desktop publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.
+                Our revolutionary nurse rostering platform is designed to help
+                healthcare facilities of all sizes efficiently allocate shifts
+                to their nursing staff, ensuring optimal patient care and staff
+                satisfaction.{" "}
               </p>
             </div>
             <div>
-              <h2 className={"font-bold"}>Why do we use it?</h2>
+              <ul>
+                <li>
+                  <strong>Effortless Scheduling:</strong> Our powerful algorithm
+                  handles even the most complex scheduling constraints,
+                  balancing staff preferences, qualifications, and availability
+                  to create the perfect roster in seconds.
+                </li>
+                <li>
+                  <strong>User-Friendly Interface:</strong> Designed with ease
+                  of use in mind, our intuitive platform allows administrators
+                  and nurses to navigate and manage their schedules seamlessly,
+                  without any prior training or technical expertise.
+                </li>
+                <li>
+                  <strong>Accessibility for All:</strong> We are committed to
+                  inclusivity, and our platform adheres to WCAG 2.1
+                  accessibility standards, ensuring that everyone can enjoy its
+                  benefits.
+                </li>
+                <li>
+                  <strong>Responsive Design:</strong> Our platform is optimized
+                  for both desktop and mobile devices, providing a seamless
+                  experience for users on the go.
+                </li>
+                <li className={"mb-8"}>
+                  <strong>Cost-Free Solution:</strong> We believe in providing
+                  quality tools to healthcare professionals at no cost. Our
+                  nurse rostering platform is completely free to use and will
+                  remain so forever.
+                </li>
+              </ul>
               <p>
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using Content
-                here, content heremaking it look like readable English. Many
-                desktop publishing packages and web page editors now use Lorem
-                Ipsum as their default model text, and a search for lorem ipsum
-                will uncover many web sites still in their infancy. Various
-                versions have evolved over the years, sometimes by accident,
-                sometimes on purpose (injected humour and the like).
+                Start your journey to a more organized, efficient, and
+                stress-free healthcare environment today. Register now and
+                experience the future of nurse rostering, free for everyone,
+                forever. Nurse Rostering: Simplifying the Complex World of
+                Healthcare Scheduling.
               </p>
             </div>
           </div>

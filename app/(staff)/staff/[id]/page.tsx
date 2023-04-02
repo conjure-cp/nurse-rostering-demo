@@ -1,6 +1,6 @@
 "use client";
 
-import useStaffList from "../../../../hooks/useStaffList";
+import React from "react";
 import {
   Badge,
   Button,
@@ -9,15 +9,21 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import React from "react";
-import StaffTimetable from "../../../../components/StaffTimetable";
 import EditStaffModal from "../../../../components/StaffModal/EditStaffModal";
 import useSchedule from "../../../../hooks/useSchedule";
-// @ts-ignore
-import type { PageComponent } from "../../../../.next/types/app/page";
+import StaffTimetable from "../../../../components/StaffTimetable";
+import useStaffList from "../../../../hooks/useStaffList";
 
-const StaffPage: PageComponent = ({ params }: { params: { id: string } }) => {
-  const staffId = params.id;
+export async function generateStaticParams() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { staffList } = useStaffList();
+
+  return staffList.map((staff) => ({
+    id: staff.id,
+  }));
+}
+const StaffPage = ({ params }: { params: { id: string } }) => {
+  const staffId = params ? params.id : "";
   const { staffList } = useStaffList();
   const { schedule } = useSchedule();
 
