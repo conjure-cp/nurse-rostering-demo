@@ -28,7 +28,8 @@ export interface ScheduleResponse {
 
 const Schedule = () => {
   const { staffList, skillList } = useStaffList();
-  const { postSchedule, fetchSchedule, getSchedule } = useSchedule();
+  const { postSchedule, fetchSchedule, getSchedule, setSchedule } =
+    useSchedule();
   const { isOpen = false, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   const calendarRef = useRef(null);
@@ -129,20 +130,6 @@ const Schedule = () => {
       : dayjs().toDate();
   }, [getSchedule]);
 
-  const handleEventClick = useCallback(
-    (eventInfo: { event: { _def: { resourceIds: any[] }; start: string } }) => {
-      const eventDate = eventInfo.event.start;
-      const isNightShift =
-        dayjs(eventDate).format("HH:mm:ss") !== "07:00:00" ? 2 : 1;
-      const startDate = getStartDate();
-      const daysDifference = dayjs(eventDate).diff(startDate, "day");
-
-      const eventId = `$1-${daysDifference + 1}-${isNightShift}`;
-      alert(`Event ID: ${eventId}`);
-    },
-    [getStartDate]
-  );
-
   const handleResourceClick = useCallback(
     (resourceId: string) => {
       setClickedStaffId(resourceId);
@@ -185,9 +172,21 @@ const Schedule = () => {
   const handleEventDrop = (info) => {
     const { event, oldEvent } = info;
 
-    console.log(
-      `Event '${event.title}' moved from '${oldEvent.start}' to '${event.start}'`
-    );
+    // Update the schedule
+    const updatedSchedule = getSchedule().map((scheduleItem) => {
+      if (scheduleItem.id === event.id) {
+        return {
+          ...scheduleItem,
+          start: event.start,
+          end: event.end,
+          resourceId: scheduleItem.resourceId,
+        };
+      }
+      return scheduleItem;
+    });
+
+    // Save the updated schedule
+    setSchedule(updatedSchedule);
   };
 
   return (
@@ -212,7 +211,6 @@ const Schedule = () => {
           defaultTimedEventDuration={"12:00:00"}
           eventDrop={handleEventDrop}
           // @ts-ignore
-          eventClick={handleEventClick}
           firstDay={1}
           editable={true}
           resourceLabelContent={renderResourceLabelContent}

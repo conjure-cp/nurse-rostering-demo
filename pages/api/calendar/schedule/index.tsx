@@ -32,7 +32,6 @@ const postSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
     .then((response) => response.json())
     .then((data) => {
       if (data && data["jobid"]) {
-        console.log(data["jobid"]);
         return resSuccess(res, data["jobid"]);
       } else {
         return resNotFound(res);
@@ -42,7 +41,6 @@ const postSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const getSchedule = async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log("leJob:", req.query.jobid);
   await fetch("https://demos.constraintmodelling.org/server/get", {
     method: "POST",
     headers: {
