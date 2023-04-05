@@ -76,9 +76,14 @@ const Schedule = () => {
       staffList,
       skillList
     );
+
     onOpen();
     const res = await fetchSchedule(scheduleResponse);
+    if (!res) {
+      return;
+    }
     onClose();
+
     if (res[1].length === 0) {
       if (res[0] === "cancelled") {
         toast({

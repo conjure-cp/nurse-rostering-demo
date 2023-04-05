@@ -1,11 +1,10 @@
 import useLocalStorageState from "use-local-storage-state";
-import axios from "axios";
 import { StaffMember } from "./useStaffList";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import weekday from "dayjs/plugin/weekday";
 import { ScheduleResponse } from "../components/Schedule";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 dayjs.extend(isToday);
 dayjs.extend(weekday);
@@ -39,6 +38,73 @@ export default function useSchedule() {
   const [schedule, setSchedule] = useLocalStorageState<Schedule[]>("schedule", {
     defaultValue: [],
   });
+
+  const [fileContent, setFileContent] = useState("");
+
+  useEffect(() => {
+    async function fetchFile() {
+      const response = await fetch("/static/models/model.essence");
+      const content = await response.text();
+      setFileContent(content);
+    }
+
+    fetchFile();
+  }, []);
+
+  const server_getSchedule = async (jobid: number) => {
+    return await fetch("https://demos.constraintmodelling.org/server/get", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ jobid: jobid }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          return data;
+        } else {
+          return null;
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        return null;
+      });
+  };
+
+  const server_postSchedule = async (payload: string) => {
+    return await fetch("https://demos.constraintmodelling.org/server/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        solver: "kissat", // this is optional
+        model: fileContent,
+        data: payload,
+        conjure_options: [
+          "--savilerow-options",
+          "-sat-sum-mdd",
+          "--channelling=no",
+          "-aai",
+          "--responses=2",
+        ],
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data["jobid"]) {
+          return data["jobid"];
+        } else {
+          return null;
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        return null;
+      });
+  };
 
   const postSchedule = async (
     staffList: StaffMember[],
@@ -116,19 +182,9 @@ export default function useSchedule() {
         skill[1].minCount;
     });
 
-    const options = {
-      url: "/api/calendar/schedule",
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      data: JSON.stringify(payload),
-    };
-
-    const jobid = await axios(options);
+    const jobid = await server_postSchedule(JSON.stringify(payload));
     const scheduleResponse: ScheduleResponse = {
-      jobid: jobid.data,
+      jobid: jobid,
       staffEncoding: newStaffEncoding,
       skillEncoding: newSkillEncoding,
     };
@@ -140,31 +196,29 @@ export default function useSchedule() {
 
   const fetchSchedule = async (scheduleResponse: ScheduleResponse) => {
     polling.current = scheduleResponse.jobid;
-    let res = await axios.get("/api/calendar/schedule", {
-      params: { jobid: scheduleResponse.jobid },
-    });
+
+    let res = await server_getSchedule(scheduleResponse.jobid);
+
+    if (!res) {
+      return null;
+    }
 
     let startTime = Date.now();
-    while (
-      res.data.status === "wait" &&
-      polling.current == scheduleResponse.jobid
-    ) {
+    while (res.status === "wait" && polling.current == scheduleResponse.jobid) {
       if (Date.now() - startTime >= timeout) {
         return ["timeout", []];
       }
       await delay(1000); // Wait for 1 second
-      res = await axios.get("/api/calendar/schedule", {
-        params: { jobid: scheduleResponse.jobid },
-      });
+      res = await server_getSchedule(scheduleResponse.jobid);
     }
 
-    if (!res.data.solution) {
+    if (!res.solution) {
       return ["cancelled", []];
     }
 
-    if (res.data.solution.length > 0) {
+    if (res.solution.length > 0) {
       let converted = convertResponseToSchedule(
-        res.data.solution[0].assignment,
+        res.solution[0].assignment,
         scheduleResponse
       );
       setSchedule(converted[1]);

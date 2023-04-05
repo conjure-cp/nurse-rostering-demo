@@ -25,6 +25,7 @@
     "dotenv-cli": "^6.0.0",
     "encoding": "^0.1.13",
     "framer-motion": "^6",
+    "fs": "^0.0.1-security",
     "next": "^13.2.5-canary.20",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
