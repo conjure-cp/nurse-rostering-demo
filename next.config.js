@@ -11,7 +11,6 @@ const nextConfig = {
     };
     return config;
   },
-  output: "export",
   assetPrefix: "./",
 };
 

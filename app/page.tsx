@@ -1,5 +1,5 @@
 "use client";
-import { Button, Flex, Select } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import useStaffList from "../hooks/useStaffList";
 import { ChangeEvent, useState } from "react";
@@ -27,31 +27,7 @@ export default function Page() {
             Enter as Admin
           </Button>
         </Link>
-        <div className={"flex gap-4 w-[500px] w-fit"}>
-          <Select
-            size={"lg"}
-            disabled={staffList.length <= 0}
-            onChange={handleStaffChange}
-          >
-            {staffList.map((staff, index) => (
-              <option key={staff.id} data-id={staff.id}>
-                {staff.name}
-              </option>
-            ))}
-          </Select>
-          <Link href={"/staff/" + selectedStaffId}>
-            <Button
-              size="lg"
-              variant="outline"
-              color={staffList.length <= 0 ? "gray.400" : "purple.700"}
-              cursor={staffList.length <= 0 ? "not-allowed" : "pointer"}
-              disabled={staffList.length <= 0}
-              className={"w-[240px]"}
-            >
-              Enter as Staff Member
-            </Button>
-          </Link>
-        </div>
+        <div></div>
       </div>
       <main className={"flex flex-col items-center justify-center h-full"}>
         <Flex
