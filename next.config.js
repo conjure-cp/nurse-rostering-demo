@@ -11,7 +11,7 @@ const nextConfig = {
     };
     return config;
   },
-  assetPrefix: "./",
+  basePath: "/nurse-rostering",
 };
 
 module.exports = nextConfig;

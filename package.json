@@ -2,7 +2,7 @@
   "name": "NRP",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/nurse-rostering",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
