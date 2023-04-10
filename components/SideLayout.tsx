@@ -188,7 +188,7 @@ const NavItem = ({
           bg: "rgba(231, 233, 234, 0.5)",
         }}
         className={
-          path === href ? "bg-secondaryContainer text-primaryText" : ""
+          hrefIncludesPath(href, path) ? "bg-secondaryContainer text-primaryText" : ""
         }
         {...rest}
       >
@@ -197,12 +197,10 @@ const NavItem = ({
             mr="4"
             fontSize="16"
             _groupHover={{}}
-            as={
-              href.includes(getPageName(path).toLowerCase()) ? iconActive : icon
-            }
+            as={hrefIncludesPath(href, path) ? iconActive : icon}
           />
         )}
-        <p className={path === href ? "font-bold" : ""}>{children}</p>
+        <p className={hrefIncludesPath(href, path) ? "font-bold" : ""}>{children}</p>
       </Flex>
     </Link>
   );
@@ -276,6 +274,11 @@ function getPageName(url: string | null) {
   const upperCaseName = baseName.toUpperCase();
 
   return upperCaseName;
+}
+
+function hrefIncludesPath(href: string, path: string | null) {
+  if (!path) return false;
+  return href.includes(getPageName(path).toLowerCase());
 }
 
 export default SideLayout;
