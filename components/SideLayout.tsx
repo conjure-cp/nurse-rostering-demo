@@ -51,25 +51,25 @@ const LinkItems: Array<LinkItemProps> = [
     name: "Dashboard",
     icon: MdOutlineDashboard,
     iconActive: MdDashboard,
-    href: "/dashboard",
+    href: "/dashboard.html",
   },
   {
     name: "Staff",
     icon: MdOutlineGroups,
     iconActive: MdGroups,
-    href: "/staff",
+    href: "/staff.html",
   },
   {
     name: "Qualifications",
     icon: MdStarOutline,
     iconActive: MdStar,
-    href: "/qualifications",
+    href: "/qualifications.html",
   },
   {
     name: "Calendar",
     icon: MdOutlineEvent,
     iconActive: MdEvent,
-    href: "/calendar",
+    href: "/calendar.html",
   },
 ];
 
@@ -197,7 +197,9 @@ const NavItem = ({
             mr="4"
             fontSize="16"
             _groupHover={{}}
-            as={path === href ? iconActive : icon}
+            as={
+              href.includes(getPageName(path).toLowerCase()) ? iconActive : icon
+            }
           />
         )}
         <p className={path === href ? "font-bold" : ""}>{children}</p>
@@ -247,9 +249,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
           className={"uppercase font-bold"}
           justifyContent={"space-between"}
         >
-          <p className={"text-bottom pt-1"}>{path ? path.slice(1) : ""}</p>
+          <p className={"text-bottom pt-1"}>{path ? getPageName(path) : ""}</p>
         </Flex>
-        {path === "/staff" ? (
+        {getPageName(path) === "STAFF" ? (
           <IconButton
             className={"bg-primary text-white"}
             aria-label={"Add staff"}
@@ -266,5 +268,14 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
     </Flex>
   );
 };
+
+function getPageName(url: string | null) {
+  if (!url) return "";
+  const fileName = url.substring(url.lastIndexOf("/") + 1);
+  const baseName = fileName.split(".")[0];
+  const upperCaseName = baseName.toUpperCase();
+
+  return upperCaseName;
+}
 
 export default SideLayout;

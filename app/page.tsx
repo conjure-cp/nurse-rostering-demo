@@ -22,7 +22,7 @@ export default function Page() {
   return (
     <div>
       <div className={"flex gap-4 justify-between p-8 flex-col sm:flex-row"}>
-        <Link href={"/dashboard"}>
+        <Link href={"/dashboard.html"}>
           <Button size="lg" variant="solid">
             Enter as Admin
           </Button>

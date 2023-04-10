@@ -41,13 +41,13 @@ export default function useSchedule() {
 
   const [fileContent, setFileContent] = useState("");
 
-  useEffect(() => {
-    async function fetchFile() {
-      const response = await fetch("/static/models/model.essence");
-      const content = await response.text();
-      setFileContent(content);
-    }
+  async function fetchFile() {
+    const response = await fetch("./static/models/model.essence");
+    const content = await response.text();
+    setFileContent(content);
+  }
 
+  useEffect(() => {
     fetchFile();
   }, []);
 
@@ -74,6 +74,7 @@ export default function useSchedule() {
   };
 
   const server_postSchedule = async (payload: string) => {
+    await fetchFile();
     return await fetch("https://demos.constraintmodelling.org/server/submit", {
       method: "POST",
       headers: {
