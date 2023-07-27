@@ -60,13 +60,7 @@ This is the **homepage**
 
 ![Dashboard Page](screenshots/dashboard.png)
 
-This is the project page showing the project details
-
-### Schedule Page
-
-![Dashboard Page](screenshots/dashboard.png)
-
-This is the project page showing the project details
+This is the dashboard showing the scheduling
 
 ## Application Preview
 
@@ -86,4 +80,4 @@ Set the at least **1 staff** that must be on the clock at all times.
 
 ![Schedule](screenshots/schedule.gif)
 
-Schedule and get timetable
+Schedule and get the timetable
