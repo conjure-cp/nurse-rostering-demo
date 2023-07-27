@@ -45,3 +45,45 @@ Easy-to-follow instructions as the following link:
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## User Interface
+
+Below are some screenshots of the project UI:
+
+### Home Page
+
+![Home Page](screenshots/homepage.png)
+
+This is the **homepage**
+
+### Dashboard
+
+![Dashboard Page](screenshots/dashboard.png)
+
+This is the project page showing the project details
+
+### Schedule Page
+
+![Dashboard Page](screenshots/dashboard.png)
+
+This is the project page showing the project details
+
+## Application Preview
+
+### Create staff
+
+![Create Staff](screenshots/create-staff.gif)
+
+Create staff **Frank**, who preferred night shifts
+
+### Set qualification
+
+![Set Qualification](screenshots/set-qualification.gif)
+
+Set the at least **1 staff** that must be on the clock at all times.
+
+### Schedule
+
+![Schedule](screenshots/schedule.gif)
+
+Schedule and get timetable
