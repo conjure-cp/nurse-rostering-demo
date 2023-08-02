@@ -57,7 +57,7 @@ export default function useSchedule() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ jobid: jobid }),
+      body: JSON.stringify({ jobid: jobid, appName: 'nurse-rostering' }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -81,6 +81,7 @@ export default function useSchedule() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        appName: 'nurse-rostering',
         solver: "kissat", // this is optional
         model: fileContent,
         data: payload,
@@ -156,7 +157,7 @@ export default function useSchedule() {
       );
       const selectedShiftOption =
         preferredShiftTimeConstraint?.options[
-          preferredShiftTimeConstraint?.selectedIndex || 0
+        preferredShiftTimeConstraint?.selectedIndex || 0
         ] || "Day";
       payload.preferred_shift_type[newStaffEncoding[staffMember.id]] =
         selectedShiftOption === "Day" ? 1 : 2;
@@ -167,7 +168,7 @@ export default function useSchedule() {
       payload.maximum_working_days_in_a_row[newStaffEncoding[staffMember.id]] =
         parseInt(
           maxWorkingDaysConstraint?.options[
-            maxWorkingDaysConstraint?.selectedIndex || 0
+          maxWorkingDaysConstraint?.selectedIndex || 0
           ] || "0",
           10
         );
