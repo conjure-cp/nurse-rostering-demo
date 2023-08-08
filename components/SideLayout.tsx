@@ -51,25 +51,25 @@ const LinkItems: Array<LinkItemProps> = [
     name: "Dashboard",
     icon: MdOutlineDashboard,
     iconActive: MdDashboard,
-    href: "/dashboard.html",
+    href: "/dashboard",
   },
   {
     name: "Staff",
     icon: MdOutlineGroups,
     iconActive: MdGroups,
-    href: "/staff.html",
+    href: "/staff",
   },
   {
     name: "Qualifications",
     icon: MdStarOutline,
     iconActive: MdStar,
-    href: "/qualifications.html",
+    href: "/qualifications",
   },
   {
     name: "Calendar",
     icon: MdOutlineEvent,
     iconActive: MdEvent,
-    href: "/calendar.html",
+    href: "/calendar",
   },
 ];
 
