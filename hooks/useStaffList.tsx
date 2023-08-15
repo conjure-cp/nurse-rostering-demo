@@ -87,7 +87,12 @@ export default function useStaffList() {
     // Add new skills to the skill list
     const newSkills = skills.filter(skill => !skillList.hasOwnProperty(skill));
     newSkills.forEach(skill => {
-      skillList[skill] = { count: 0, minCount: 0 };
+      //TODO:Mutating state directly
+      // use the state's setter function (setSkillList)
+      skillList[skill] = { 
+        count: 0, 
+        minCount: 0 
+      };
     });
 
     return Object.entries(skillList).reduce((acc, [skill, skillInfo]) => {

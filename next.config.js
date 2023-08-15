@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -13,7 +15,7 @@ const nextConfig = {
     return config;
   },
   //assetPrefix: "./",
-  basePath: "/nurse-rostering",
+  basePath: isProd ? '/nurse-rostering' : ''
 };
 
 module.exports = nextConfig;
