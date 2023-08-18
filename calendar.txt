@@ -1,5 +1,5 @@
 1:HL["/nurse-rostering/_next/static/css/00a1980e2d157765.css",{"as":"style"}]
-0:["-bhf-g7ovI9pX3Auj982r",[[["",{"children":["(main)",{"children":["calendar",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/nurse-rostering/_next/static/css/00a1980e2d157765.css","precedence":"next"}]],"$L3"]]]]
+0:["fWgotAi4Ds94JBCH876B1",[[["",{"children":["(main)",{"children":["calendar",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/nurse-rostering/_next/static/css/00a1980e2d157765.css","precedence":"next"}]],"$L3"]]]]
 4:I{"id":2266,"chunks":["854:static/chunks/854-64531a51c0e272cc.js","437:static/chunks/437-6affbbde01e65f7d.js","796:static/chunks/796-f7bd577ab4b17d82.js","119:static/chunks/119-63ae0286e9109178.js","185:static/chunks/app/layout-f6693a1190193f4d.js"],"name":"","async":false}
 5:I{"id":7767,"chunks":["272:static/chunks/webpack-481adc1568e6181a.js","971:static/chunks/fd9d1056-d5b503c7d9ba3b92.js","596:static/chunks/596-18c06466fb750e14.js"],"name":"default","async":false}
 6:I{"id":8225,"chunks":["854:static/chunks/854-64531a51c0e272cc.js","555:static/chunks/app/loading-cea587b817967520.js"],"name":"","async":false}
