@@ -14,8 +14,8 @@ const nextConfig = {
     };
     return config;
   },
-  basePath:    isProd ? '/nurse-rostering' : '',
-  assetPrefix: isProd ? '/nurse-rostering' : ''
+  basePath:    isProd ? '/nurse-rostering-demo' : '',
+  assetPrefix: isProd ? '/nurse-rostering-demo' : ''
 };
 
 module.exports = nextConfig;
