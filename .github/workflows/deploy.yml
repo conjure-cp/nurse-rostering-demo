@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to Github Pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,8 +26,7 @@ jobs:
           touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
-        # https://github.com/JamesIves/github-pages-deploy-action
-        uses: JamesIves/github-pages-deploy-action@v4.4.3    
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           branch: gh-pages
           folder: out
