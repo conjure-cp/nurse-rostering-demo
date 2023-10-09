@@ -52,7 +52,7 @@ export default function useSchedule() {
   }, []);
 
   const server_getSchedule = async (jobid: number) => {
-    return await fetch("https://demos.constraintmodelling.org/server/get", {
+    return await fetch("https://conjure-aas.cs.st-andrews.ac.uk/get", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function useSchedule() {
 
   const server_postSchedule = async (payload: string) => {
     await fetchFile();
-    return await fetch("https://demos.constraintmodelling.org/server/submit", {
+    return await fetch("https://conjure-aas.cs.st-andrews.ac.uk/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
