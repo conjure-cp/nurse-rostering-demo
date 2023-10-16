@@ -3,7 +3,7 @@ name: Check for outdated NPM dependencies
 on:
   push:
     branches:
-      - main                  # Run after every commit pushed to the main branch
+      - fixing-ci              # Run after every commit pushed to the main branch
   schedule:
     - cron: '0 0 * * 0'       # Run once a week on Sunday at midnight
 
@@ -40,6 +40,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const { execSync } = require('child_process');
+          console.log(Object.keys(github));  # Debugging: Check available methods on 'github'
           try {
             execSync('npm update');
             execSync('git config --global user.name "GitHub Actions"');
