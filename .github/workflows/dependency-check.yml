@@ -40,7 +40,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const { execSync } = require('child_process');
-          console.log(Object.keys(github));  # Debugging: Check available methods on 'github'
+          
           try {
             execSync('npm update');
             execSync('git config --global user.name "GitHub Actions"');
