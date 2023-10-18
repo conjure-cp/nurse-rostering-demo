@@ -25,7 +25,7 @@
     "dayjs": "^1.11.7",
     "dotenv-cli": "^6.0.0",
     "encoding": "^0.1.13",
-    "framer-motion": "^6",
+    "framer-motion": "^10",
     "fs": "^0.0.1-security",
     "next": "^13.4.13",
     "prettier": "^2.7.1",
