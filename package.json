@@ -34,7 +34,7 @@
     "react-icons": "^4.6.0",
     "sass": "^1.56.1",
     "swr": "^2.1.0",
-    "use-local-storage-state": "^18.1.2",
+    "use-local-storage-state": "^19.1.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
