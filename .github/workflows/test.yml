@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: Build test
 
 on:
   workflow_dispatch:        # can be triggered manually
