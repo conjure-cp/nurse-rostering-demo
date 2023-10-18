@@ -20,6 +20,5 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm run export
           # creates a .nojekyll file in the out directory to tell GitHub Pages not to treat the site as a Jekyll project.
           touch out/.nojekyll
