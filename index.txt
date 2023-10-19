@@ -1,5 +1,5 @@
 1:HL["/nurse-rostering-demo/_next/static/css/4dce64e402dbf6fa.css","style",{"crossOrigin":""}]
-0:["T2UC9fbk04j4VjZg59R2y",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/nurse-rostering-demo/_next/static/css/4dce64e402dbf6fa.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["wCx56wlNckMllKfmDgZ85",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/nurse-rostering-demo/_next/static/css/4dce64e402dbf6fa.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[9195,["57","static/chunks/57-96de8adeaaa75090.js","109","static/chunks/109-8d54fe22f63311ee.js","513","static/chunks/513-d3147b2ca9017779.js","493","static/chunks/493-1252777ceecdce0e.js","659","static/chunks/659-28d2112a3042f937.js","185","static/chunks/app/layout-869755c3c789c2c5.js"],""]
 5:I[6954,[],""]
 6:I[648,["57","static/chunks/57-96de8adeaaa75090.js","109","static/chunks/109-8d54fe22f63311ee.js","555","static/chunks/app/loading-ed445011f2435a90.js"],""]
