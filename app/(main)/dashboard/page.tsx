@@ -139,7 +139,7 @@ const Dashboard = () => {
           "flex ml-1 flex-wrap md:flex-nowrap items-center justify-around h-full w-full gap-4 md:ml-5"
         }
       >
-        <div className="flex flex-col md:flex-row justify-between w-full h-full gap-4">
+        <div className="flex flex-col lg:flex-row justify-between w-full h-full gap-4">
           <StatGroup
             className={
               "hover-shadow flex bg-primaryContainer rounded-xl w-full flex-grow"
