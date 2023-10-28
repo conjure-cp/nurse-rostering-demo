@@ -104,7 +104,7 @@ function SidebarWithHeader({ children }: SidebarWithHeaderI) {
         <MobileNav onOpen={onOpen} />
       </Flex>
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
+          {children}
       </Box>
     </Box>
   );
@@ -125,13 +125,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Link href={"/"}>
-          <img
-            src=""
-            alt="NRP"
-            className={"w-36 text-3xl font-bold pl-2"}
-            draggable={false}
-          />
+        <Link className={"w-36 text-3xl font-bold pl-2"} draggable={false} href={"/"}>
+            NRP
         </Link>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>

@@ -1,4 +1,5 @@
 "use client";
+import { Box } from "@chakra-ui/react";
 import SideLayout from "../../components/SideLayout";
 
 export default function MainLayout({
@@ -6,5 +7,11 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <SideLayout>{children}</SideLayout>;
+  return (
+    <Box zIndex={1}>
+      <SideLayout>
+          {children}
+        </SideLayout>
+    </Box>
+  );
 }

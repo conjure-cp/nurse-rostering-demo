@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        surface: "#FFFBFF",
+        surface: "#FFF6FF",
         surface1: "#6750A40D",
         surface2: "#6750A414",
         surface3: "#6750A41C",
@@ -29,6 +29,7 @@ module.exports = {
         errorText: "#410E0B",
         dark: "#1C1B1F",
         outline: "#79747E",
+        banner:"#F9F0FF"
       },
     }
   },
