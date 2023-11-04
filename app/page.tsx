@@ -36,11 +36,21 @@ export default function Page() {
           className={"max-w-xl"}
           gap={"16"}
         >
+          <Flex gap={4}>
+            <Flex flexDirection={"column"} justifyContent={"right"}>
+              <h1 className={"text-4xl md:text-6xl text-right font-bold"}>
+                NURSE
+              </h1>
+              <h1 className={"text-4xl md:text-6xl text-right font-bold"}>
+                ROSTERING
+              </h1>
+            </Flex>
+          </Flex>
           <div className={"flex flex-col gap-4 shrink mx-8 my-8"}>
             <div>
-              <h2 className={"font-bold"}>
-                Nurse Rostering Demog
-              </h2>
+              <h1 className={"font-bold"}>
+                Nurse Rostering Demo Application
+              </h1>
               <p>
                 This is a demo application for a simplified version of the nurse rostering problem.
               </p>
@@ -57,6 +67,6 @@ export default function Page() {
           </div>
         </Flex>
       </main>
-    </div>
+    </div >
   );
 }
