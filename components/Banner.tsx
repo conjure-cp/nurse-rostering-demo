@@ -119,19 +119,18 @@ const Banner: React.FC = () => {
           
           {/* 2.1 Additional Links*/}
            <div className="row-start-4 col-span-1 flex flex-col items-stretch">
-            <span className="text-lg font-semibold mb-2">Additional Links</span>
-            <a href={`https://github.com/${REPO_URL}`} className="mb-1 hover:underline">GitHub</a>
+            <span className="text-lg font-semibold mb-2">Links</span>
+            <a href={`https://github.com/${REPO_URL}`} className="mb-1 hover:underline">Source code</a>
             <a href={`https://github.com/${REPO_URL}#readme`} className="mb-1 hover:underline">Documentation</a>
-            <a href={`https://github.com/${REPO_URL}#application-preview`} className="mb-1 hover:underline">Demo</a>
+            <a href={`https://github.com/${REPO_URL}#application-preview`} className="mb-1 hover:underline">Example Screenshots</a>
           </div>
 
             
           {/* 2.2 Source Code Info Section */}
-           <div className="row-start-4 col-span-1 flex flex-col items-stretch">
-              <span className="text-lg font-semibold mb-2">Demo</span>
-              <a href={`https://github.com/${REPO_URL}/blob/main/screenshots/create-staff.gif`} className="mb-1 hover:underline">Create staff</a>
-              <a href={`https://github.com/${REPO_URL}/blob/main/screenshots/set-qualification.gif`} className="mb-1 hover:underline">Set qualification</a>
-              <a href={`https://github.com/${REPO_URL}/blob/main/screenshots/schedule.gif`} className="mb-1 hover:underline">Schedule</a>
+          <div className="row-start-4 col-span-1 flex flex-col items-stretch">
+              <span className="text-lg font-semibold mb-2">Contact us</span>
+                {/* <p className="text-sm">If you find any issues, please submit them through the following link:</p> */}
+                <a href={`https://github.com/${REPO_URL}/issues/new`} className="hover:underline">Report an Issue</a>
           </div>
 
           {/* Horizontal line */}

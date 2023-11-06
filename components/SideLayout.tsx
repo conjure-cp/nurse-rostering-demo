@@ -120,8 +120,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       transition="500ms ease"
       w={{ base: "full", md: 60 }}
       pos="fixed"
-      h={"100%"}
-      sx={{ height: "calc(100vh - 2rem)" }}
+      h={"75%"}
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
