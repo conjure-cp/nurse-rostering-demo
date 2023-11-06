@@ -11,7 +11,7 @@ letting SKILL be domain int(1..nb_skills)
 find assignment : function (NURSE, DAY) --> SHIFT
 
 given disallowed : set of (NURSE, DAY, SHIFT)
-such that forAll (n,d,s) in disallowed . !(assignment(n,d) = s)
+such that forAll (n,d,s) in disallowed . !(assignment((n,d)) = s)
 
 
 $ --------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ such that
 $ --------------------------------------------------------------------------------
 $ no day shift following a night shift the day before
 such that
-    [ !(assignment(n, d-1) = 2 /\ assignment(n, d) = 1)
+    [ !(assignment((n, d-1)) = 2 /\ assignment((n, d)) = 1)
     | n : NURSE
     , d : DAY, d > 1
     ]
@@ -41,7 +41,7 @@ $ preferred shift type
 given preferred_shift_type : function NURSE --> SHIFT
 find preferred_shift_type_violation : int(0..nb_weeks * 7 * nb_nurses)
 such that preferred_shift_type_violation =
-    sum([ toInt((n,d) in defined(assignment) /\ assignment(n,d) != pref)
+    sum([ toInt((n,d) in defined(assignment) /\ assignment((n, d)) != pref)
         | (n, pref) <- preferred_shift_type
         , d : DAY
         ])
@@ -57,20 +57,20 @@ $ on a given day, how many days has this nurse been working in a row
 find working_in_a_row : function (total) (NURSE, DAY) --> int(0..nb_weeks*7)
 such that
     [ !((n, d) in defined(assignment))              $ not working today
-      -> working_in_a_row(n,d) = 0
+      -> working_in_a_row((n,d)) = 0
     | n : NURSE
     , d : DAY
     ]
 such that
     [ (n, d) in defined(assignment)                 $ working today
-      -> working_in_a_row(n,d) > 0
+      -> working_in_a_row((n,d)) > 0
     | n : NURSE
     , d : DAY
     ]
 such that
     [ !((n, d-1) in defined(assignment)) /\         $ was not working yesterday
       (n, d) in defined(assignment)                 $ is working today
-      -> working_in_a_row(n,d) = 1
+      -> working_in_a_row((n,d)) = 1
     | n : NURSE
     , d : DAY
     , d > 1
@@ -78,7 +78,7 @@ such that
 such that
     [ (n, d-1) in defined(assignment) /\            $ was working yesterday
       (n, d) in defined(assignment)                 $ is working today
-      -> working_in_a_row(n,d) = working_in_a_row(n,d-1) + 1
+      -> working_in_a_row((n,d)) = working_in_a_row((n,d-1)) + 1
     | n : NURSE
     , d : DAY
     , d > 1
@@ -86,7 +86,7 @@ such that
 
 given maximum_working_days_in_a_row : function (total) NURSE --> int
 such that
-    [ working_in_a_row(n,d) <= maximum_working_days_in_a_row(n)
+    [ working_in_a_row((n,d)) <= maximum_working_days_in_a_row(n)
     | n : NURSE
     , d : DAY
     ]
@@ -100,14 +100,14 @@ given skills_lower_bound : function SKILL --> int
 
 find number_with_skill : function (total) (DAY, SHIFT, SKILL) --> int(0..nb_nurses)
 such that
-    [ number_with_skill(d,sh,sk) = sum([ toInt(assignment(n,d) = sh) | n : NURSE, sk in nurse_skills(n)])
+    [ number_with_skill((d,sh,sk)) = sum([ toInt(assignment((n, d)) = sh) | n : NURSE, sk in nurse_skills(n)])
     | d : DAY
     , sh : SHIFT
     , sk : SKILL
     ]
 
 such that
-    [ number_with_skill(d,sh,sk) >= bound
+    [ number_with_skill((d,sh,sk)) >= bound
     | d : DAY
     , sh : SHIFT
     , (sk, bound) <- skills_lower_bound
