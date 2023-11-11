@@ -45,85 +45,28 @@ export default function Page() {
                 ROSTERING
               </h1>
             </Flex>
-            <Flex flexDirection={"column"} justifyContent={"left"}>
-              <h2
-                className={
-                  "font-thin mb-1 md:mb-4 max-w-80 text-left text-md md:text-xl"
-                }
-              >
-                free.
-              </h2>
-              <h2
-                className={
-                  "font-thin mb-1 md:mb-4 max-w-80 text-left text-md md:text-xl"
-                }
-              >
-                for everyone.
-              </h2>
-              <h2
-                className={
-                  "font-thin mb-1 md:mb-4 max-w-80 text-left text-md md:text-xl"
-                }
-              >
-                forever.
-              </h2>
-            </Flex>
           </Flex>
           <div className={"flex flex-col gap-4 shrink mx-8 my-8"}>
             <div>
-              <h2 className={"font-bold"}>
-                Managing nurse schedules has never been this easy!
-              </h2>
+              <h1 className={"font-bold"}>
+                Nurse Rostering Demo Application
+              </h1>
               <p>
-                Our revolutionary nurse rostering platform is designed to help
-                healthcare facilities of all sizes efficiently allocate shifts
-                to their nursing staff, ensuring optimal patient care and staff
-                satisfaction.{" "}
+                This is a demo application for a simplified version of the nurse rostering problem.
               </p>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <strong>Effortless Scheduling:</strong> Our powerful algorithm
-                  handles even the most complex scheduling constraints,
-                  balancing staff preferences, qualifications, and availability
-                  to create the perfect roster in seconds.
-                </li>
-                <li>
-                  <strong>User-Friendly Interface:</strong> Designed with ease
-                  of use in mind, our intuitive platform allows administrators
-                  and nurses to navigate and manage their schedules seamlessly,
-                  without any prior training or technical expertise.
-                </li>
-                <li>
-                  <strong>Accessibility for All:</strong> We are committed to
-                  inclusivity, and our platform adheres to WCAG 2.1
-                  accessibility standards, ensuring that everyone can enjoy its
-                  benefits.
-                </li>
-                <li>
-                  <strong>Responsive Design:</strong> Our platform is optimized
-                  for both desktop and mobile devices, providing a seamless
-                  experience for users on the go.
-                </li>
-                <li className={"mb-8"}>
-                  <strong>Cost-Free Solution:</strong> We believe in providing
-                  quality tools to healthcare professionals at no cost. Our
-                  nurse rostering platform is completely free to use and will
-                  remain so forever.
-                </li>
-              </ul>
               <p>
-                Start your journey to a more organized, efficient, and
-                stress-free healthcare environment today. Register now and
-                experience the future of nurse rostering, free for everyone,
-                forever. Nurse Rostering: Simplifying the Complex World of
-                Healthcare Scheduling.
+                The application can be used to create a list of staff members, input their qualifications and various constratins regarding the roster.
+              </p>
+              <p>
+                <a href="https://conjure-cp.github.io/">Conjure</a> is then used to find a solution.
+              </p>
+              <p>
+                The application allows exporting the data and importing it again later, which can be useful to save your data locally. Your data will not be saved on a server in a persistent way.
               </p>
             </div>
           </div>
         </Flex>
       </main>
-    </div>
+    </div >
   );
 }
