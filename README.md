@@ -1,7 +1,7 @@
 
 ## Getting Started
 
-Fist, install the dependencies:
+First, install the dependencies:
 
 ```bash
 yarn install
@@ -36,7 +36,7 @@ This is the **homepage**
 
 This is the dashboard showing the scheduling
 
-## Application Preview
+## Example Screenshots
 
 ### Create staff
 
