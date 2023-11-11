@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Divider } from '@chakra-ui/react'
+import bannerConfig from '../common/config/banner';
 
 const REPO_URL = 'conjure-cp/nurse-rostering-demo'
 
 interface Contributor {
     login: string;
-  }
+}
+
   
 const Banner: React.FC = () => {
     const [contributors, setContributors] = useState<string[]>([]);
     const [lastUpdated , setLastUpdated ] = useState<string>('');
+
+    const {
+      logo,
+      title,
+      author,
+      description,
+      author_github,
+      repo_url,
+      github,
+      license
+    } = bannerConfig;
   
     useEffect(() => {
       fetch(`https://api.github.com/repos/${REPO_URL}/contributors`)
@@ -81,12 +94,10 @@ const Banner: React.FC = () => {
                     </a>
                   </div>
               </div>
-              <div className="text-2xl font-bold tracking-wide mb-4 m-1">Nurse Rostering</div>
+              <div className="text-2xl font-bold tracking-wide mb-4 m-1">{title}</div>
              
-              <div className="mb-2 m-1">This project is created as a dissertation project at the University of St Andrews to simplify and optimise nurse scheduling in healthcare facilities.</div>
-              <div className="mb-2 m-1">License: Mozilla Public License 2.0</div>
-              {/* Last Updated */}
-              <div className="text-sm mb-2 m-1"> Last Updated: {lastUpdated} </div>
+              <div className="mb-2 m-1">{description}</div>
+              <div className="mb-2 m-1">License: {license}</div>
             </div>
 
           {/* Horizontal line */}
@@ -96,41 +107,41 @@ const Banner: React.FC = () => {
           <div className="row-start-2 col-span-1 flex flex-col items-stretch">
             <span className="text-lg font-semibold mb-2">Project Author</span>
             <div className="grid grid-cols-2 grid-flow-col gap-2 overflow-auto"> 
-              <a href={`https://github.com/Aldiyazov`} className="mb-1 hover:underline" >Aldiyar Ablyazov</a>
+              <a href={author_github} className="mb-1 hover:underline" >{author}</a>
             </div>
           </div>
 
            {/* 1.2 Project Contributors */}
           <div className="row-start-2 col-span-2 flex flex-col items-stretch">
             <span className="text-lg font-semibold mb-2">Project Contributors</span>
-            <div className="grid grid-cols-2 grid-flow-col gap-2 overflow-auto"> 
-            {chunkedContributors.map((chunk, chunkIndex) => (
-              <div key={`chunk-${chunkIndex}`} className="row-span-1 col-span-1 flex flex-col items-start">
-                {chunk.map((contributor, index) => (
-                  <a key={index} href={`https://github.com/${contributor}`} className="mb-1 hover:underline">{contributor}</a>
+              <p className="text-sm">
+                {contributors.map((contributor, index) => (
+                  <a key={index} 
+                    href={`https://github.com/${contributor}`} 
+                    className="mb-1 hover:underline pr-4">
+                    {contributor}
+                  </a>
                 ))}
-              </div>
-            ))}
-            </div>
+              </p>
           </div>
           
           {/* Horizontal line */}
           <Divider className='col-span-2' />
           
-          {/* 2.1 Additional Links*/}
-           <div className="row-start-4 col-span-1 flex flex-col items-stretch">
+          {/* 2.1 Links*/}
+          <div className="row-start-4 col-span-1 flex flex-col items-stretch">
             <span className="text-lg font-semibold mb-2">Links</span>
-            <a href={`https://github.com/${REPO_URL}`} className="mb-1 hover:underline">Source code</a>
-            <a href={`https://github.com/${REPO_URL}#readme`} className="mb-1 hover:underline">Documentation</a>
-            <a href={`https://github.com/${REPO_URL}#application-preview`} className="mb-1 hover:underline">Example Screenshots</a>
+            <a href={`${github}`} className="mb-1 hover:underline">Source code</a>
+            <a href={`${github}#readme`} className="mb-1 hover:underline">Documentation</a>
+            <a href={`${github}#application-preview`} className="mb-1 hover:underline">Example Screenshots</a>
           </div>
 
             
           {/* 2.2 Source Code Info Section */}
-          <div className="row-start-4 col-span-1 flex flex-col items-stretch">
+           <div className="row-start-4 col-span-1 flex flex-col items-stretch">
               <span className="text-lg font-semibold mb-2">Contact us</span>
                 {/* <p className="text-sm">If you find any issues, please submit them through the following link:</p> */}
-                <a href={`https://github.com/${REPO_URL}/issues/new`} className="hover:underline">Report an Issue</a>
+                <a href={`${github}/issues/new`} className="hover:underline">Report an Issue</a>
           </div>
 
           {/* Horizontal line */}

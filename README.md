@@ -20,10 +20,6 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## License
-
-This project is licensed under the Mozilla Public License 2.0. For full license information, please see the [LICENSE](./LICENSE) file in the repository.
-
 ## User Interface
 
 Below are some screenshots of the project UI:
@@ -60,3 +56,6 @@ Set the at least **1 staff** that must be on the clock at all times.
 
 Schedule and get the timetable
 
+## License
+
+This project is licensed under the Mozilla Public License 2.0. For full license information, please see the [LICENSE](./LICENSE) file in the repository.
