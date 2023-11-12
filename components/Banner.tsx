@@ -133,7 +133,7 @@ const Banner: React.FC = () => {
             <span className="text-lg font-semibold mb-2">Links</span>
             <a href={`${github}`} className="mb-1 hover:underline">Source code</a>
             <a href={`${github}#readme`} className="mb-1 hover:underline">Documentation</a>
-            <a href={`${github}#application-preview`} className="mb-1 hover:underline">Example Screenshots</a>
+            <a href={`${github}#user-interface`} className="mb-1 hover:underline">User Interface</a>
           </div>
 
             
