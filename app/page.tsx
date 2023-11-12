@@ -20,7 +20,7 @@ export default function Page() {
   };
 
   return (
-    <div>
+    <div className="bg-surface m-4 rounded-xl"> 
       <div className={"flex gap-4 justify-between p-8 flex-col sm:flex-row"}>
         <Link href={"/dashboard"}>
           <Button size="lg" variant="solid">
