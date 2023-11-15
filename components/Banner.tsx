@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
-import Image from 'next/image'
 import { Divider } from '@chakra-ui/react'
 import bannerConfig from '../common/config/banner';
 
@@ -89,7 +87,7 @@ const Banner: React.FC = () => {
           <div className="col-span-2 row-span-5 flex flex-col items-start p-4">
               {/* Logo */}
               <div className="flex items-center m-1">
-                 <Image src={`/static/images/conjure-cp-logo.png`} alt="conjure-cp" className="w-16 h-16 " />
+                  <img src={`${process.env.ASSET_PREFIX || ''}/static/images/conjure-cp-logo.png`} alt="conjure-cp" className="w-16 h-16 " />
                   <div className="text-xl font-semibold ml-4">
                     <a href="https://github.com/conjure-cp" target="_blank" rel="noopener noreferrer" className="hover:underline">
                       conjure-cp
