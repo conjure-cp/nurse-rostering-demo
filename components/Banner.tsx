@@ -51,7 +51,7 @@ const Banner: React.FC = () => {
       chunkedContributors.push(contributors.slice(i, i + chunkSize));
     }
 
-    console.log(process.env.ASSET_PREFIX)
+    console.log(process.env.NEXT_PUBLIC_ASSET_PREFIX)
 
     return (
       <div className="h-full p-4 m-4 bg-banner rounded-xl">
@@ -67,7 +67,7 @@ const Banner: React.FC = () => {
            {/* 1. Logo */}
           <div className="col-span-2 row-span-5 flex flex-col items-start p-4">
               <div className="flex items-center m-1">
-                  <img src={`${process.env.ASSET_PREFIX ?? ''}/static/images/conjure-cp-logo.png`} alt="conjure-cp" className="w-16 h-16 " />
+                  <img src={`${process.env.NEXT_PUBLIC_ASSET_PREFIX ?? ''}/static/images/conjure-cp-logo.png`} alt="conjure-cp" className="w-16 h-16 " />
         
                   <div className="text-xl font-semibold ml-4">
                     <a href="https://github.com/conjure-cp" target="_blank" rel="noopener noreferrer" className="hover:underline">
