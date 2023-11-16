@@ -51,8 +51,6 @@ const Banner: React.FC = () => {
       chunkedContributors.push(contributors.slice(i, i + chunkSize));
     }
 
-    console.log(process.env.NEXT_PUBLIC_ASSET_PREFIX)
-
     return (
       <div className="h-full p-4 m-4 bg-banner rounded-xl">
         {/* 
