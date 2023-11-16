@@ -51,6 +51,8 @@ const Banner: React.FC = () => {
       chunkedContributors.push(contributors.slice(i, i + chunkSize));
     }
 
+    console.log(process.env.ASSET_PREFIX)
+
     return (
       <div className="h-full p-4 m-4 bg-banner rounded-xl">
         {/* 
@@ -60,34 +62,13 @@ const Banner: React.FC = () => {
             Padding     : 'p-4' sets padding of 4 units on all sides.
         */}
         
-          {/* 
-            Flex Container
-              Container   : 'container' sets the max-width to the designed container width.
-              Margin Auto : 'm-auto' centers the container horizontally.
-              Grid Layout: The 'grid grid-cols-5 grid-flow-col-dense gap-2' classes are used to set up a grid layout. This replaces the previous flex layout ('flex flex-row').
-              Grid Columns: 'grid-cols-5' specifies that the grid should have 5 columns.
-              Column Flow: 'grid-flow-col-dense' tries to fill in earlier columns before adding more columns to the layout.
-              Grid Gap: 'gap-2' sets the grid gap between columns to 2 units.
-              Responsive  : md:grid-cols-4 TODO
-          */}
         <div className=" container m-auto grid grid-cols-5 grid-flow-col-dense gap-2"> 
 
-           {/* 
-            1 Logo
-              Flex-Col: 'flex flex-col' enables flex layout and arranges children in a column.
-              Column Span: 'col-span-2' spans the div across 2 columns of the grid.
-              Row Span: 'row-span-5' spans the div across 5 rows of the grid.
-              Alignment: 'items-start' aligns the flex items to the start of the container.
-              Padding: 'p-4' sets padding of 4 units on all sides.
-              Text Style: 
-                - 'text-lg' sets the text size to large,
-                - 'font-semibold' makes the text semi-bold,
-                - 'mb-2' adds a margin-bottom of 2 units to the span elements inside.
-          */}
+           {/* 1. Logo */}
           <div className="col-span-2 row-span-5 flex flex-col items-start p-4">
-              {/* Logo */}
               <div className="flex items-center m-1">
-                  <img src={`${process.env.ASSET_PREFIX || ''}/static/images/conjure-cp-logo.png`} alt="conjure-cp" className="w-16 h-16 " />
+                  <img src={`${process.env.ASSET_PREFIX ?? ''}/static/images/conjure-cp-logo.png`} alt="conjure-cp" className="w-16 h-16 " />
+        
                   <div className="text-xl font-semibold ml-4">
                     <a href="https://github.com/conjure-cp" target="_blank" rel="noopener noreferrer" className="hover:underline">
                       conjure-cp

@@ -10,7 +10,7 @@ interface BannerConfig {
   }
   
 const bannerConfig: BannerConfig = {
-    logo          : 'conjure-cp-logo.png', // Assuming this is a path to the logo image
+    logo          : 'conjure-cp-logo.png',
     title         : "Nurse Rostering",
     author        : "Aldiyar Ablyazov",
     author_github : "https://github.com/Aldiyazov",
