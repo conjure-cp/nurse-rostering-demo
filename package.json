@@ -22,7 +22,7 @@
     "@fullcalendar/resource": "^6.1.11",
     "@fullcalendar/resource-timeline": "^6.1.11",
     "axios": "^1.6.7",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.11",
     "dotenv-cli": "^7.3.0",
     "encoding": "^0.1.13",
     "framer-motion": "^11",
