@@ -808,21 +808,11 @@
   version "0.9.1"
   resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.9.1.tgz"
 
-"@emotion/is-prop-valid@^0.8.2":
-  version "0.8.8"
-  resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
-  dependencies:
-    "@emotion/memoize" "0.7.4"
-
 "@emotion/is-prop-valid@^1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.2.2.tgz#d4175076679c6a26faa92b03bb786f9e52612337"
   dependencies:
     "@emotion/memoize" "^0.8.1"
-
-"@emotion/memoize@0.7.4":
-  version "0.7.4"
-  resolved "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.4.tgz"
 
 "@emotion/memoize@^0.8.1":
   version "0.8.1"
@@ -2096,12 +2086,10 @@ fraction.js@^4.3.7:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
 
 framer-motion@^11:
-  version "11.0.8"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.0.8.tgz#8f97a18cbad5858d85b53bc325c40a03d0a5c203"
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.2.12.tgz#ca5c49f8a1c70163cbadabcbd318acdcfea569fb"
   dependencies:
     tslib "^2.4.0"
-  optionalDependencies:
-    "@emotion/is-prop-valid" "^0.8.2"
 
 framesync@6.1.2:
   version "6.1.2"
