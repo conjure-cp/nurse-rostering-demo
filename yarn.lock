@@ -1643,9 +1643,9 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dotenv-cli@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.npmjs.org/dotenv-cli/-/dotenv-cli-7.3.0.tgz"
+dotenv-cli@^7.4.2:
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-7.4.2.tgz#c158a818de08e1fbc51d310f628cbace9075b734"
   dependencies:
     cross-spawn "^7.0.3"
     dotenv "^16.3.0"
