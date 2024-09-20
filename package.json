@@ -21,7 +21,7 @@
     "@fullcalendar/react": "^6.1.11",
     "@fullcalendar/resource": "^6.1.11",
     "@fullcalendar/resource-timeline": "^6.1.11",
-    "axios": "^1.7.3",
+    "axios": "^1.7.4",
     "dayjs": "^1.11.11",
     "dotenv-cli": "^7.4.2",
     "encoding": "^0.1.13",
