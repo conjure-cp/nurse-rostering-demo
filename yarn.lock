@@ -920,9 +920,9 @@
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.1.11.tgz#83a5d4a94c314cf3a14b06bebba03b1b40e6d2ba"
 
-"@fullcalendar/interaction@6.1.11":
-  version "6.1.11"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.1.11.tgz#baa3beec8f5c489fb6904973b175a5f4797abdf3"
+"@fullcalendar/interaction@6.1.15":
+  version "6.1.15"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.1.15.tgz#1c685d5c269388d4877b75ab2185e97d7c386cc7"
 
 "@fullcalendar/premium-common@~6.1.11":
   version "6.1.11"
