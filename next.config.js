@@ -4,7 +4,6 @@ const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
-  future: { webpack5: true },
   webpack: (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
