@@ -10,6 +10,69 @@
   version "5.2.0"
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
 
+"@ark-ui/react@5.15.4":
+  version "5.15.4"
+  resolved "https://registry.yarnpkg.com/@ark-ui/react/-/react-5.15.4.tgz#c3a34e0ed34aa1a87c3fbdc9df66fb0ba6252ce2"
+  dependencies:
+    "@internationalized/date" "3.8.2"
+    "@zag-js/accordion" "1.17.4"
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/angle-slider" "1.17.4"
+    "@zag-js/auto-resize" "1.17.4"
+    "@zag-js/avatar" "1.17.4"
+    "@zag-js/carousel" "1.17.4"
+    "@zag-js/checkbox" "1.17.4"
+    "@zag-js/clipboard" "1.17.4"
+    "@zag-js/collapsible" "1.17.4"
+    "@zag-js/collection" "1.17.4"
+    "@zag-js/color-picker" "1.17.4"
+    "@zag-js/color-utils" "1.17.4"
+    "@zag-js/combobox" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/date-picker" "1.17.4"
+    "@zag-js/date-utils" "1.17.4"
+    "@zag-js/dialog" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/editable" "1.17.4"
+    "@zag-js/file-upload" "1.17.4"
+    "@zag-js/file-utils" "1.17.4"
+    "@zag-js/floating-panel" "1.17.4"
+    "@zag-js/focus-trap" "1.17.4"
+    "@zag-js/highlight-word" "1.17.4"
+    "@zag-js/hover-card" "1.17.4"
+    "@zag-js/i18n-utils" "1.17.4"
+    "@zag-js/listbox" "1.17.4"
+    "@zag-js/menu" "1.17.4"
+    "@zag-js/number-input" "1.17.4"
+    "@zag-js/pagination" "1.17.4"
+    "@zag-js/password-input" "1.17.4"
+    "@zag-js/pin-input" "1.17.4"
+    "@zag-js/popover" "1.17.4"
+    "@zag-js/presence" "1.17.4"
+    "@zag-js/progress" "1.17.4"
+    "@zag-js/qr-code" "1.17.4"
+    "@zag-js/radio-group" "1.17.4"
+    "@zag-js/rating-group" "1.17.4"
+    "@zag-js/react" "1.17.4"
+    "@zag-js/select" "1.17.4"
+    "@zag-js/signature-pad" "1.17.4"
+    "@zag-js/slider" "1.17.4"
+    "@zag-js/splitter" "1.17.4"
+    "@zag-js/steps" "1.17.4"
+    "@zag-js/switch" "1.17.4"
+    "@zag-js/tabs" "1.17.4"
+    "@zag-js/tags-input" "1.17.4"
+    "@zag-js/time-picker" "1.17.4"
+    "@zag-js/timer" "1.17.4"
+    "@zag-js/toast" "1.17.4"
+    "@zag-js/toggle" "1.17.4"
+    "@zag-js/toggle-group" "1.17.4"
+    "@zag-js/tooltip" "1.17.4"
+    "@zag-js/tour" "1.17.4"
+    "@zag-js/tree-view" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
 "@babel/code-frame@^7.0.0":
   version "7.22.13"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.22.13.tgz"
@@ -39,7 +102,7 @@
     chalk "^2.4.2"
     js-tokens "^4.0.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3":
   version "7.27.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.27.0.tgz#fbee7cf97c709518ecc1f590984481d5460d4762"
   dependencies:
@@ -53,728 +116,22 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@chakra-ui/accordion@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/accordion/-/accordion-2.3.1.tgz"
-  dependencies:
-    "@chakra-ui/descendant" "3.1.0"
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/transition" "2.1.0"
-
-"@chakra-ui/alert@2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/alert/-/alert-2.2.2.tgz#aeba951d120c7c6e69d5f515a695ad6e4db43ffe"
-  dependencies:
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/spinner" "2.1.0"
-
-"@chakra-ui/anatomy@2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/anatomy/-/anatomy-2.2.2.tgz#2d0e14cba2534d92077ca28abf8c183b6e27897b"
-
-"@chakra-ui/avatar@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/avatar/-/avatar-2.3.0.tgz"
-  dependencies:
-    "@chakra-ui/image" "2.1.0"
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/breadcrumb@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/breadcrumb/-/breadcrumb-2.2.0.tgz"
-  dependencies:
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/breakpoint-utils@2.0.8":
-  version "2.0.8"
-  resolved "https://registry.npmjs.org/@chakra-ui/breakpoint-utils/-/breakpoint-utils-2.0.8.tgz"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/button@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/button/-/button-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/spinner" "2.1.0"
-
-"@chakra-ui/card@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/card/-/card-2.2.0.tgz"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/checkbox@2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/checkbox/-/checkbox-2.3.2.tgz#4ecb14a2f57b7470d1a58542ca4691c3b105bfa1"
-  dependencies:
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/visually-hidden" "2.2.0"
-    "@zag-js/focus-visible" "0.16.0"
-
-"@chakra-ui/clickable@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/clickable/-/clickable-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/close-button@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/close-button/-/close-button-2.1.1.tgz"
-  dependencies:
-    "@chakra-ui/icon" "3.2.0"
-
-"@chakra-ui/color-mode@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/color-mode/-/color-mode-2.2.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-
-"@chakra-ui/control-box@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/control-box/-/control-box-2.1.0.tgz"
-
-"@chakra-ui/counter@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/counter/-/counter-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/number-utils" "2.0.7"
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/css-reset@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/css-reset/-/css-reset-2.3.0.tgz"
-
-"@chakra-ui/descendant@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/descendant/-/descendant-3.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-
-"@chakra-ui/dom-utils@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/dom-utils/-/dom-utils-2.1.0.tgz"
-
-"@chakra-ui/editable@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/editable/-/editable-3.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-focus-on-pointer-down" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/event-utils@2.0.8":
-  version "2.0.8"
-  resolved "https://registry.npmjs.org/@chakra-ui/event-utils/-/event-utils-2.0.8.tgz"
-
-"@chakra-ui/focus-lock@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/focus-lock/-/focus-lock-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/dom-utils" "2.1.0"
-    react-focus-lock "^2.9.4"
-
-"@chakra-ui/form-control@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/form-control/-/form-control-2.2.0.tgz#69c771d6406ddac8ab357ae88446cc11827656a4"
-  dependencies:
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/hooks@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/hooks/-/hooks-2.2.1.tgz"
-  dependencies:
-    "@chakra-ui/react-utils" "2.0.12"
-    "@chakra-ui/utils" "2.0.15"
-    compute-scroll-into-view "3.0.3"
-    copy-to-clipboard "3.3.3"
-
-"@chakra-ui/icon@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/icon/-/icon-3.2.0.tgz"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-
 "@chakra-ui/icons@^2.2.4":
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.2.4.tgz#fc3f59a7e377d6e4efdbe8ee0a3aec7f29a4ab32"
 
-"@chakra-ui/image@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/image/-/image-2.1.0.tgz"
+"@chakra-ui/react@^3.21.1":
+  version "3.21.1"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/react/-/react-3.21.1.tgz#4dba26417016676884011c8d5b10c5f4cffd84af"
   dependencies:
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/input@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/input/-/input-2.1.2.tgz#0cad49ec372f8f21f2f4f1db365f34b9a708ff9d"
-  dependencies:
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/object-utils" "2.1.0"
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/layout@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/layout/-/layout-2.3.1.tgz"
-  dependencies:
-    "@chakra-ui/breakpoint-utils" "2.0.8"
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/object-utils" "2.1.0"
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/lazy-utils@2.0.5":
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/@chakra-ui/lazy-utils/-/lazy-utils-2.0.5.tgz"
-
-"@chakra-ui/live-region@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/live-region/-/live-region-2.1.0.tgz"
-
-"@chakra-ui/media-query@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/media-query/-/media-query-3.3.0.tgz"
-  dependencies:
-    "@chakra-ui/breakpoint-utils" "2.0.8"
-    "@chakra-ui/react-env" "3.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/menu@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/menu/-/menu-2.2.1.tgz"
-  dependencies:
-    "@chakra-ui/clickable" "2.1.0"
-    "@chakra-ui/descendant" "3.1.0"
-    "@chakra-ui/lazy-utils" "2.0.5"
-    "@chakra-ui/popper" "3.1.0"
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-animation-state" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-disclosure" "2.1.0"
-    "@chakra-ui/react-use-focus-effect" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/react-use-outside-click" "2.2.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/transition" "2.1.0"
-
-"@chakra-ui/modal@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/modal/-/modal-2.3.1.tgz"
-  dependencies:
-    "@chakra-ui/close-button" "2.1.1"
-    "@chakra-ui/focus-lock" "2.1.0"
-    "@chakra-ui/portal" "2.1.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/transition" "2.1.0"
-    aria-hidden "^1.2.3"
-    react-remove-scroll "^2.5.6"
-
-"@chakra-ui/number-input@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/number-input/-/number-input-2.1.2.tgz#dda9095fba6a4b89212332db02831b94120da163"
-  dependencies:
-    "@chakra-ui/counter" "2.1.0"
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-    "@chakra-ui/react-use-event-listener" "2.1.0"
-    "@chakra-ui/react-use-interval" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/number-utils@2.0.7":
-  version "2.0.7"
-  resolved "https://registry.npmjs.org/@chakra-ui/number-utils/-/number-utils-2.0.7.tgz"
-
-"@chakra-ui/object-utils@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/object-utils/-/object-utils-2.1.0.tgz"
-
-"@chakra-ui/pin-input@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/pin-input/-/pin-input-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/descendant" "3.1.0"
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/popover@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/popover/-/popover-2.2.1.tgz"
-  dependencies:
-    "@chakra-ui/close-button" "2.1.1"
-    "@chakra-ui/lazy-utils" "2.0.5"
-    "@chakra-ui/popper" "3.1.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-animation-state" "2.1.0"
-    "@chakra-ui/react-use-disclosure" "2.1.0"
-    "@chakra-ui/react-use-focus-effect" "2.1.0"
-    "@chakra-ui/react-use-focus-on-pointer-down" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/popper@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/popper/-/popper-3.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@popperjs/core" "^2.9.3"
-
-"@chakra-ui/portal@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/portal/-/portal-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-
-"@chakra-ui/progress@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/progress/-/progress-2.2.0.tgz"
-  dependencies:
-    "@chakra-ui/react-context" "2.1.0"
-
-"@chakra-ui/provider@2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/provider/-/provider-2.4.2.tgz#92cb10b6a7df0720e3fa62716dc7cd872ae3ea3d"
-  dependencies:
-    "@chakra-ui/css-reset" "2.3.0"
-    "@chakra-ui/portal" "2.1.0"
-    "@chakra-ui/react-env" "3.1.0"
-    "@chakra-ui/system" "2.6.2"
-    "@chakra-ui/utils" "2.0.15"
-
-"@chakra-ui/radio@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/radio/-/radio-2.1.2.tgz#66db19c61a2e628aaf5e727027f7c3b4006ea898"
-  dependencies:
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@zag-js/focus-visible" "0.16.0"
-
-"@chakra-ui/react-children-utils@2.0.6":
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-children-utils/-/react-children-utils-2.0.6.tgz"
-
-"@chakra-ui/react-context@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-context/-/react-context-2.1.0.tgz"
-
-"@chakra-ui/react-env@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-env/-/react-env-3.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-
-"@chakra-ui/react-types@2.0.7":
-  version "2.0.7"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-types/-/react-types-2.0.7.tgz"
-
-"@chakra-ui/react-use-animation-state@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-animation-state/-/react-use-animation-state-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/dom-utils" "2.1.0"
-    "@chakra-ui/react-use-event-listener" "2.1.0"
-
-"@chakra-ui/react-use-callback-ref@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-callback-ref/-/react-use-callback-ref-2.1.0.tgz"
-
-"@chakra-ui/react-use-controllable-state@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-controllable-state/-/react-use-controllable-state-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-
-"@chakra-ui/react-use-disclosure@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-disclosure/-/react-use-disclosure-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-
-"@chakra-ui/react-use-event-listener@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-event-listener/-/react-use-event-listener-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-
-"@chakra-ui/react-use-focus-effect@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-focus-effect/-/react-use-focus-effect-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/dom-utils" "2.1.0"
-    "@chakra-ui/react-use-event-listener" "2.1.0"
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-
-"@chakra-ui/react-use-focus-on-pointer-down@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-focus-on-pointer-down/-/react-use-focus-on-pointer-down-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-event-listener" "2.1.0"
-
-"@chakra-ui/react-use-interval@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-interval/-/react-use-interval-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-
-"@chakra-ui/react-use-latest-ref@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-latest-ref/-/react-use-latest-ref-2.1.0.tgz"
-
-"@chakra-ui/react-use-merge-refs@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-merge-refs/-/react-use-merge-refs-2.1.0.tgz"
-
-"@chakra-ui/react-use-outside-click@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-outside-click/-/react-use-outside-click-2.2.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-
-"@chakra-ui/react-use-pan-event@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-pan-event/-/react-use-pan-event-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/event-utils" "2.0.8"
-    "@chakra-ui/react-use-latest-ref" "2.1.0"
-    framesync "6.1.2"
-
-"@chakra-ui/react-use-previous@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-previous/-/react-use-previous-2.1.0.tgz"
-
-"@chakra-ui/react-use-safe-layout-effect@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-safe-layout-effect/-/react-use-safe-layout-effect-2.1.0.tgz"
-
-"@chakra-ui/react-use-size@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-size/-/react-use-size-2.1.0.tgz"
-  dependencies:
-    "@zag-js/element-size" "0.10.5"
-
-"@chakra-ui/react-use-timeout@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-timeout/-/react-use-timeout-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-
-"@chakra-ui/react-use-update-effect@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-use-update-effect/-/react-use-update-effect-2.1.0.tgz"
-
-"@chakra-ui/react-utils@2.0.12":
-  version "2.0.12"
-  resolved "https://registry.npmjs.org/@chakra-ui/react-utils/-/react-utils-2.0.12.tgz"
-  dependencies:
-    "@chakra-ui/utils" "2.0.15"
-
-"@chakra-ui/react@^2.8.2":
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/react/-/react-2.8.2.tgz#94d692fb35e4447748c5bfd73d8d38a746193c7d"
-  dependencies:
-    "@chakra-ui/accordion" "2.3.1"
-    "@chakra-ui/alert" "2.2.2"
-    "@chakra-ui/avatar" "2.3.0"
-    "@chakra-ui/breadcrumb" "2.2.0"
-    "@chakra-ui/button" "2.1.0"
-    "@chakra-ui/card" "2.2.0"
-    "@chakra-ui/checkbox" "2.3.2"
-    "@chakra-ui/close-button" "2.1.1"
-    "@chakra-ui/control-box" "2.1.0"
-    "@chakra-ui/counter" "2.1.0"
-    "@chakra-ui/css-reset" "2.3.0"
-    "@chakra-ui/editable" "3.1.0"
-    "@chakra-ui/focus-lock" "2.1.0"
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/hooks" "2.2.1"
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/image" "2.1.0"
-    "@chakra-ui/input" "2.1.2"
-    "@chakra-ui/layout" "2.3.1"
-    "@chakra-ui/live-region" "2.1.0"
-    "@chakra-ui/media-query" "3.3.0"
-    "@chakra-ui/menu" "2.2.1"
-    "@chakra-ui/modal" "2.3.1"
-    "@chakra-ui/number-input" "2.1.2"
-    "@chakra-ui/pin-input" "2.1.0"
-    "@chakra-ui/popover" "2.2.1"
-    "@chakra-ui/popper" "3.1.0"
-    "@chakra-ui/portal" "2.1.0"
-    "@chakra-ui/progress" "2.2.0"
-    "@chakra-ui/provider" "2.4.2"
-    "@chakra-ui/radio" "2.1.2"
-    "@chakra-ui/react-env" "3.1.0"
-    "@chakra-ui/select" "2.1.2"
-    "@chakra-ui/skeleton" "2.1.0"
-    "@chakra-ui/skip-nav" "2.1.0"
-    "@chakra-ui/slider" "2.1.0"
-    "@chakra-ui/spinner" "2.1.0"
-    "@chakra-ui/stat" "2.1.1"
-    "@chakra-ui/stepper" "2.3.1"
-    "@chakra-ui/styled-system" "2.9.2"
-    "@chakra-ui/switch" "2.1.2"
-    "@chakra-ui/system" "2.6.2"
-    "@chakra-ui/table" "2.1.0"
-    "@chakra-ui/tabs" "3.0.0"
-    "@chakra-ui/tag" "3.1.1"
-    "@chakra-ui/textarea" "2.1.2"
-    "@chakra-ui/theme" "3.3.1"
-    "@chakra-ui/theme-utils" "2.0.21"
-    "@chakra-ui/toast" "7.0.2"
-    "@chakra-ui/tooltip" "2.3.1"
-    "@chakra-ui/transition" "2.1.0"
-    "@chakra-ui/utils" "2.0.15"
-    "@chakra-ui/visually-hidden" "2.2.0"
-
-"@chakra-ui/select@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/select/-/select-2.1.2.tgz#f57d6cec0559373c32094fd4a5abd32855829264"
-  dependencies:
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/shared-utils@2.0.5":
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/@chakra-ui/shared-utils/-/shared-utils-2.0.5.tgz"
-
-"@chakra-ui/skeleton@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/skeleton/-/skeleton-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/media-query" "3.3.0"
-    "@chakra-ui/react-use-previous" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/skip-nav@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/skip-nav/-/skip-nav-2.1.0.tgz"
-
-"@chakra-ui/slider@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/slider/-/slider-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/number-utils" "2.0.7"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-callback-ref" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-latest-ref" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/react-use-pan-event" "2.1.0"
-    "@chakra-ui/react-use-size" "2.1.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-
-"@chakra-ui/spinner@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/spinner/-/spinner-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/stat@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/stat/-/stat-2.1.1.tgz"
-  dependencies:
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/stepper@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/stepper/-/stepper-2.3.1.tgz"
-  dependencies:
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/styled-system@2.9.2":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-2.9.2.tgz#898ab63da560a4a014f7b05fa7767e8c76da6d2f"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-    csstype "^3.1.2"
-    lodash.mergewith "4.6.2"
-
-"@chakra-ui/switch@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/switch/-/switch-2.1.2.tgz#f7c6878d8126bfac8fa3b939079f1017c21b7479"
-  dependencies:
-    "@chakra-ui/checkbox" "2.3.2"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/system@2.6.2":
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/system/-/system-2.6.2.tgz#528ec955bd6a7f74da46470ee8225b1e2c80a78b"
-  dependencies:
-    "@chakra-ui/color-mode" "2.2.0"
-    "@chakra-ui/object-utils" "2.1.0"
-    "@chakra-ui/react-utils" "2.0.12"
-    "@chakra-ui/styled-system" "2.9.2"
-    "@chakra-ui/theme-utils" "2.0.21"
-    "@chakra-ui/utils" "2.0.15"
-    react-fast-compare "3.2.2"
-
-"@chakra-ui/table@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/table/-/table-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/tabs@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/tabs/-/tabs-3.0.0.tgz"
-  dependencies:
-    "@chakra-ui/clickable" "2.1.0"
-    "@chakra-ui/descendant" "3.1.0"
-    "@chakra-ui/lazy-utils" "2.0.5"
-    "@chakra-ui/react-children-utils" "2.0.6"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-controllable-state" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/react-use-safe-layout-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/tag@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/tag/-/tag-3.1.1.tgz"
-  dependencies:
-    "@chakra-ui/icon" "3.2.0"
-    "@chakra-ui/react-context" "2.1.0"
-
-"@chakra-ui/textarea@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/textarea/-/textarea-2.1.2.tgz#30f8af0e233cec2dee79d527450c6586e7122eff"
-  dependencies:
-    "@chakra-ui/form-control" "2.2.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/theme-tools@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-2.1.2.tgz#913be05879cd816c546993ccb9ff7615f85ff69f"
-  dependencies:
-    "@chakra-ui/anatomy" "2.2.2"
-    "@chakra-ui/shared-utils" "2.0.5"
-    color2k "^2.0.2"
-
-"@chakra-ui/theme-utils@2.0.21":
-  version "2.0.21"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/theme-utils/-/theme-utils-2.0.21.tgz#da7ed541a5241a8ed0384eb14f37fa9b998382cf"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/styled-system" "2.9.2"
-    "@chakra-ui/theme" "3.3.1"
-    lodash.mergewith "4.6.2"
-
-"@chakra-ui/theme@3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-3.3.1.tgz#75c6cd0b5c70c0aa955068274ee4780f299bd8a4"
-  dependencies:
-    "@chakra-ui/anatomy" "2.2.2"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/theme-tools" "2.1.2"
-
-"@chakra-ui/toast@7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/toast/-/toast-7.0.2.tgz#d1c396bbfced12e22b010899731fd8cc294d53ec"
-  dependencies:
-    "@chakra-ui/alert" "2.2.2"
-    "@chakra-ui/close-button" "2.1.1"
-    "@chakra-ui/portal" "2.1.0"
-    "@chakra-ui/react-context" "2.1.0"
-    "@chakra-ui/react-use-timeout" "2.1.0"
-    "@chakra-ui/react-use-update-effect" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-    "@chakra-ui/styled-system" "2.9.2"
-    "@chakra-ui/theme" "3.3.1"
-
-"@chakra-ui/tooltip@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/tooltip/-/tooltip-2.3.1.tgz#29fb8508a37bb6b20ab8dbb32bca6cd59b098796"
-  dependencies:
-    "@chakra-ui/dom-utils" "2.1.0"
-    "@chakra-ui/popper" "3.1.0"
-    "@chakra-ui/portal" "2.1.0"
-    "@chakra-ui/react-types" "2.0.7"
-    "@chakra-ui/react-use-disclosure" "2.1.0"
-    "@chakra-ui/react-use-event-listener" "2.1.0"
-    "@chakra-ui/react-use-merge-refs" "2.1.0"
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/transition@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/transition/-/transition-2.1.0.tgz"
-  dependencies:
-    "@chakra-ui/shared-utils" "2.0.5"
-
-"@chakra-ui/utils@2.0.15":
-  version "2.0.15"
-  resolved "https://registry.npmjs.org/@chakra-ui/utils/-/utils-2.0.15.tgz"
-  dependencies:
-    "@types/lodash.mergewith" "4.6.7"
-    css-box-model "1.2.1"
-    framesync "6.1.2"
-    lodash.mergewith "4.6.2"
-
-"@chakra-ui/visually-hidden@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@chakra-ui/visually-hidden/-/visually-hidden-2.2.0.tgz"
+    "@ark-ui/react" "5.15.4"
+    "@emotion/is-prop-valid" "1.3.1"
+    "@emotion/serialize" "1.3.3"
+    "@emotion/use-insertion-effect-with-fallbacks" "1.2.0"
+    "@emotion/utils" "1.4.2"
+    "@pandacss/is-valid-prop" "0.54.0"
+    csstype "3.1.3"
+    fast-safe-stringify "2.1.1"
 
 "@emnapi/runtime@^1.2.0":
   version "1.3.1"
@@ -812,15 +169,23 @@
   version "0.9.1"
   resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.9.1.tgz"
 
-"@emotion/is-prop-valid@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.2.2.tgz#d4175076679c6a26faa92b03bb786f9e52612337"
+"@emotion/hash@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.9.2.tgz#ff9221b9f58b4dfe61e619a7788734bd63f6898b"
+
+"@emotion/is-prop-valid@1.3.1", "@emotion/is-prop-valid@^1.2.2":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.3.1.tgz#8d5cf1132f836d7adbe42cf0b49df7816fc88240"
   dependencies:
-    "@emotion/memoize" "^0.8.1"
+    "@emotion/memoize" "^0.9.0"
 
 "@emotion/memoize@^0.8.1":
   version "0.8.1"
   resolved "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.8.1.tgz"
+
+"@emotion/memoize@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.9.0.tgz#745969d649977776b43fc7648c556aaa462b4102"
 
 "@emotion/react@^11.11.4":
   version "11.11.4"
@@ -835,14 +200,14 @@
     "@emotion/weak-memoize" "^0.3.1"
     hoist-non-react-statics "^3.3.1"
 
-"@emotion/serialize@^1.1.2", "@emotion/serialize@^1.1.3", "@emotion/serialize@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-1.1.4.tgz#fc8f6d80c492cfa08801d544a05331d1cc7cd451"
+"@emotion/serialize@1.3.3", "@emotion/serialize@^1.1.2", "@emotion/serialize@^1.1.3", "@emotion/serialize@^1.1.4":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-1.3.3.tgz#d291531005f17d704d0463a032fe679f376509e8"
   dependencies:
-    "@emotion/hash" "^0.9.1"
-    "@emotion/memoize" "^0.8.1"
-    "@emotion/unitless" "^0.8.1"
-    "@emotion/utils" "^1.2.1"
+    "@emotion/hash" "^0.9.2"
+    "@emotion/memoize" "^0.9.0"
+    "@emotion/unitless" "^0.10.0"
+    "@emotion/utils" "^1.4.2"
     csstype "^3.0.2"
 
 "@emotion/sheet@^1.2.2":
@@ -860,17 +225,17 @@
     "@emotion/use-insertion-effect-with-fallbacks" "^1.0.1"
     "@emotion/utils" "^1.2.1"
 
-"@emotion/unitless@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.8.1.tgz"
+"@emotion/unitless@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.10.0.tgz#2af2f7c7e5150f497bdabd848ce7b218a27cf745"
 
-"@emotion/use-insertion-effect-with-fallbacks@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.0.1.tgz"
+"@emotion/use-insertion-effect-with-fallbacks@1.2.0", "@emotion/use-insertion-effect-with-fallbacks@^1.0.1":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.2.0.tgz#8a8cb77b590e09affb960f4ff1e9a89e532738bf"
 
-"@emotion/utils@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@emotion/utils/-/utils-1.2.1.tgz"
+"@emotion/utils@1.4.2", "@emotion/utils@^1.2.1", "@emotion/utils@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-1.4.2.tgz#6df6c45881fcb1c412d6688a311a98b7f59c1b52"
 
 "@emotion/weak-memoize@^0.3.1":
   version "0.3.1"
@@ -932,6 +297,23 @@
   dependencies:
     "@eslint/core" "^0.13.0"
     levn "^0.4.1"
+
+"@floating-ui/core@^1.7.1":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.7.2.tgz#3d1c35263950b314b6d5a72c8bfb9e3c1551aefd"
+  dependencies:
+    "@floating-ui/utils" "^0.2.10"
+
+"@floating-ui/dom@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.7.1.tgz#76a4e3cbf7a08edf40c34711cf64e0cc8053d912"
+  dependencies:
+    "@floating-ui/core" "^1.7.1"
+    "@floating-ui/utils" "^0.2.9"
+
+"@floating-ui/utils@^0.2.10", "@floating-ui/utils@^0.2.9":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.10.tgz#a2a1e3812d14525f725d011a73eceb41fef5bc1c"
 
 "@fullcalendar/core@^6.1.17":
   version "6.1.17"
@@ -1099,6 +481,18 @@
   version "0.33.5"
   resolved "https://registry.yarnpkg.com/@img/sharp-win32-x64/-/sharp-win32-x64-0.33.5.tgz#56f00962ff0c4e0eb93d34a047d29fa995e3e342"
 
+"@internationalized/date@3.8.2":
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.8.2.tgz#977620c1407cc6830fd44cb505679d23c599e119"
+  dependencies:
+    "@swc/helpers" "^0.5.0"
+
+"@internationalized/number@3.6.3":
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/@internationalized/number/-/number-3.6.3.tgz#4bba32e90cd8095ae7d252586c661d9c651918b4"
+  dependencies:
+    "@swc/helpers" "^0.5.0"
+
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz"
@@ -1186,6 +580,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@pandacss/is-valid-prop@0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@pandacss/is-valid-prop/-/is-valid-prop-0.54.0.tgz#89c9fbfac9f1704f2feb87455a0f9e7df6145b5d"
+
 "@parcel/watcher-android-arm64@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@parcel/watcher-android-arm64/-/watcher-android-arm64-2.4.1.tgz#c2c19a3c442313ff007d2d7a9c2c1dd3e1c9ca84"
@@ -1256,10 +654,6 @@
     "@parcel/watcher-win32-ia32" "2.4.1"
     "@parcel/watcher-win32-x64" "2.4.1"
 
-"@popperjs/core@^2.9.3":
-  version "2.11.8"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
-
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
@@ -1278,6 +672,12 @@
   dependencies:
     tslib "^2.8.0"
 
+"@swc/helpers@^0.5.0":
+  version "0.5.17"
+  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.5.17.tgz#5a7be95ac0f0bf186e7e6e890e7a6f6cda6ce971"
+  dependencies:
+    tslib "^2.8.0"
+
 "@types/estree@^1.0.6":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.7.tgz#4158d3105276773d5b7695cd4834b1722e4f37a8"
@@ -1289,16 +689,6 @@
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
-
-"@types/lodash.mergewith@4.6.7":
-  version "4.6.7"
-  resolved "https://registry.npmjs.org/@types/lodash.mergewith/-/lodash.mergewith-4.6.7.tgz"
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash@*":
-  version "4.14.200"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.200.tgz"
 
 "@types/node@22.13.17":
   version "22.13.17"
@@ -1404,19 +794,632 @@
     "@typescript-eslint/types" "8.12.2"
     eslint-visitor-keys "^3.4.3"
 
-"@zag-js/dom-query@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.npmjs.org/@zag-js/dom-query/-/dom-query-0.16.0.tgz"
-
-"@zag-js/element-size@0.10.5":
-  version "0.10.5"
-  resolved "https://registry.npmjs.org/@zag-js/element-size/-/element-size-0.10.5.tgz"
-
-"@zag-js/focus-visible@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.npmjs.org/@zag-js/focus-visible/-/focus-visible-0.16.0.tgz"
+"@zag-js/accordion@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/accordion/-/accordion-1.17.4.tgz#3d376d456dd46f334a6b39aee201c387aec42244"
   dependencies:
-    "@zag-js/dom-query" "0.16.0"
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/anatomy@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/anatomy/-/anatomy-1.17.4.tgz#81af908e1467a562b6cf33d89f244ffa302dbc1a"
+
+"@zag-js/angle-slider@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/angle-slider/-/angle-slider-1.17.4.tgz#9e6ccf43cb1b48c3027b064a1f76c176e1cd576a"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/rect-utils" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/aria-hidden@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/aria-hidden/-/aria-hidden-1.17.4.tgz#0f2297ea279e6ec9facf5ca9099728963fcff7bd"
+
+"@zag-js/auto-resize@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/auto-resize/-/auto-resize-1.17.4.tgz#e2c77a2d3f9e6eb498d37fd9eff52f45072f7107"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+
+"@zag-js/avatar@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/avatar/-/avatar-1.17.4.tgz#92d1697ca4aa66eec45b99d40ce76b426d1b3d75"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/carousel@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/carousel/-/carousel-1.17.4.tgz#7a1bd6b3e9a07b291a4e88fd8f04a6928e3b0f28"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/scroll-snap" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/checkbox@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/checkbox/-/checkbox-1.17.4.tgz#8fa3bb9e54d91d74b4856475cfb715ca101f6996"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-visible" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/clipboard@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/clipboard/-/clipboard-1.17.4.tgz#dd30e677b260c1ef59df7359814ddde5351d2f6b"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/collapsible@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/collapsible/-/collapsible-1.17.4.tgz#0b306ade2a6a662ca28ebfb6509d7f2336cfb9ba"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/collection@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/collection/-/collection-1.17.4.tgz#d242d280d0433b7407f18d326ec4b823814fc667"
+  dependencies:
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/color-picker@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/color-picker/-/color-picker-1.17.4.tgz#e3aff60bf92c2c6f44eaa04e87ad87f8826d6c41"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/color-utils" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/color-utils@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/color-utils/-/color-utils-1.17.4.tgz#e54851b89ea244f6b9cb3c764e94fb4963118627"
+  dependencies:
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/combobox@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/combobox/-/combobox-1.17.4.tgz#b93eb87d13738ad18e0ec466de317d225397a6b7"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/aria-hidden" "1.17.4"
+    "@zag-js/collection" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/core@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/core/-/core-1.17.4.tgz#20f35c765c0140a1ffee215df5b405627b9a9122"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/date-picker@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/date-picker/-/date-picker-1.17.4.tgz#98605c7b667c04ead601ee7b360d26320a1137e4"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/date-utils" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/live-region" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/date-utils@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/date-utils/-/date-utils-1.17.4.tgz#9dd35a6d01f9118ca7e2efba989edf2814823d60"
+
+"@zag-js/dialog@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/dialog/-/dialog-1.17.4.tgz#95594c3d75e50f618ed3efc5acbb0b791bbc9ba0"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/aria-hidden" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-trap" "1.17.4"
+    "@zag-js/remove-scroll" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/dismissable@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/dismissable/-/dismissable-1.17.4.tgz#290f17b4caaee66d258d766e8dc360bfe6f08d59"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/interact-outside" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/dom-query@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/dom-query/-/dom-query-1.17.4.tgz#6c8a55d92584484d9f8bfdc1263cedd7527620f6"
+  dependencies:
+    "@zag-js/types" "1.17.4"
+
+"@zag-js/editable@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/editable/-/editable-1.17.4.tgz#b7264b317b40f294bdb3547fb1bf3624513d2b87"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/interact-outside" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/file-upload@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/file-upload/-/file-upload-1.17.4.tgz#ae979c35a1a02afe06e501d937dbaf750887c027"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/file-utils" "1.17.4"
+    "@zag-js/i18n-utils" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/file-utils@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/file-utils/-/file-utils-1.17.4.tgz#8c6c051ecfe43ddaf9d88b54fa41dfdad1e3a5af"
+  dependencies:
+    "@zag-js/i18n-utils" "1.17.4"
+
+"@zag-js/floating-panel@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/floating-panel/-/floating-panel-1.17.4.tgz#9d7bded58b6f79a634479e41fff92886e5348fdb"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/rect-utils" "1.17.4"
+    "@zag-js/store" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/focus-trap@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/focus-trap/-/focus-trap-1.17.4.tgz#6fdbb46d39cd3acf5a88ea23af13ab7f20098f57"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+
+"@zag-js/focus-visible@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/focus-visible/-/focus-visible-1.17.4.tgz#0470735d5f6e0e01f93ae40e9cb895019415f22e"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+
+"@zag-js/highlight-word@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/highlight-word/-/highlight-word-1.17.4.tgz#4cdcbd446ee6e850ee6822be4e3e449debecdde9"
+
+"@zag-js/hover-card@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/hover-card/-/hover-card-1.17.4.tgz#3aa14daa8ac0e7537e9ad8d25d7fed731b81894b"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/i18n-utils@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/i18n-utils/-/i18n-utils-1.17.4.tgz#68ad61f474c1d07baa0a11933501085a6a08d00c"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+
+"@zag-js/interact-outside@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/interact-outside/-/interact-outside-1.17.4.tgz#91f454f18bc001ca77075d668d10704f1ec37891"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/listbox@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/listbox/-/listbox-1.17.4.tgz#015f2891150256c27e0861d8e29194856a84dcc6"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/collection" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-visible" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/live-region@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/live-region/-/live-region-1.17.4.tgz#c5aae1c273b3d928714fd318f2cf00a18b3e7cd0"
+
+"@zag-js/menu@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/menu/-/menu-1.17.4.tgz#f4ca50b25b6e267a2888cbc7c81244285fc716bc"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/rect-utils" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/number-input@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/number-input/-/number-input-1.17.4.tgz#3d891e0d2c3e532abe8ff8af59894dee5bef542c"
+  dependencies:
+    "@internationalized/number" "3.6.3"
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/pagination@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/pagination/-/pagination-1.17.4.tgz#73278dab50f64b549d35d7818795e80887a45a8a"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/password-input@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/password-input/-/password-input-1.17.4.tgz#bf3d049ede64a4921bb9fed0c9142765e5a5e79a"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/pin-input@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/pin-input/-/pin-input-1.17.4.tgz#53f753a1e290a874a84086d1c24ce5dd6e93cb10"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/popover@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/popover/-/popover-1.17.4.tgz#9f457936ff967a455b9c04cc2b1895ab53136dd6"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/aria-hidden" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-trap" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/remove-scroll" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/popper@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/popper/-/popper-1.17.4.tgz#1c5cb009760cfffc4c3455abef25bc1eaf02db75"
+  dependencies:
+    "@floating-ui/dom" "1.7.1"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/presence@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/presence/-/presence-1.17.4.tgz#e6030c4476ad6222694b61052beb9a414a942b57"
+  dependencies:
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+
+"@zag-js/progress@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/progress/-/progress-1.17.4.tgz#f481f516096fcf946f58311a0609d8c0e9573fa9"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/qr-code@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/qr-code/-/qr-code-1.17.4.tgz#ce58008fa2f6235b44f5e0d17b8401972589b355"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+    proxy-memoize "3.0.1"
+    uqr "0.1.2"
+
+"@zag-js/radio-group@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/radio-group/-/radio-group-1.17.4.tgz#b6bb5c4976c0ef384c183c9d94c2445a2f6ef8ff"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-visible" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/rating-group@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/rating-group/-/rating-group-1.17.4.tgz#f15935a7771e7080594b90b6b1ca296118c01967"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/react@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/react/-/react-1.17.4.tgz#80a229da694d0cd180e87f8feb8c1374d88d02c1"
+  dependencies:
+    "@zag-js/core" "1.17.4"
+    "@zag-js/store" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/rect-utils@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/rect-utils/-/rect-utils-1.17.4.tgz#3dd4c49dd163a631c359520f141a68b6718676fa"
+
+"@zag-js/remove-scroll@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/remove-scroll/-/remove-scroll-1.17.4.tgz#3b903b4083823c33547ae838f37e8edc02ed4330"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+
+"@zag-js/scroll-snap@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/scroll-snap/-/scroll-snap-1.17.4.tgz#c3bc92bd585a4b3e2009d61ed05294592a8c487b"
+  dependencies:
+    "@zag-js/dom-query" "1.17.4"
+
+"@zag-js/select@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/select/-/select-1.17.4.tgz#f250b024a75bc3cd1d8503152ba99ff511135223"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/collection" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/signature-pad@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/signature-pad/-/signature-pad-1.17.4.tgz#578e88ad45ae5124a4d977e9bc2a3245a6a9876d"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+    perfect-freehand "^1.2.2"
+
+"@zag-js/slider@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/slider/-/slider-1.17.4.tgz#13add5c8cf8ba8fce024aa9b80c97c5e540a03d8"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/splitter@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/splitter/-/splitter-1.17.4.tgz#936ee9aeef5bc1ba36170fd0e1745280d5829f9c"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/steps@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/steps/-/steps-1.17.4.tgz#ad2c8870207456fec1fe2e7dcd9d7be74f320988"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/store@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/store/-/store-1.17.4.tgz#c75bccb90e2bfe1d5a5f55f246a7665033e24d2d"
+  dependencies:
+    proxy-compare "3.0.1"
+
+"@zag-js/switch@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/switch/-/switch-1.17.4.tgz#a215e0e174c5c51e706bcfa575c5361412860b78"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-visible" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/tabs@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/tabs/-/tabs-1.17.4.tgz#8158c082ca078a6a9d03d1ccafb90b16bc1d6fce"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/tags-input@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/tags-input/-/tags-input-1.17.4.tgz#20a55a4c52ea63940ee1424ae1c4053d0c45dc1d"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/auto-resize" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/interact-outside" "1.17.4"
+    "@zag-js/live-region" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/time-picker@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/time-picker/-/time-picker-1.17.4.tgz#aec6f1ca68dbd4d99c2737eded9ddac0c36c36eb"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/timer@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/timer/-/timer-1.17.4.tgz#0ff73f8f6b703045efe5da5b48a387c58343f2dd"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/toast@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/toast/-/toast-1.17.4.tgz#e6a414dae7de2d43504347312f3f2c97082b597b"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/toggle-group@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/toggle-group/-/toggle-group-1.17.4.tgz#8029f895caf3153f22c8a176de17a5e0f680847f"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/toggle@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/toggle/-/toggle-1.17.4.tgz#e243050c22e6e175bdcb756c991dc054ea5b7558"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/tooltip@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/tooltip/-/tooltip-1.17.4.tgz#e583ef62cab67c08858180423595fc727bcd887a"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-visible" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/store" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/tour@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/tour/-/tour-1.17.4.tgz#e3b0d93d10a1310c5bb66fc992cbbd1d807d71f5"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dismissable" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/focus-trap" "1.17.4"
+    "@zag-js/interact-outside" "1.17.4"
+    "@zag-js/popper" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/tree-view@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/tree-view/-/tree-view-1.17.4.tgz#d5d3bbcb096e1445161bbea584a98c0816120d50"
+  dependencies:
+    "@zag-js/anatomy" "1.17.4"
+    "@zag-js/collection" "1.17.4"
+    "@zag-js/core" "1.17.4"
+    "@zag-js/dom-query" "1.17.4"
+    "@zag-js/types" "1.17.4"
+    "@zag-js/utils" "1.17.4"
+
+"@zag-js/types@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/types/-/types-1.17.4.tgz#a3013b3aea176c5bf508adf731326b988aaa32e2"
+  dependencies:
+    csstype "3.1.3"
+
+"@zag-js/utils@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@zag-js/utils/-/utils-1.17.4.tgz#2a4c41d07150f71d1ca2891ef92635cfc963c1ef"
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -1465,12 +1468,6 @@ arg@^5.0.2:
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
-
-aria-hidden@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.npmjs.org/aria-hidden/-/aria-hidden-1.2.3.tgz"
-  dependencies:
-    tslib "^2.0.0"
 
 aria-query@^5.3.2:
   version "5.3.2"
@@ -1776,10 +1773,6 @@ color-string@^1.9.0:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color2k@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/color2k/-/color2k-2.0.2.tgz"
-
 color@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/color/-/color-4.2.3.tgz#d781ecb5e57224ee43ea9627560107c0e0c6463a"
@@ -1797,10 +1790,6 @@ commander@^4.0.0:
   version "4.1.1"
   resolved "https://registry.npmjs.org/commander/-/commander-4.1.1.tgz"
 
-compute-scroll-into-view@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/compute-scroll-into-view/-/compute-scroll-into-view-3.0.3.tgz"
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
@@ -1808,12 +1797,6 @@ concat-map@0.0.1:
 convert-source-map@^1.5.0:
   version "1.9.0"
   resolved "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.9.0.tgz"
-
-copy-to-clipboard@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz"
-  dependencies:
-    toggle-selection "^1.0.6"
 
 cosmiconfig@^7.0.0:
   version "7.1.0"
@@ -1833,19 +1816,13 @@ cross-spawn@^7.0.6:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-css-box-model@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/css-box-model/-/css-box-model-1.2.1.tgz"
-  dependencies:
-    tiny-invariant "^1.0.6"
-
 cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz"
 
-csstype@^3.0.2, csstype@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
+csstype@3.1.3, csstype@^3.0.2:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
 
 damerau-levenshtein@^1.0.8:
   version "1.0.8"
@@ -1934,10 +1911,6 @@ detect-libc@^1.0.3:
 detect-libc@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.3.tgz#f0cd503b40f9939b894697d19ad50895e30cf700"
-
-detect-node-es@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/detect-node-es/-/detect-node-es-1.1.0.tgz"
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -2408,6 +2381,10 @@ fast-levenshtein@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
 
+fast-safe-stringify@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.1.1.tgz#c406a83b6e70d9e35ce3b30a81141df30aeba884"
+
 fastq@^1.6.0:
   version "1.15.0"
   resolved "https://registry.npmjs.org/fastq/-/fastq-1.15.0.tgz"
@@ -2448,12 +2425,6 @@ flatted@^3.2.9:
   version "3.2.9"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.9.tgz"
 
-focus-lock@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/focus-lock/-/focus-lock-1.0.0.tgz"
-  dependencies:
-    tslib "^2.0.3"
-
 follow-redirects@^1.15.6:
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
@@ -2483,12 +2454,6 @@ framer-motion@^12:
     motion-dom "^12.9.4"
     motion-utils "^12.9.4"
     tslib "^2.4.0"
-
-framesync@6.1.2:
-  version "6.1.2"
-  resolved "https://registry.npmjs.org/framesync/-/framesync-6.1.2.tgz"
-  dependencies:
-    tslib "2.4.0"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -2537,10 +2502,6 @@ get-intrinsic@^1.2.3, get-intrinsic@^1.2.4:
     has-proto "^1.0.1"
     has-symbols "^1.0.3"
     hasown "^2.0.0"
-
-get-nonce@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/get-nonce/-/get-nonce-1.0.1.tgz"
 
 get-symbol-description@^1.0.0:
   version "1.0.0"
@@ -2732,12 +2693,6 @@ internal-slot@^1.0.7:
     es-errors "^1.3.0"
     hasown "^2.0.0"
     side-channel "^1.0.4"
-
-invariant@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
-  dependencies:
-    loose-envify "^1.0.0"
 
 is-array-buffer@^3.0.1, is-array-buffer@^3.0.2:
   version "3.0.2"
@@ -3027,11 +2982,7 @@ lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
 
-lodash.mergewith@4.6.2:
-  version "4.6.2"
-  resolved "https://registry.npmjs.org/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz"
-
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz"
   dependencies:
@@ -3285,6 +3236,10 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
 
+perfect-freehand@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/perfect-freehand/-/perfect-freehand-1.2.2.tgz#292f65b72df0c7f57a89c4b346b50d7139014172"
+
 picocolors@^1.0.0, picocolors@^1.1.0, picocolors@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
@@ -3371,7 +3326,7 @@ prettier@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.3.tgz#4fc2ce0d657e7a02e602549f053b239cb7dfe1b5"
 
-prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   dependencies:
@@ -3379,9 +3334,19 @@ prop-types@^15.6.2, prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
+proxy-compare@3.0.1, proxy-compare@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-3.0.1.tgz#3262cff3a25a6dedeaa299f6cf2369d6f7588a94"
+
 proxy-from-env@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz"
+
+proxy-memoize@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/proxy-memoize/-/proxy-memoize-3.0.1.tgz#75eed518778b282abb0bc55e748995214b7f74a9"
+  dependencies:
+    proxy-compare "^3.0.0"
 
 punycode@^2.1.0:
   version "2.3.0"
@@ -3391,33 +3356,12 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
 
-react-clientside-effect@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.npmjs.org/react-clientside-effect/-/react-clientside-effect-1.2.6.tgz"
-  dependencies:
-    "@babel/runtime" "^7.12.13"
-
 react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
-
-react-fast-compare@3.2.2:
-  version "3.2.2"
-  resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz"
-
-react-focus-lock@^2.9.4:
-  version "2.9.6"
-  resolved "https://registry.npmjs.org/react-focus-lock/-/react-focus-lock-2.9.6.tgz"
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    focus-lock "^1.0.0"
-    prop-types "^15.6.2"
-    react-clientside-effect "^1.2.6"
-    use-callback-ref "^1.3.0"
-    use-sidecar "^1.1.2"
 
 react-icons@^5.5.0:
   version "5.5.0"
@@ -3426,31 +3370,6 @@ react-icons@^5.5.0:
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
-
-react-remove-scroll-bar@^2.3.4:
-  version "2.3.4"
-  resolved "https://registry.npmjs.org/react-remove-scroll-bar/-/react-remove-scroll-bar-2.3.4.tgz"
-  dependencies:
-    react-style-singleton "^2.2.1"
-    tslib "^2.0.0"
-
-react-remove-scroll@^2.5.6:
-  version "2.5.7"
-  resolved "https://registry.npmjs.org/react-remove-scroll/-/react-remove-scroll-2.5.7.tgz"
-  dependencies:
-    react-remove-scroll-bar "^2.3.4"
-    react-style-singleton "^2.2.1"
-    tslib "^2.1.0"
-    use-callback-ref "^1.3.0"
-    use-sidecar "^1.1.2"
-
-react-style-singleton@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/react-style-singleton/-/react-style-singleton-2.2.1.tgz"
-  dependencies:
-    get-nonce "^1.0.0"
-    invariant "^2.2.4"
-    tslib "^2.0.0"
 
 react@^18.3.1:
   version "18.3.1"
@@ -3884,10 +3803,6 @@ thenify-all@^1.0.0:
   dependencies:
     any-promise "^1.0.0"
 
-tiny-invariant@^1.0.6:
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.1.tgz"
-
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-2.0.0.tgz"
@@ -3897,10 +3812,6 @@ to-regex-range@^5.0.1:
   resolved "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz"
   dependencies:
     is-number "^7.0.0"
-
-toggle-selection@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
 
 ts-api-utils@^1.3.0:
   version "1.4.0"
@@ -3919,11 +3830,7 @@ tsconfig-paths@^3.15.0:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
-
-tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.8.0:
+tslib@^2.4.0, tslib@^2.8.0:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
 
@@ -4032,28 +3939,19 @@ update-browserslist-db@^1.1.1:
     escalade "^3.2.0"
     picocolors "^1.1.0"
 
+uqr@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/uqr/-/uqr-0.1.2.tgz#5c6cd5dcff9581f9bb35b982cb89e2c483a41d7d"
+
 uri-js@^4.2.2:
   version "4.4.1"
   resolved "https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz"
   dependencies:
     punycode "^2.1.0"
 
-use-callback-ref@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/use-callback-ref/-/use-callback-ref-1.3.0.tgz"
-  dependencies:
-    tslib "^2.0.0"
-
 use-local-storage-state@^19.5.0:
   version "19.5.0"
   resolved "https://registry.yarnpkg.com/use-local-storage-state/-/use-local-storage-state-19.5.0.tgz#25bf46dd45b491020c03db516b46a4ff93b3a923"
-
-use-sidecar@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/use-sidecar/-/use-sidecar-1.1.2.tgz"
-  dependencies:
-    detect-node-es "^1.1.0"
-    tslib "^2.0.0"
 
 use-sync-external-store@^1.4.0:
   version "1.4.0"
