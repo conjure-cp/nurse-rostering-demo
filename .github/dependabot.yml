@@ -10,3 +10,13 @@ updates:
     #   all-npm-packages:
     #     patterns:
     #       - "*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: monthly
+    assignees:
+      - ozgurakgun
+    labels:
+      - "dependencies"
+      - "dependencies::ci"
