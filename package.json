@@ -20,7 +20,7 @@
     "@fullcalendar/interaction": "6.1.17",
     "@fullcalendar/react": "^6.1.11",
     "@fullcalendar/resource": "^6.1.15",
-    "@fullcalendar/resource-timeline": "^6.1.11",
+    "@fullcalendar/resource-timeline": "^6.1.15",
     "axios": "^1.8.2",
     "dayjs": "^1.11.11",
     "dotenv-cli": "^8.0.0",
