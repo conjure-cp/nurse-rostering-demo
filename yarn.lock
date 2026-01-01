@@ -1964,22 +1964,28 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
-dotenv-cli@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-8.0.0.tgz#cea1519f5a06c7372a1428fca4605fcf3d50e1cf"
+dotenv-cli@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-11.0.0.tgz#7115b54e62ef36c3b2d2eb228f8bf4de4c2276bf"
   dependencies:
     cross-spawn "^7.0.6"
-    dotenv "^16.3.0"
-    dotenv-expand "^10.0.0"
+    dotenv "^17.1.0"
+    dotenv-expand "^12.0.0"
     minimist "^1.2.6"
 
-dotenv-expand@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-10.0.0.tgz"
+dotenv-expand@^12.0.0:
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-12.0.3.tgz#6323ceca51ca0c1b1f0055e2aba39c79781739a6"
+  dependencies:
+    dotenv "^16.4.5"
 
-dotenv@^16.3.0:
-  version "16.3.1"
-  resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz"
+dotenv@^16.4.5:
+  version "16.6.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.6.1.tgz#773f0e69527a8315c7285d5ee73c4459d20a8020"
+
+dotenv@^17.1.0:
+  version "17.2.3"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.2.3.tgz#ad995d6997f639b11065f419a22fabf567cdb9a2"
 
 dunder-proto@^1.0.1:
   version "1.0.1"
