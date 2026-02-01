@@ -947,9 +947,9 @@
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.1.17.tgz#f0d14cb6f6c3cb7e2b20299dfb39a866232e2976"
 
-"@fullcalendar/premium-common@~6.1.15", "@fullcalendar/premium-common@~6.1.17":
-  version "6.1.17"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/premium-common/-/premium-common-6.1.17.tgz#83853544d6c927cfe9058f76a94203a3f13c0f2c"
+"@fullcalendar/premium-common@~6.1.15", "@fullcalendar/premium-common@~6.1.17", "@fullcalendar/premium-common@~6.1.20":
+  version "6.1.20"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/premium-common/-/premium-common-6.1.20.tgz#92007ce764a9abdade65b9e997a5a5cf9be70342"
 
 "@fullcalendar/react@^6.1.11":
   version "6.1.11"
@@ -963,11 +963,11 @@
     "@fullcalendar/scrollgrid" "~6.1.15"
     "@fullcalendar/timeline" "~6.1.15"
 
-"@fullcalendar/resource@^6.1.17":
-  version "6.1.17"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/resource/-/resource-6.1.17.tgz#523deb403414a71fa9bcb8e5d2f439c02ff96517"
+"@fullcalendar/resource@^6.1.20":
+  version "6.1.20"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/resource/-/resource-6.1.20.tgz#5cc60c3e28956c6ed8e62fc01482d2265d23ab70"
   dependencies:
-    "@fullcalendar/premium-common" "~6.1.17"
+    "@fullcalendar/premium-common" "~6.1.20"
 
 "@fullcalendar/scrollgrid@~6.1.15", "@fullcalendar/scrollgrid@~6.1.17":
   version "6.1.17"
