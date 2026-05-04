@@ -947,9 +947,9 @@
   version "6.1.15"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.1.15.tgz#91208b0955ba805ddad285a53ee6f53855146963"
 
-"@fullcalendar/interaction@6.1.17":
-  version "6.1.17"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.1.17.tgz#f0d14cb6f6c3cb7e2b20299dfb39a866232e2976"
+"@fullcalendar/interaction@6.1.20":
+  version "6.1.20"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.1.20.tgz#a73a53af5f93ac261f864b025ae80201609f1cd7"
 
 "@fullcalendar/premium-common@~6.1.15", "@fullcalendar/premium-common@~6.1.17", "@fullcalendar/premium-common@~6.1.20":
   version "6.1.20"
