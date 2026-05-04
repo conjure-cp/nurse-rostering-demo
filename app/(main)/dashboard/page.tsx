@@ -1,5 +1,5 @@
 "use client";
-import { Stat, StatGroup, StatLabel, StatNumber } from "@chakra-ui/stat";
+import { Stat, StatGroup, StatLabel, StatNumber } from "@chakra-ui/react";
 
 import useStaffList from "../../../hooks/useStaffList";
 import useSchedule from "../../../hooks/useSchedule";
