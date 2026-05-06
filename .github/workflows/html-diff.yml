@@ -1,0 +1,148 @@
+name: Generated HTML diff
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  html-diff:
+    name: Compare generated HTML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout base
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Build base export
+        run: |
+          npm ci
+          npm run build
+          EXPORT_HTML_DIR="$RUNNER_TEMP/base-html" node <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+
+          const source = "out";
+          const destination = process.env.EXPORT_HTML_DIR;
+
+          function normalize(html) {
+            return html
+              .replace(/<script[^>]+src="[^"]*\/_next\/static\/[^"]+"[^>]*><\/script>/g, '<script src="__NEXT_SCRIPT__"></script>')
+              .replace(/(?:<script src="__NEXT_SCRIPT__"><\/script>)+/g, '<script src="__NEXT_SCRIPTS__"></script>')
+              .replace(/"buildId":"[^"]+"/g, '"buildId":"__BUILD_ID__"')
+              .replace(/"assetPrefix":"[^"]+"/g, '"assetPrefix":"__ASSET_PREFIX__"');
+          }
+
+          function copyHtml(dir) {
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+              const fullPath = path.join(dir, entry.name);
+
+              if (entry.isDirectory()) {
+                copyHtml(fullPath);
+                continue;
+              }
+
+              if (!entry.isFile() || !entry.name.endsWith(".html")) {
+                continue;
+              }
+
+              const relativePath = path.relative(source, fullPath);
+              const outputPath = path.join(destination, relativePath);
+              fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+              fs.writeFileSync(outputPath, normalize(fs.readFileSync(fullPath, "utf8")));
+            }
+          }
+
+          copyHtml(source);
+          NODE
+
+      - name: Checkout PR head
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Build PR export
+        run: |
+          npm ci
+          npm run build
+          EXPORT_HTML_DIR="$RUNNER_TEMP/head-html" node <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+
+          const source = "out";
+          const destination = process.env.EXPORT_HTML_DIR;
+
+          function normalize(html) {
+            return html
+              .replace(/<script[^>]+src="[^"]*\/_next\/static\/[^"]+"[^>]*><\/script>/g, '<script src="__NEXT_SCRIPT__"></script>')
+              .replace(/(?:<script src="__NEXT_SCRIPT__"><\/script>)+/g, '<script src="__NEXT_SCRIPTS__"></script>')
+              .replace(/"buildId":"[^"]+"/g, '"buildId":"__BUILD_ID__"')
+              .replace(/"assetPrefix":"[^"]+"/g, '"assetPrefix":"__ASSET_PREFIX__"');
+          }
+
+          function copyHtml(dir) {
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+              const fullPath = path.join(dir, entry.name);
+
+              if (entry.isDirectory()) {
+                copyHtml(fullPath);
+                continue;
+              }
+
+              if (!entry.isFile() || !entry.name.endsWith(".html")) {
+                continue;
+              }
+
+              const relativePath = path.relative(source, fullPath);
+              const outputPath = path.join(destination, relativePath);
+              fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+              fs.writeFileSync(outputPath, normalize(fs.readFileSync(fullPath, "utf8")));
+            }
+          }
+
+          copyHtml(source);
+          NODE
+
+      - name: Compare exported HTML
+        id: diff
+        run: |
+          diff -ru "$RUNNER_TEMP/base-html" "$RUNNER_TEMP/head-html" > "$RUNNER_TEMP/generated-html.diff" || true
+
+          if [ -s "$RUNNER_TEMP/generated-html.diff" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "## Generated HTML changed after normalization"
+              echo
+              echo "This is informational only. JS chunk references and build IDs are normalized before diffing; stylesheet links are kept so CSS export changes remain visible."
+              echo "Review the uploaded \`generated-html-diff\` artifact if the HTML changes are unexpected."
+              echo
+              echo '```diff'
+              head -n 200 "$RUNNER_TEMP/generated-html.diff"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "## Generated HTML unchanged"
+              echo
+              echo "The exported HTML files match the base branch."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload generated HTML diff
+        if: steps.diff.outputs.changed == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: generated-html-diff
+          path: ${{ runner.temp }}/generated-html.diff
+          if-no-files-found: error
