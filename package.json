@@ -14,30 +14,36 @@
     "@chakra-ui/react": "^2.10.10",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@fullcalendar/core": "^6.1.21",
-    "@fullcalendar/interaction": "^6.1.21",
-    "@fullcalendar/react": "^6.1.21",
-    "@fullcalendar/resource": "^6.1.21",
-    "@fullcalendar/resource-timeline": "^6.1.21",
+    "@fullcalendar/core": "^6.1.22",
+    "@fullcalendar/interaction": "^6.1.22",
+    "@fullcalendar/react": "^6.1.22",
+    "@fullcalendar/resource": "^6.1.22",
+    "@fullcalendar/resource-timeline": "^6.1.22",
     "dayjs": "^1.11.23",
     "framer-motion": "^12.43.0",
-    "next": "^15.5.27",
+    "next": "^15.5.28",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.7.0",
-    "sass": "^1.105.1",
+    "sass": "^1.107.1",
     "use-local-storage-state": "^19.5.0",
-    "uuid": "^14.0.2"
+    "uuid": "^14.0.3"
   },
   "devDependencies": {
-    "@types/node": "^24.19.1",
+    "@types/node": "^24.19.2",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "autoprefixer": "^10.6.1",
+    "autoprefixer": "^10.6.2",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^15.5.27",
-    "postcss": "^8.5.28",
+    "eslint-config-next": "^15.5.28",
+    "postcss": "^8.5.32",
     "tailwindcss": "^3.4.19",
     "typescript": "5.9.3"
+  },
+  "overrides": {
+    "postcss": "$postcss"
+  },
+  "resolutions": {
+    "postcss": "^8.5.32"
   }
 }
