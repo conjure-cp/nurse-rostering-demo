@@ -33,13 +33,16 @@ jobs:
 
           const source = "out";
           const destination = process.env.EXPORT_HTML_DIR;
+          const buildId = fs.readFileSync(".next/BUILD_ID", "utf8").trim();
 
           function normalize(html) {
             return html
+              .replace('<!DOCTYPE html><!--' + buildId.slice(0, 24).replace(/-/g, '_') + '-->', '<!DOCTYPE html><!--__BUILD_ID__-->')
+              .replaceAll(buildId, '__BUILD_ID__')
               .replace(/<script[^>]+src="[^"]*\/_next\/static\/[^"]+"[^>]*><\/script>/g, '<script src="__NEXT_SCRIPT__"></script>')
               .replace(/(?:<script src="__NEXT_SCRIPT__"><\/script>)+/g, '<script src="__NEXT_SCRIPTS__"></script>')
-              .replace(/"buildId":"[^"]+"/g, '"buildId":"__BUILD_ID__"')
-              .replace(/"assetPrefix":"[^"]+"/g, '"assetPrefix":"__ASSET_PREFIX__"');
+              .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, (script) =>
+                script.replace(/(static\/chunks\/)[^"\\<>\s]+?\.js/g, '$1__JS_CHUNK__.js'));
           }
 
           function copyHtml(dir) {
@@ -81,13 +84,16 @@ jobs:
 
           const source = "out";
           const destination = process.env.EXPORT_HTML_DIR;
+          const buildId = fs.readFileSync(".next/BUILD_ID", "utf8").trim();
 
           function normalize(html) {
             return html
+              .replace('<!DOCTYPE html><!--' + buildId.slice(0, 24).replace(/-/g, '_') + '-->', '<!DOCTYPE html><!--__BUILD_ID__-->')
+              .replaceAll(buildId, '__BUILD_ID__')
               .replace(/<script[^>]+src="[^"]*\/_next\/static\/[^"]+"[^>]*><\/script>/g, '<script src="__NEXT_SCRIPT__"></script>')
               .replace(/(?:<script src="__NEXT_SCRIPT__"><\/script>)+/g, '<script src="__NEXT_SCRIPTS__"></script>')
-              .replace(/"buildId":"[^"]+"/g, '"buildId":"__BUILD_ID__"')
-              .replace(/"assetPrefix":"[^"]+"/g, '"assetPrefix":"__ASSET_PREFIX__"');
+              .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, (script) =>
+                script.replace(/(static\/chunks\/)[^"\\<>\s]+?\.js/g, '$1__JS_CHUNK__.js'));
           }
 
           function copyHtml(dir) {
@@ -116,14 +122,19 @@ jobs:
       - name: Compare exported HTML
         id: diff
         run: |
-          diff -ru "$RUNNER_TEMP/base-html" "$RUNNER_TEMP/head-html" > "$RUNNER_TEMP/generated-html.diff" || true
+          status=0
+          diff -ru "$RUNNER_TEMP/base-html" "$RUNNER_TEMP/head-html" > "$RUNNER_TEMP/generated-html.diff" || status=$?
+          if [ "$status" -gt 1 ]; then
+            echo "::error::Could not compare the generated HTML (diff exited with $status)."
+            exit "$status"
+          fi
 
-          if [ -s "$RUNNER_TEMP/generated-html.diff" ]; then
+          if [ "$status" -eq 1 ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             {
               echo "## Generated HTML changed after normalization"
               echo
-              echo "This is informational only. JS chunk references and build IDs are normalized before diffing; stylesheet links are kept so CSS export changes remain visible."
+              echo "Generated HTML must match the base branch. Generated JS references and build IDs are normalized; content, styles, and deployment paths are preserved."
               echo "Review the uploaded \`generated-html-diff\` artifact if the HTML changes are unexpected."
               echo
               echo '```diff'
@@ -146,3 +157,9 @@ jobs:
           name: generated-html-diff
           path: ${{ runner.temp }}/generated-html.diff
           if-no-files-found: error
+
+      - name: Fail on generated HTML changes
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          echo "::error::Generated HTML differs from the base branch. Review the generated-html-diff artifact and job summary."
+          exit 1
