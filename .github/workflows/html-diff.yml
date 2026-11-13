@@ -1,4 +1,4 @@
-name: Generated HTML diff
+name: Generated HTML, JS and CSS diff
 
 on:
   pull_request:
@@ -8,8 +8,10 @@ permissions:
 
 jobs:
   html-diff:
-    name: Compare generated HTML
+    name: Compare generated HTML, JS and CSS
     runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
 
     steps:
       - name: Checkout base
@@ -23,50 +25,22 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Build base export
+      - name: Build base assets
         run: |
           npm ci
-          npm run build
-          EXPORT_HTML_DIR="$RUNNER_TEMP/base-html" node <<'NODE'
-          const fs = require("fs");
-          const path = require("path");
-
-          const source = "out";
-          const destination = process.env.EXPORT_HTML_DIR;
-          const buildId = fs.readFileSync(".next/BUILD_ID", "utf8").trim();
-
-          function normalize(html) {
-            return html
-              .replace('<!DOCTYPE html><!--' + buildId.slice(0, 24).replace(/-/g, '_') + '-->', '<!DOCTYPE html><!--__BUILD_ID__-->')
-              .replaceAll(buildId, '__BUILD_ID__')
-              .replace(/<script[^>]+src="[^"]*\/_next\/static\/[^"]+"[^>]*><\/script>/g, '<script src="__NEXT_SCRIPT__"></script>')
-              .replace(/(?:<script src="__NEXT_SCRIPT__"><\/script>)+/g, '<script src="__NEXT_SCRIPTS__"></script>')
-              .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, (script) =>
-                script.replace(/(static\/chunks\/)[^"\\<>\s]+?\.js/g, '$1__JS_CHUNK__.js'));
-          }
-
-          function copyHtml(dir) {
-            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-              const fullPath = path.join(dir, entry.name);
-
-              if (entry.isDirectory()) {
-                copyHtml(fullPath);
-                continue;
-              }
-
-              if (!entry.isFile() || !entry.name.endsWith(".html")) {
-                continue;
-              }
-
-              const relativePath = path.relative(source, fullPath);
-              const outputPath = path.join(destination, relativePath);
-              fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-              fs.writeFileSync(outputPath, normalize(fs.readFileSync(fullPath, "utf8")));
-            }
-          }
-
-          copyHtml(source);
+          # Give both revisions the same build input instead of stripping IDs from output.
+          node <<'NODE'
+          const fs = require("node:fs");
+          fs.appendFileSync("next.config.js", '\nmodule.exports.generateBuildId = async () => "build-output-comparison";\n');
           NODE
+          npm run build
+          test -s out/index.html
+          mkdir -p "$RUNNER_TEMP/base-assets"
+          find out -type f \( -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.cjs' -o -name '*.css' \) -print0 |
+            while IFS= read -r -d '' file; do
+              mkdir -p "$RUNNER_TEMP/base-assets/$(dirname "$file")"
+              cp "$file" "$RUNNER_TEMP/base-assets/$file"
+            done
 
       - name: Checkout PR head
         uses: actions/checkout@v7
@@ -74,92 +48,74 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Build PR export
+      - name: Build PR assets
         run: |
           npm ci
-          npm run build
-          EXPORT_HTML_DIR="$RUNNER_TEMP/head-html" node <<'NODE'
-          const fs = require("fs");
-          const path = require("path");
-
-          const source = "out";
-          const destination = process.env.EXPORT_HTML_DIR;
-          const buildId = fs.readFileSync(".next/BUILD_ID", "utf8").trim();
-
-          function normalize(html) {
-            return html
-              .replace('<!DOCTYPE html><!--' + buildId.slice(0, 24).replace(/-/g, '_') + '-->', '<!DOCTYPE html><!--__BUILD_ID__-->')
-              .replaceAll(buildId, '__BUILD_ID__')
-              .replace(/<script[^>]+src="[^"]*\/_next\/static\/[^"]+"[^>]*><\/script>/g, '<script src="__NEXT_SCRIPT__"></script>')
-              .replace(/(?:<script src="__NEXT_SCRIPT__"><\/script>)+/g, '<script src="__NEXT_SCRIPTS__"></script>')
-              .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, (script) =>
-                script.replace(/(static\/chunks\/)[^"\\<>\s]+?\.js/g, '$1__JS_CHUNK__.js'));
-          }
-
-          function copyHtml(dir) {
-            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-              const fullPath = path.join(dir, entry.name);
-
-              if (entry.isDirectory()) {
-                copyHtml(fullPath);
-                continue;
-              }
-
-              if (!entry.isFile() || !entry.name.endsWith(".html")) {
-                continue;
-              }
-
-              const relativePath = path.relative(source, fullPath);
-              const outputPath = path.join(destination, relativePath);
-              fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-              fs.writeFileSync(outputPath, normalize(fs.readFileSync(fullPath, "utf8")));
-            }
-          }
-
-          copyHtml(source);
+          # Give both revisions the same build input instead of stripping IDs from output.
+          node <<'NODE'
+          const fs = require("node:fs");
+          fs.appendFileSync("next.config.js", '\nmodule.exports.generateBuildId = async () => "build-output-comparison";\n');
           NODE
+          npm run build
+          test -s out/index.html
+          mkdir -p "$RUNNER_TEMP/head-assets"
+          find out -type f \( -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.cjs' -o -name '*.css' \) -print0 |
+            while IFS= read -r -d '' file; do
+              mkdir -p "$RUNNER_TEMP/head-assets/$(dirname "$file")"
+              cp "$file" "$RUNNER_TEMP/head-assets/$file"
+            done
 
-      - name: Compare exported HTML
+      - name: Compare generated assets
         id: diff
+        working-directory: ${{ runner.temp }}
         run: |
           status=0
-          diff -ru "$RUNNER_TEMP/base-html" "$RUNNER_TEMP/head-html" > "$RUNNER_TEMP/generated-html.diff" || status=$?
+          diff -ru base-assets/out head-assets/out > generated-assets.diff || status=$?
           if [ "$status" -gt 1 ]; then
-            echo "::error::Could not compare the generated HTML (diff exited with $status)."
+            echo "::error::Could not compare the generated assets (diff exited with $status)."
             exit "$status"
           fi
 
           if [ "$status" -eq 1 ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
+            status=0
+            diff -rq base-assets/out head-assets/out > generated-assets-summary.txt || status=$?
+            if [ "$status" -gt 1 ]; then
+              echo "::error::Could not summarize the generated asset changes (diff exited with $status)."
+              exit "$status"
+            fi
             {
-              echo "## Generated HTML changed after normalization"
+              echo "## Generated HTML, JS or CSS changed"
               echo
-              echo "Generated HTML must match the base branch. Generated JS references and build IDs are normalized; content, styles, and deployment paths are preserved."
-              echo "Review the uploaded \`generated-html-diff\` artifact if the HTML changes are unexpected."
+              echo "Generated files must match the base branch byte-for-byte, including filenames and asset hashes. No content is normalized."
+              echo "Review the uploaded \`generated-assets-diff\` artifact for the full diff."
               echo
-              echo '```diff'
-              head -n 200 "$RUNNER_TEMP/generated-html.diff"
+              echo '```text'
+              head -c 20000 generated-assets-summary.txt
+              echo
               echo '```'
             } >> "$GITHUB_STEP_SUMMARY"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
             {
-              echo "## Generated HTML unchanged"
+              echo "## Generated HTML, JS and CSS unchanged"
               echo
-              echo "The exported HTML files match the base branch."
+              echo "All generated HTML, JS and CSS files match the base branch byte-for-byte, including filenames and asset hashes."
             } >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Upload generated HTML diff
+      - name: Upload generated asset diff
         if: steps.diff.outputs.changed == 'true'
         uses: actions/upload-artifact@v7
         with:
-          name: generated-html-diff
-          path: ${{ runner.temp }}/generated-html.diff
+          name: generated-assets-diff
+          path: |
+            ${{ runner.temp }}/generated-assets.diff
+            ${{ runner.temp }}/generated-assets-summary.txt
           if-no-files-found: error
 
-      - name: Fail on generated HTML changes
+      - name: Fail on generated asset changes
         if: steps.diff.outputs.changed == 'true'
         run: |
-          echo "::error::Generated HTML differs from the base branch. Review the generated-html-diff artifact and job summary."
+          echo "::error::Generated HTML, JS or CSS differs from the base branch. Review the generated-assets-diff artifact and job summary."
           exit 1
